@@ -43,7 +43,7 @@ class PageController extends Controller
         $faq_show_default = Faq::first();
         // $infografis = Http::get('http://bolmongkab.go.id/api/infografis')['data']['data'];
 
-        return view('rsud.index', compact(
+        return view('frontend.index', compact(
             'contact',
             'profil',
             'sliders',
@@ -64,7 +64,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.sejarah', compact('item', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.sejarah', compact('item', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function visimisi()
@@ -74,7 +74,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.visimisi', compact('item', 'sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.visimisi', compact('item', 'sosmeds', 'links', 'profil', 'contact'));
     }
 
     public function struktur_organisasi()
@@ -84,7 +84,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.struktur', compact('item', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.struktur', compact('item', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function maklumat_pelayanan()
@@ -94,7 +94,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.maklumat', compact('item', 'sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.maklumat', compact('item', 'sosmeds', 'links', 'profil', 'contact'));
     }
 
     public function motto()
@@ -104,7 +104,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.motto', compact('item', 'sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.motto', compact('item', 'sosmeds', 'links', 'profil', 'contact'));
     }
 
     // controller for route layanan
@@ -117,7 +117,7 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('rsud.detail.layanan', compact('sosmeds', 'links', 'profil', 'contact', 'layanan'));
+        return view('frontend.detail.layanan', compact('sosmeds', 'links', 'profil', 'contact', 'layanan'));
     }
 
     public function rawat_jalan()
@@ -126,7 +126,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.rawat_jalan', compact('sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.rawat_jalan', compact('sosmeds', 'links', 'profil', 'contact'));
     }
 
     public function rawat_inap()
@@ -135,7 +135,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.rawat_inap', compact('sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.rawat_inap', compact('sosmeds', 'links', 'profil', 'contact'));
     }
 
     public function gawat_darurat()
@@ -144,7 +144,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.gawat_darurat', compact('sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.gawat_darurat', compact('sosmeds', 'links', 'profil', 'contact'));
     }
 
     // controller for route media
@@ -155,7 +155,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.gallery', compact('sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.gallery', compact('sosmeds', 'links', 'profil', 'contact'));
     }
 
     public function dokumen()
@@ -164,7 +164,7 @@ class PageController extends Controller
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('rsud.detail.dokumen', compact('sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.dokumen', compact('sosmeds', 'links', 'profil', 'contact'));
     }
 
     public function berita()
@@ -178,7 +178,7 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('rsud.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function berita_detail($slug)
@@ -192,7 +192,7 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('rsud.detail.berita_detail', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.berita_detail', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function kategori(Category $kategori)
@@ -206,7 +206,7 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('rsud.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function tag(Tag $tag)
@@ -220,7 +220,7 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('rsud.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function kontak()
@@ -231,7 +231,7 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('rsud.detail.kontak', compact('kontak', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.kontak', compact('kontak', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     // public function download()

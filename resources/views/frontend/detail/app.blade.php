@@ -2,13 +2,13 @@
 
 <html lang="en">
 <head>
-    @include('rsud.layouts.head')
+    @include('frontend.layouts.head')
 </head>
 
 <body id="top">
 
 <header>
-	@include('rsud.layouts.header')
+	@include('frontend.layouts.header')
 </header>
 
 <section class="page-title bg-1">
@@ -34,10 +34,10 @@
 
 <!-- footer Start -->
 <footer class="footer section gray-bg">
-	@include('rsud.layouts.footer')
+	@include('frontend.layouts.footer')
 </footer>
 
-    @include('rsud.layouts.foot')
+    @include('frontend.layouts.foot')
 
   </body>
   </html>
