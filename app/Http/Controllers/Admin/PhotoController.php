@@ -42,19 +42,17 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validated = $this->validate($request, [
             'caption' => 'required',
             'image'   => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
         //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/photo-images', $image->hashName());
+        if ($request->file('image')) {
+            $validated['image'] = $request->file('image')->store('assets/photos', 'public');
+        }
 
-        $photo = Photo::create([
-            'image'   => $image->hashName(),
-            'caption' => $request->input('caption'),
-        ]);
+        $photo = Photo::create($validated);
 
         if ($photo) {
             //redirect dengan pesan sukses
@@ -74,8 +72,7 @@ class PhotoController extends Controller
     public function destroy($id)
     {
         $photo = Photo::findOrFail($id);
-        // unlink('public/photo-images/' . $photo->image);
-        Storage::disk('local')->delete('public/photo-images/' . $photo->image);
+        Storage::delete($photo->image);
         $photo->delete();
 
         if ($photo) {

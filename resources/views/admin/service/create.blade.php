@@ -83,8 +83,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>Produk layanan:</strong>
-                                <input type="text" value="{{ old('produk_layanan') }}" name="produk_layanan" class="form-control @error('produk_layanan') is-invalid @enderror">
-
+                                    <textarea class="form-control content @error('produk_layanan') is-invalid @enderror" name="produk_layanan" rows="10">{!! old('produk_layanan') !!}</textarea>
                                 @error('produk_layanan')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}

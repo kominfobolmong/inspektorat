@@ -1,20 +1,32 @@
-<div class="container">
-    <div class="cta position-relative">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="counter-stat">
-                    <i class="icofont-badge"></i>
-                    <span class="h3 counter" data-count="20">0</span>+
-                    <p>Dokter</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="counter-stat">
-                    <i class="icofont-badge"></i>
-                    <span class="h3 counter" data-count="40">0</span>+
-                    <p>Tenaga Medis</p>
-                </div>
-            </div>
+<section id="stats-counter" class="stats-counter">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row gy-4 align-items-center">
+
+        <div class="col-lg-6">
+          <img src="{{ asset('front/img/stats-img.svg') }}" alt="" class="img-fluid">
         </div>
+
+        <div class="col-lg-6">
+
+          <div class="stats-item d-flex align-items-center">
+            <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Jenis Pelayanan</strong></p>
+          </div><!-- End Stats Item -->
+
+          <div class="stats-item d-flex align-items-center">
+            <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Kegiatan</strong></p>
+          </div><!-- End Stats Item -->
+
+          <div class="stats-item d-flex align-items-center">
+            <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Berita</strong></p>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
     </div>
-</div>
+  </section>

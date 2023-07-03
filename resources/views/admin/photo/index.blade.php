@@ -73,7 +73,7 @@
                             @forelse ($photos as $no => $photo)
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($photos->currentPage()-1) * $photos->perPage() }}</th>
-                                    <td><img src="{{ Storage::url('public/photo-images/'. $photo->image) }}" style="width: 200px"></td>
+                                    <td><img src="{{ Storage::url($photo->image) }}" style="width: 200px"></td>
                                     <td>{{ $photo->caption }}</td>
                                     <td class="text-center">
                                         @can('photos.delete')

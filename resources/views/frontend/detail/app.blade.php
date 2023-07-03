@@ -5,37 +5,47 @@
     @include('frontend.layouts.head')
 </head>
 
-<body id="top">
+<body>
 
-<header>
-	@include('frontend.layouts.header')
-</header>
+<!-- ======= Header ======= -->
+@include('frontend.layouts.header')
+<!-- End Header -->
 
-<section class="page-title bg-1">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="block text-center">
-          {{-- <span class="text-white">Department Details</span> --}}
-          <h1 class="text-capitalize mb-5 text-lg">{{ $breadcrumb }}</h1>
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2>{{ $breadcrumb }}</h2>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="#">{{ $menu }}</a></li>
+            <li>{{ $breadcrumb }}</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Breadcrumbs -->
+
+    <section class="sample-page">
+      <div class="container" data-aos="fade-up">
+
+        @yield('content')
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
 
 
-<section class="section department-single">
-	<div class="container">
-		@yield('content')
-	</div>
-</section>
-
-<!-- footer Start -->
-<footer class="footer section gray-bg">
 	@include('frontend.layouts.footer')
-</footer>
 
     @include('frontend.layouts.foot')
 

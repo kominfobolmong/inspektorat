@@ -21,7 +21,7 @@ class CreateServicesTable extends Migration
             $table->text('prosedur')->nullable();
             $table->text('waktu')->nullable();
             $table->string('biaya')->nullable();
-            $table->string('produk_layanan')->nullable();
+            $table->text('produk_layanan')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

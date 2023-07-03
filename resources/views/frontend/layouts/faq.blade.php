@@ -1,39 +1,40 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-            <div class="section-title">
-                <h2>FAQ</h2>
-                <div class="divider mx-auto my-4"></div>
-            </div>
-        </div>
-    </div>
+<section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
 
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="accordion-section">
-            <div class="accordion-holder">
-                <div class="accordion accordion-flush" id="accordionGroup" role="tablist" aria-multiselectable="true">
-                    @forelse ($faq as $item)
-                    <div class="card">
-                    <div class="card-header" role="tab" id="headingOne">
-                        <h4 class="card-title">
-                        <a role="button" data-toggle="collapse" href="#faq{{ $item->id }}" aria-expanded="true" aria-controls="collapseOne">
-                            {!! strip_tags($item->question) !!}
-                        </a>
-                        </h4>
-                    </div>
-                    <div id="faq{{ $item->id }}" class="collapse {{ ($item->id == $faq_show_default->id) ? 'show' : '' }}" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionGroup">
-                        <div class="card-body">
-                            {!! strip_tags($item->answer) !!}
-                        </div>
-                    </div>
-                    </div>
-                    @empty
-                    <span></span>
-                    @endforelse
+      <div class="row gy-4">
+
+        <div class="col-lg-4">
+          <div class="content px-xl-5">
+            <h3>Frequently Asked <strong>Questions</strong></h3>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+
+          <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+
+            @foreach ($faq as $item)
+
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $item->id }}">
+                    <span class="num">{{ $loop->iteration }}.</span>
+                    {!! strip_tags($item->question) !!}
+                  </button>
+                </h3>
+                <div id="faq-content-{{ $item->id }}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    {!! strip_tags($item->answer) !!}
+                  </div>
                 </div>
-            </div>
+              </div>
+
+            @endforeach
+            <!-- # Faq item-->
+          </div>
+
         </div>
       </div>
+
     </div>
-  </div>
+  </section>

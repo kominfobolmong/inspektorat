@@ -20,6 +20,13 @@ class News extends Model implements Viewable
      */
     protected $guarded = [];
 
+        /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['category', 'user', 'tags'];
+
     /**
      * category
      *
@@ -62,8 +69,8 @@ class News extends Model implements Viewable
      * @param  mixed $date
      * @return void
      */
-    public function getCreatedAtAttribute($date)
-    {
-        return Carbon::parse($date)->format('d M Y');
-    }
+    // public function getCreatedAtAttribute($date)
+    // {
+    //     return Carbon::parse($date)->format('d M Y');
+    // }
 }

@@ -1,77 +1,78 @@
-@extends('rsud.detail.app', ['breadcrumb' => 'Daftar Fasilitas Layanan'])
+@extends('frontend.detail.app', ['menu' => 'Beranda', 'breadcrumb' => 'Standar Pelayanan'])
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="col">
-        <div class="department-content">
 
-            <div class="accordion-section">
-                <div class="accordion-holder">
-                    <div class="accordion accordion-flush" id="accordionGroup" role="tablist" aria-multiselectable="true">
-                        @forelse ($layanan as $item)
-                        <div class="card">
-                        <div class="card-header" role="tab" id="headingOne">
-                            <h4 class="card-title">
-                            <a role="button" data-toggle="collapse" href="#{{ $item->slug }}" aria-expanded="true" aria-controls="collapseOne">
-                                <i class="icofont-simple-right"></i> {{ Str::title($item->name) }}
-                            </a>
-                            </h4>
-                        </div>
-
-                        <div id="{{ $item->slug }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordionGroup">
-                            <div class="card-body">
-
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                              <th scope="col" style="width: 5%;">No</th>
-                                              <th scope="col" style="width: 25%;">Komponen</th>
-                                              <th scope="col">Uraian</th>
-                                            </tr>
-                                          </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Persyaratan pelayanan</td>
-                                                <td>{!! strip_tags($item->persyaratan) !!}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Prosedur</td>
-                                                <td>{!! strip_tags($item->prosedur) !!}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Waktu pelayanan</td>
-                                                <td>{!! strip_tags($item->waktu) !!}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Biaya/tarif</td>
-                                                <td>{!! $item->biaya !!}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">5</th>
-                                                <td>Produk layanan</td>
-                                                <td>{!! $item->produk_layanan !!}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
-                        </div>
-                        </div>
-                        @empty
-                        <span>empty</span>
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<div class="section-header">
+    <h2>SK Standar Pelayanan Publik Dinkes</h2>
 </div>
+
+<div class="row gy-4">
+
+    <div class="offset-lg-2 col-lg-8 col-sm-12">
+
+      <div class="accordion accordion-flush" id="servicelist" data-aos="fade-up" data-aos-delay="100">
+
+        @foreach ($layanans as $item)
+
+        <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service-content-{{ $item->id }}">
+                <span class="num">{{ $loop->iteration }}.</span>
+                {{ Str::of($item->name)->lower() }}
+              </button>
+            </h3>
+            <div id="service-content-{{ $item->id }}" class="accordion-collapse collapse" data-bs-parent="#servicelist">
+              <div class="accordion-body">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                              <th scope="col" style="width: 5%;">No</th>
+                              <th scope="col" style="width: 25%;">Komponen</th>
+                              <th scope="col">Uraian</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Persyaratan pelayanan</td>
+                                <td>{!! $item->persyaratan !!}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Prosedur</td>
+                                <td>{!! $item->prosedur !!}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Waktu pelayanan</td>
+                                <td>{!! $item->waktu !!}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Biaya/tarif</td>
+                                <td>{!! $item->biaya !!}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Produk layanan</td>
+                                <td>{!! $item->produk_layanan !!}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        @endforeach
+
+      </div>
+
+    </div>
+  </div>
+
 @endsection
 

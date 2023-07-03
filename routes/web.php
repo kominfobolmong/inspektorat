@@ -27,35 +27,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index']);
 
 Route::prefix('profil')->group(function () {
-    Route::get('/sejarah', [PageController::class, 'sejarah'])->name('sejarah');
-    Route::get('/visi-misi', [PageController::class, 'visimisi'])->name('visimisi');
+    Route::get('/profil-pimpinan', [PageController::class, 'pimpinan'])->name('pimpinan');
+    Route::get('/visimisi', [PageController::class, 'visimisi'])->name('visimisi');
     Route::get('/struktur-organisasi', [PageController::class, 'struktur_organisasi'])->name('struktur');
-    Route::get('/maklumat-pelayanan', [PageController::class, 'maklumat_pelayanan'])->name('maklumat');
-    Route::get('/motto', [PageController::class, 'motto'])->name('motto');
 });
 
-Route::prefix('layanan')->group(function () {
-    Route::get('/', [PageController::class, 'layanan'])->name('layanan');
-    Route::get('/rawat-jalan', [PageController::class, 'rawat_jalan'])->name('rawat-jalan');
-    Route::get('/rawat-inap', [PageController::class, 'rawat_inap'])->name('rawat-inap');
-    Route::get('/gawat-darurat', [PageController::class, 'gawat_darurat'])->name('gawat-darurat');
+Route::get('/standar-pelayanan', [PageController::class, 'layanan'])->name('layanan');
+
+Route::prefix('informasi')->group(function () {
+    Route::get('/berita', [PageController::class, 'berita'])->name('berita');
+    Route::get('/berita/{news:slug}', [PageController::class, 'berita_detail'])->name('berita-detail');
+    Route::get('/berita/categories/{slug}', [PageController::class, 'kategori'])->name('cari-kategori');
+    Route::get('/berita/tag/{tag:slug}', [PageController::class, 'tag'])->name('cari-tag');
+    Route::get('/kegiatan', [PageController::class, 'kegiatan'])->name('kegiatan');
 });
 
-Route::prefix('dokter')->group(function () {
-    Route::get('/daftar-dokter', [PageController::class, 'daftar_dokter'])->name('dokter');
-});
-
-Route::prefix('media')->group(function () {
-    Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
-    Route::get('/dokumen', [PageController::class, 'dokumen'])->name('dokumen');
-});
-
-Route::get('/berita', [PageController::class, 'berita'])->name('berita');
-Route::get('/berita/{news:slug}', [PageController::class, 'berita_detail'])->name('berita-detail');
-Route::get('/berita/categories/{slug}', [PageController::class, 'kategori'])->name('cari-kategori');
-Route::get('/berita/tag/{tag:slug}', [PageController::class, 'tag'])->name('cari-tag');
-
-Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
+// Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 
 
 // Route::get('/berita-cari', [App\Http\Controllers\Pagecontroller::class, 'hascarberita']);

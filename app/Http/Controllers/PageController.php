@@ -34,37 +34,34 @@ class PageController extends Controller
     public function index()
     {
         $contact = Contact::first();
-        $profil = Profile::select('nama_opd', 'short_name', 'logo', 'favicon', 'kata_sambutan', 'foto_pimpinan')->first();
+        $profil = Profile::select('favicon', 'maklumat', 'motto')->first();
         $sliders = Slider::take(2)->latest()->get();
-        $links = Link::latest()->get();
-        $sosmeds = Sosmed::get();
-        $news = News::take(6)->latest()->get();
+        $photos = Photo::take(6)->latest()->get();
+        $news = News::without('tags')->take(6)->latest()->get();
         $faq = Faq::get();
-        $faq_show_default = Faq::first();
-        // $infografis = Http::get('http://bolmongkab.go.id/api/infografis')['data']['data'];
+        $links = Link::latest()->get();
 
         return view('frontend.index', compact(
             'contact',
             'profil',
             'sliders',
             'links',
-            'sosmeds',
+            'photos',
             'news',
             'faq',
-            'faq_show_default'
         ));
     }
 
     // controller for route profil
 
-    public function sejarah()
+    public function pimpinan()
     {
-        $item = Profile::select('sejarah')->first();
+        $item = Profile::select('foto_pimpinan', 'kata_sambutan')->first();
         $contact = Contact::first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('frontend.detail.sejarah', compact('item', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.pimpinan', compact('item', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function visimisi()
@@ -111,51 +108,26 @@ class PageController extends Controller
 
     public function layanan()
     {
-        $layanan = Service::get();
+        $layanans = Service::get();
         $contact = Contact::first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('frontend.detail.layanan', compact('sosmeds', 'links', 'profil', 'contact', 'layanan'));
-    }
-
-    public function rawat_jalan()
-    {
-        $contact = Contact::first();
-        $profil = Profile::select('logo', 'favicon')->first();
-        $sosmeds = Sosmed::get();
-        $links = Link::latest()->get();
-        return view('frontend.detail.rawat_jalan', compact('sosmeds', 'links', 'profil', 'contact'));
-    }
-
-    public function rawat_inap()
-    {
-        $contact = Contact::first();
-        $profil = Profile::select('logo', 'favicon')->first();
-        $sosmeds = Sosmed::get();
-        $links = Link::latest()->get();
-        return view('frontend.detail.rawat_inap', compact('sosmeds', 'links', 'profil', 'contact'));
-    }
-
-    public function gawat_darurat()
-    {
-        $contact = Contact::first();
-        $profil = Profile::select('logo', 'favicon')->first();
-        $sosmeds = Sosmed::get();
-        $links = Link::latest()->get();
-        return view('frontend.detail.gawat_darurat', compact('sosmeds', 'links', 'profil', 'contact'));
+        return view('frontend.detail.layanan', compact('sosmeds', 'links', 'profil', 'contact', 'layanans'));
     }
 
     // controller for route media
 
-    public function gallery()
+    public function kegiatan()
     {
+        $kegiatan = Photo::latest()->paginate(9);
         $contact = Contact::first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
-        return view('frontend.detail.gallery', compact('sosmeds', 'links', 'profil', 'contact'));
+
+        return view('frontend.detail.galery_kegiatan', compact('kegiatan', 'sosmeds', 'links', 'profil', 'contact'));
     }
 
     public function dokumen()
@@ -169,24 +141,21 @@ class PageController extends Controller
 
     public function berita()
     {
-        $category = Category::latest()->get();
-        $tags = Tag::latest()->get();
-        $news = News::with('user')->latest()->paginate(5);
-        $news_new = News::take(3)->latest()->get();
+        $news = News::without('tags')->latest()->paginate(9);
         $contact = Contact::first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('frontend.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('frontend.detail.berita', compact('news', 'contact', 'profil', 'sosmeds', 'links'));
     }
 
     public function berita_detail($slug)
     {
-        $category = Category::latest()->get();
+        $category = Category::withCount('news')->latest()->get();
         $tags = Tag::latest()->get();
         $news = News::where('slug', $slug)->firstOrFail();
-        $news_new = News::take(3)->latest()->get();
+        $news_new = News::take(5)->latest()->get();
         $contact = Contact::first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();

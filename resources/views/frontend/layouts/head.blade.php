@@ -1,26 +1,41 @@
-<!-- Basic Page Needs
-  ================================================== -->
-  <meta charset="utf-8">
-  <title>RSUD Datoe Binangkang Kabupaten Bolaang Mongondow</title>
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!-- Mobile Specific Metas
-  ================================================== -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Website Resmi Rumah Sakit Umum Daerah Datoe Binangkang Kabupaten Bolaang Mongondow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="author" content="diskominfo bolmong">
-  <meta name="generator" content="RSUD Datoe Binangkang Kab. Bolaang Mongondow">
+  <title>Beranda | Dinas Kesehatan Kabupaten Bolaang Mongondow</title>
+  <meta content="Website Resmi Dinas Kesehatan Kabupaten Bolaang Mongondow" name="description">
+  <meta content="Dinas Kesehatan, Dinkes, Bolaang Mongondow, Bolmong" name="keywords">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="{{ Storage::url($profil->favicon ?? null) }}" />
+  <!-- Favicons -->
+  <link href="{{ Storage::url($profil->favicon ?? null) }}" rel="icon">
+  <link href="{{ Storage::url($profil->favicon ?? null) }}" rel="apple-touch-icon">
 
-  <!--
-  Essential stylesheets
-  =====================================-->
-  <link rel="stylesheet" href="{{ asset('front/plugins/bootstrap/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('front/plugins/icofont/icofont.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('front/plugins/slick-carousel/slick/slick.css') }}">
-  <link rel="stylesheet" href="{{ asset('front/plugins/slick-carousel/slick/slick-theme.css') }}">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('front/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('front/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('front/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('front/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('front/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('front/css/main.css') }}" rel="stylesheet">
+
+  <style>
+        .list-inline {
+            display:block;
+        }
+        .list-inline li {
+            display:inline-block;
+        }
+        .list-inline li:after {
+            content:'|';
+            margin:0 10px;
+        }
+        .list-inline-item a {
+            color: #fff;
+        }
+  </style>
