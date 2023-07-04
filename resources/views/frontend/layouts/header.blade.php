@@ -31,14 +31,24 @@
               <li><a href="{{ route('struktur') }}">Struktur Organisasi</a></li>
             </ul>
           </li>
-          <li><a href="{{ route('layanan') }}">Standar Pelayanan</a></li>
+          <li><a href="{{ route('layanan') }}">Layanan</a></li>
           <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="{{ route('berita') }}">Berita</a></li>
-              <li><a href="{{ route('kegiatan') }}">Galeri Kegiatan</a></li>
+              <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
+              <li><a href="{{ route('informasi-berkala') }}">Informasi Berkala</a></li>
+              <li><a href="{{ route('informasi-serta-merta') }}">informasi Serta Merta</a></li>
+              <li><a href="{{ route('informasi-setiap-saat') }}">Informasi Setiap Saat</a></li>
+              <li><a href="{{ route('informasi-dikecualikan') }}">Informasi Dikecualikan</a></li>
             </ul>
           </li>
           <li><a href="#contact">Hubungi Kami</a></li>
+          <li class="dropdown"><a href="#"><span>Lainnya</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="https://surveiikm.bolmongkab.go.id" target="_blank">Survey IKM</a></li>
+              <li><a href="https://www.lapor.go.id/instansi/dinas-kesehatan-kabupaten-bolaang-mongondow" target="_blank">SPAN LAPOR</a></li>
+            </ul>
+          </li>
         </ul>
       </nav><!-- .navbar -->
 

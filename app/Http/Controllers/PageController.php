@@ -40,6 +40,7 @@ class PageController extends Controller
         $news = News::without('tags')->take(6)->latest()->get();
         $faq = Faq::get();
         $links = Link::latest()->get();
+        $services = Service::select('id')->get();
 
         return view('frontend.index', compact(
             'contact',
@@ -49,6 +50,7 @@ class PageController extends Controller
             'photos',
             'news',
             'faq',
+            'services',
         ));
     }
 
@@ -152,7 +154,7 @@ class PageController extends Controller
 
     public function berita_detail($slug)
     {
-        $category = Category::withCount('news')->latest()->get();
+        $category = Category::withCount('news')->get();
         $tags = Tag::latest()->get();
         $news = News::where('slug', $slug)->firstOrFail();
         $news_new = News::take(5)->latest()->get();
@@ -215,5 +217,65 @@ class PageController extends Controller
     //     $pathToFile = storage_path() . "/app/public/" . $entry->file;
     //     return response()->download($pathToFile);
     // }
+
+    public function informasi_berkala()
+    {
+        $contact = Contact::first();
+        $profil = Profile::select('logo', 'favicon')->first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('frontend.detail.informasi_berkala', compact(
+            'contact',
+            'profil',
+            'sosmeds',
+            'links',
+        ));
+    }
+
+    public function informasi_serta_merta()
+    {
+        $contact = Contact::first();
+        $profil = Profile::select('logo', 'favicon')->first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('frontend.detail.informasi_serta_merta', compact(
+            'contact',
+            'profil',
+            'sosmeds',
+            'links',
+        ));
+    }
+
+    public function informasi_setiap_saat()
+    {
+        $contact = Contact::first();
+        $profil = Profile::select('logo', 'favicon')->first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('frontend.detail.informasi_setiap_saat', compact(
+            'contact',
+            'profil',
+            'sosmeds',
+            'links',
+        ));
+    }
+
+    public function informasi_dikecualikan()
+    {
+        $contact = Contact::first();
+        $profil = Profile::select('logo', 'favicon')->first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('frontend.detail.informasi_dikecualikan', compact(
+            'contact',
+            'profil',
+            'sosmeds',
+            'links',
+        ));
+    }
 
 }

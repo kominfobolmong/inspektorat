@@ -1,4 +1,4 @@
-@extends('frontend.detail.app', ['menu' => 'Informasi', 'breadcrumb' => 'Galeri Kegiatan'])
+@extends('frontend.detail.app', ['menu' => 'Informasi', 'breadcrumb' => 'Kegiatan'])
 
 @section('content')
 
@@ -11,10 +11,10 @@
         @foreach ($kegiatan as $item)
             <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                 <div class="portfolio-wrap">
-                <a href="{{ Storage::url($item->image) }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ Storage::url($item->image) }}" class="img-fluid" alt=""></a>
+                <a href="{{ Storage::url($item->image) }}" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{ Storage::url($item->image) }}" class="img-fluid" alt="" style="object-fit: cover;object-position: center;width: 100%;height: 200px;"></a>
                 <div class="portfolio-info">
                     <p>{{ $item->created_at->diffForHumans() }}</p>
-                    <h5>{{ $item->caption }}</h5>
+                    <p>{{ $item->caption }}</p>
                 </div>
                 </div>
             </div>

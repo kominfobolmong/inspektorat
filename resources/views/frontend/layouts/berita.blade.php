@@ -12,13 +12,13 @@
             <article>
 
                 <div class="post-img">
-                <img src="{{ $item->image }}" alt="{{ $item->slug }}" class="img-fluid">
+                <img src="{{ $item->image }}" alt="{{ $item->slug }}" class="img-fluid" style="object-fit: cover;object-position: center;width: 100%;height: 200px;">
                 </div>
 
                 <p class="post-category">{{ $item->category->name }}</p>
 
                 <h2 class="title">
-                <a href="{{ route('berita-detail', $item->slug) }}">{{ $item->title }}</a>
+                <a href="{{ route('berita-detail', $item->slug) }}">{{ Str::limit($item->title, 50, '...') }}</a>
                 </h2>
 
                 <div class="d-flex align-items-center">

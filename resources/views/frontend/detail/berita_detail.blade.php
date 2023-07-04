@@ -12,7 +12,7 @@
           <article class="blog-details">
 
             <div class="post-img">
-              <img src="{{ $news->image ?? null }}" alt="{{ $news->slug ?? null }}" class="img-fluid">
+              <img src="{{ $news->image ?? null }}" alt="{{ $news->slug ?? null }}" class="img-fluid" style="object-fit: cover;object-position: center;width: 100%;height: 400px;">
             </div>
 
             <h2 class="title">{{ $news->title ?? null }}</h2>
@@ -63,7 +63,7 @@
               <h3 class="sidebar-title">Kategori</h3>
               <ul class="mt-3">
                 @foreach ($category as $item)
-                <li><a href="#">{{ $item->name }} <span>({{ $item->news->count() }})</span></a></li>
+                <li><a href="#">{{ $item->name }} <span>({{ $item->news_count }})</span></a></li>
                 @endforeach
               </ul>
             </div><!-- End sidebar categories-->

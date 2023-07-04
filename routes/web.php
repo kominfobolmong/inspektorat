@@ -32,7 +32,7 @@ Route::prefix('profil')->group(function () {
     Route::get('/struktur-organisasi', [PageController::class, 'struktur_organisasi'])->name('struktur');
 });
 
-Route::get('/standar-pelayanan', [PageController::class, 'layanan'])->name('layanan');
+Route::get('/layanan', [PageController::class, 'layanan'])->name('layanan');
 
 Route::prefix('informasi')->group(function () {
     Route::get('/berita', [PageController::class, 'berita'])->name('berita');
@@ -40,6 +40,10 @@ Route::prefix('informasi')->group(function () {
     Route::get('/berita/categories/{slug}', [PageController::class, 'kategori'])->name('cari-kategori');
     Route::get('/berita/tag/{tag:slug}', [PageController::class, 'tag'])->name('cari-tag');
     Route::get('/kegiatan', [PageController::class, 'kegiatan'])->name('kegiatan');
+    Route::get('/informasi-berkala', [PageController::class, 'informasi_berkala'])->name('informasi-berkala');
+    Route::get('/informasi-serta-merta', [PageController::class, 'informasi_serta_merta'])->name('informasi-serta-merta');
+    Route::get('/informasi-setiap-saat', [PageController::class, 'informasi_setiap_saat'])->name('informasi-setiap-saat');
+    Route::get('/informasi-dikecualikan', [PageController::class, 'informasi_dikecualikan'])->name('informasi-dikecualikan');
 });
 
 // Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');

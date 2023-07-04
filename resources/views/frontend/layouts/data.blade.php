@@ -10,17 +10,17 @@
         <div class="col-lg-6">
 
           <div class="stats-item d-flex align-items-center">
-            <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
-            <p><strong>Jenis Pelayanan</strong></p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $services->count() }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Layanan</strong></p>
           </div><!-- End Stats Item -->
 
           <div class="stats-item d-flex align-items-center">
-            <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $photos->count() }}" data-purecounter-duration="1" class="purecounter"></span>
             <p><strong>Kegiatan</strong></p>
           </div><!-- End Stats Item -->
 
           <div class="stats-item d-flex align-items-center">
-            <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $news->count() }}" data-purecounter-duration="1" class="purecounter"></span>
             <p><strong>Berita</strong></p>
           </div><!-- End Stats Item -->
 
