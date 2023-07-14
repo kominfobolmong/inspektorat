@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-6">
         <h3>Kata Sambutan</h3>
-        <p>{!! strip_tags($item->kata_sambutan ?? null) !!}</p>
+        <p>{!! $item->kata_sambutan ?? null !!}</p>
     </div>
   </div>
 

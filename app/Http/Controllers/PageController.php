@@ -40,7 +40,8 @@ class PageController extends Controller
         $news = News::without('tags')->take(6)->latest()->get();
         $faq = Faq::get();
         $links = Link::latest()->get();
-        $services = Service::select('id')->get();
+        // $services = Service::select('id')->get();
+        $layanans = Service::get();
 
         return view('frontend.index', compact(
             'contact',
@@ -50,7 +51,7 @@ class PageController extends Controller
             'photos',
             'news',
             'faq',
-            'services',
+            'layanans',
         ));
     }
 

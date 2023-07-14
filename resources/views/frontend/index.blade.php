@@ -29,6 +29,8 @@
     @include('frontend.layouts.kegiatan')
     <!-- End Portfolio Section -->
 
+    @include('frontend.layouts.standar_pelayanan')
+
     <!-- ======= Recent Blog Posts Section ======= -->
     @include('frontend.layouts.berita')
     <!-- End Recent Blog Posts Section -->

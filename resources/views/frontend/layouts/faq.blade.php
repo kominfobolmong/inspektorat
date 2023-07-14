@@ -19,12 +19,12 @@
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $item->id }}">
                     <span class="num">{{ $loop->iteration }}.</span>
-                    {!! strip_tags($item->question) !!}
+                    {!! $item->question !!}
                   </button>
                 </h3>
                 <div id="faq-content-{{ $item->id }}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                   <div class="accordion-body">
-                    {!! strip_tags($item->answer) !!}
+                    {!! $item->answer !!}
                   </div>
                 </div>
               </div>
