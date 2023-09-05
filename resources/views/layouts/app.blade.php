@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Dashboard &mdash; Dinas Kesehatan Kabupaten Bolaang Mongondow</title>
+    <title>Dashboard &mdash; Dinas Perkebunan Kabupaten Bolaang Mongondow</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/bolmongkab.png') }}" type="image/x-icon">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -59,10 +59,10 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="#">DINKES</a>
+                        <a href="#">DISBUN</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="#">DINKES</a>
+                        <a href="#">DISBUN</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
