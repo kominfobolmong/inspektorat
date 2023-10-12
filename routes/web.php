@@ -54,7 +54,7 @@ Route::prefix('informasi')->group(function () {
 // Route::get('/download', [App\Http\Controllers\PageController::class, 'download']);
 // Route::get('/getdownload/{downloads:id}', [App\Http\Controllers\PageController::class, 'getDownload'])->name('getdownload');
 
-Route::prefix('bolmongmaju/dinkes')->group(function () {
+Route::prefix('bolmongmaju/disbun')->group(function () {
     Auth::routes([
         'register' => false,
         'reset'    => false,  // for resetting passwords

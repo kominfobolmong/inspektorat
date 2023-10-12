@@ -4,14 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Beranda - Dinas Perkebunan Kabupaten Bolaang Mongondow</title>
   <meta content="Website Resmi Dinas Perkebunan Kabupaten Bolaang Mongondow" name="description">
   <meta content="Disbun, Dinas Perkebunan, Bolaang Mongondow" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ asset('assets/img/bolmongkab.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/bolmongkab.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,73 +49,60 @@
       <a href="/" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Dinas Perkebunan<span>.</span><br><p>Kabupaten Bolaang Mongondow</p></h1>
+        <h1><strong>DINAS PERKEBUNAN<span>.</span><br><p>PEMKAB BOLMONG</p></strong></h1>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
 
-          <li class="dropdown"><a href="#"><span>Home</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a class="nav-link scrollto" href="/">Beranda</a></li>
+
+          <li class="dropdown"><a href="#"><span>Profil Dinas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="index.html">Home 1 - index.html</a></li>
-              <li><a href="index-2.html" class="active">Home 2 - index-2.html</a></li>
-              <li><a href="index-3.html">Home 3 - index-3.html</a></li>
-              <li><a href="index-4.html">Home 4 - index-4.html</a></li>
+              <li><a href="#" class="active">Maklumat Pelayanan</a></li>
+              <li><a href="#">Sejarah Dinas Perkebunan</a></li>
+              <li><a href="#">Visi Misi dan Tupoksi</a></li>
+              <li><a href="#">Struktur Organisasi</a></li>
+              <li><a href="#">Profil Pimpinan</a></li>
+              <li><a href="#">SDM Dinas Perkebunan</a></li>
             </ul>
           </li>
 
-          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
-          <li><a class="nav-link scrollto" href="index.html#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="index.html#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            {{-- <ul>
+              <li><a href="#" class="active"></a></li>
+            </ul> --}}
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li>
-                <a href="#">Column 1 link 1</a>
-                <a href="#">Column 1 link 2</a>
-                <a href="#">Column 1 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 2 link 1</a>
-                <a href="#">Column 2 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 3 link 1</a>
-                <a href="#">Column 3 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <a href="#">Column 4 link 1</a>
-                <a href="#">Column 4 link 2</a>
-                <a href="#">Column 4 link 3</a>
-              </li>
+              <li><a href="#" class="active">Standar Pelayanan Publik</a></li>
+              <li><a href="#">Daftar Informasi Publik</a></li>
+              <li><a href="#">Informasi Berkala</a></li>
+              <li><a href="#">Informasi Serta Merta</a></li>
+              <li><a href="#">Informasi Setiap Saat</a></li>
+              <li><a href="#">Informasi Dikecualikan</a></li>
+              <li><a href="#">Survey Kepuasan Masyarakat (SKM)</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+
+          <li class="dropdown"><a href="#"><span>Media Publikasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#" class="active">Berita</a></li>
+              <li><a href="#">Pengumuman</a></li>
+              <li><a href="#">Artikel</a></li>
+              <li><a href="#">Dokumentasi Kegiatan</a></li>
+              <li><a href="#">Dokumen</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
+
+          <li><a class="nav-link scrollto" href="#">Kontak</a></li>
+          <li>
+            <a class="nav-link scrollto btn-getstarted scrollto" href="#"><strong>L&nbsp;I&nbsp;M&nbsp;I</strong></a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->
-
-      <a class="btn-getstarted scrollto" href="index.html#about">Get Started</a>
 
     </div>
   </header><!-- End Header -->
@@ -123,59 +111,16 @@
   <section id="hero" class="hero carousel  carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="container">
-          <div class="row justify-content-center gy-6">
 
-            <div class="col-lg-5 col-md-8">
-              <img src="assets/img/hero-carousel/hero-carousel-1.svg" alt="" class="img-fluid img">
-            </div>
+    @foreach ($sliders as $item)
+      <div class="carousel-item @if ($loop->first)
+        active
+    @endif">
+        <img src="{{ $item->image }}" alt="{{ $item->caption }}" class="img-fluid img">
 
-            <div class="col-lg-9 text-center">
-              <h2>Welcome to HeroBiz</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <a href="#featured-services" class="btn-get-started scrollto ">Get Started</a>
-            </div>
-
-          </div>
-        </div>
       </div><!-- End Carousel Item -->
+    @endforeach
 
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row justify-content-center gy-6">
-
-            <div class="col-lg-5 col-md-8">
-              <img src="assets/img/hero-carousel/hero-carousel-2.svg" alt="" class="img-fluid img">
-            </div>
-
-            <div class="col-lg-9 text-center">
-              <h2>At vero eos et accusamus</h2>
-              <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-              <a href="#featured-services" class="btn-get-started scrollto ">Get Started</a>
-            </div>
-
-          </div>
-        </div>
-      </div><!-- End Carousel Item -->
-
-      <div class="carousel-item">
-        <div class="container">
-          <div class="row justify-content-center gy-6">
-
-            <div class="col-lg-5 col-md-8">
-              <img src="assets/img/hero-carousel/hero-carousel-3.svg" alt="" class="img-fluid img">
-            </div>
-
-            <div class="col-lg-9 text-center">
-              <h2>Temporibus autem quibusdam</h2>
-              <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-              <a href="#featured-services" class="btn-get-started scrollto ">Get Started</a>
-            </div>
-
-          </div>
-        </div>
-      </div><!-- End Carousel Item -->
     </div>
 
     <a class="carousel-control-prev" href="#hero" role="button" data-bs-slide="prev">
@@ -192,51 +137,68 @@
 
   <main id="main">
 
+    <!-- ======= Call To Action Section ======= -->
+    <section id="cta" class="cta">
+        <div class="container" data-aos="zoom-out">
+
+          <div class="row g-5">
+
+            <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+              <h3><em>L</em>ayanan <em>I</em>nformasi dan <em>M</em>anfaat <em>I</em>nterkoneksi</h3>
+              <p> LIMI adalah singkatan dari Layanan Informasi dan Manfaat Interkoneksi (LIMI) Agribisnis Perkebunan yaitu layanan yang terdiri dari Klinik AP, Budidaya dan Sarana Prasarana</p>
+              <a class="cta-btn align-self-start" href="#">Selengkapnya</a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+              <div class="img">
+                <img src="assets/img/cta.jpg" alt="" class="img-fluid">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- End Call To Action Section -->
+
     <!-- ======= Featured Services Section ======= -->
     <section id="featured-services" class="featured-services">
       <div class="container">
 
         <div class="row gy-4">
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+          <div class="col-xl-4 col-md-4 d-flex" data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+              <h4><a href="" class="stretched-link">Klinik AP</a></h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
+          <div class="col-xl-4 col-md-4 d-flex" data-aos="zoom-out" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
+              <h4><a href="" class="stretched-link">Budidaya</a></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
+          <div class="col-xl-4 col-md-4 d-flex" data-aos="zoom-out" data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
+              <h4><a href="" class="stretched-link">Sarana Prasarana</a></h4>
               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
           </div><!-- End Service Item -->
 
         </div>
 
       </div>
-    </section><!-- End Featured Services Section -->
+    </section>
+    <!-- End Featured Services Section -->
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    {{-- <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -344,10 +306,11 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section> --}}
+    <!-- End About Section -->
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
+    {{-- <section id="clients" class="clients">
       <div class="container" data-aos="zoom-out">
 
         <div class="clients-slider swiper">
@@ -364,30 +327,8 @@
         </div>
 
       </div>
-    </section><!-- End Clients Section -->
-
-    <!-- ======= Call To Action Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container" data-aos="zoom-out">
-
-        <div class="row g-5">
-
-          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
-            <h3>Alias sunt quas <em>Cupiditate</em> oluptas hic minima</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a class="cta-btn align-self-start" href="#">Call To Action</a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
-            <div class="img">
-              <img src="assets/img/cta.jpg" alt="" class="img-fluid">
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Call To Action Section -->
+    </section> --}}
+    <!-- End Clients Section -->
 
     <!-- ======= On Focus Section ======= -->
     <section id="onfocus" class="onfocus">
@@ -415,10 +356,11 @@
         </div>
 
       </div>
-    </section><!-- End On Focus Section -->
+    </section>
+    <!-- End On Focus Section -->
 
     <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
+    {{-- <section id="features" class="features">
       <div class="container" data-aos="fade-up">
 
         <ul class="nav nav-tabs row gy-4 d-flex">
@@ -623,10 +565,11 @@
         </div>
 
       </div>
-    </section><!-- End Features Section -->
+    </section> --}}
+    <!-- End Features Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    {{-- <section id="services" class="services">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -744,10 +687,11 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section> --}}
+    <!-- End Services Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    {{-- <section id="testimonials" class="testimonials">
       <div class="container" data-aos="fade-up">
 
         <div class="testimonials-slider swiper">
@@ -838,10 +782,11 @@
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section> --}}
+    <!-- End Testimonials Section -->
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+    {{-- <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -925,10 +870,11 @@
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section> --}}
+    <!-- End Pricing Section -->
 
     <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq">
+    {{-- <section id="faq" class="faq">
       <div class="container-fluid" data-aos="fade-up">
 
         <div class="row gy-4">
@@ -1023,10 +969,11 @@
         </div>
 
       </div>
-    </section><!-- End F.A.Q Section -->
+    </section> --}}
+    <!-- End F.A.Q Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio" data-aos="fade-up">
+    {{-- <section id="portfolio" class="portfolio" data-aos="fade-up">
 
       <div class="container">
 
@@ -1164,10 +1111,11 @@
         </div>
 
       </div>
-    </section><!-- End Portfolio Section -->
+    </section> --}}
+    <!-- End Portfolio Section -->
 
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
+    {{-- <section id="team" class="team">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -1234,7 +1182,8 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section> --}}
+    <!-- End Team Section -->
 
     <!-- ======= Recent Blog Posts Section ======= -->
     <section id="recent-blog-posts" class="recent-blog-posts">
@@ -1387,7 +1336,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
-              <h3>HeroBiz</h3>
+              <h3>DISBUN</h3>
               <p>
                 A108 Adam Street <br>
                 NY 535022, USA<br><br>
@@ -1437,7 +1386,7 @@
 
         <div class="d-flex flex-column align-items-center align-items-lg-start">
           <div class="copyright">
-            &copy; Copyright <strong><span>HeroBiz</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Dinas Perkebunan Pemkab Bolaang Mongondow</span></strong>. All Rights Reserved
           </div>
           <div class="credits">
             Designed by <a href="https://diskominfo.bolmongkab.go.id">Diskominfo (Egov Team)</a>
@@ -1445,11 +1394,9 @@
         </div>
 
         <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
           <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
 
       </div>
