@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Limi extends Model
 {
     use HasFactory;
 
@@ -21,18 +21,13 @@ class Category extends Model
      *
      * @return void
      */
-    public function posts()
+    public function category()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(Category::class);
     }
 
-    public function news()
+    public function user()
     {
-        return $this->hasMany(News::class);
-    }
-
-    public function limis()
-    {
-        return $this->hasMany(Limi::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+class CreateLimisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('limis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
@@ -21,14 +21,7 @@ class CreateNewsTable extends Migration
             $table->string('slug')->unique();
             $table->longText('body');
             $table->string('image')->nullable();
-            $table->integer('tayang')->nullable();
             $table->timestamps();
-        });
-
-        //create pivot table news_tag
-        Schema::create('news_tag', function (Blueprint $table) {
-            $table->integer('news_id');
-            $table->integer('tag_id');
         });
     }
 
@@ -39,6 +32,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('limis');
     }
 }

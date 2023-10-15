@@ -34,7 +34,7 @@ class PageController extends Controller
     public function index()
     {
         $contact = Contact::first();
-        $profil = Profile::select('favicon', 'maklumat', 'motto')->first();
+        $profil = Profile::select('favicon', 'logo', 'maklumat', 'motto')->first();
         $sliders = Slider::take(2)->latest()->get();
         $photos = Photo::take(6)->latest()->get();
         $news = News::without('tags')->take(6)->latest()->get();
@@ -277,6 +277,47 @@ class PageController extends Controller
             'sosmeds',
             'links',
         ));
+    }
+
+    // LIMI
+
+    public function limi()
+    {
+        $news = News::without('tags')->latest()->paginate(6);
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $news_new = News::take(5)->latest()->get();
+
+        $contact = Contact::first();
+        $profil = Profile::select('logo', 'favicon')->first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('frontend.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+    }
+
+    public function limi_detail($slug)
+    {
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $news = News::where('slug', $slug)->firstOrFail();
+        $news_new = News::take(5)->latest()->get();
+        $contact = Contact::first();
+        $profil = Profile::select('logo', 'favicon')->first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('frontend.detail.berita_detail', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+    }
+
+    public function klinik_ap()
+    {
+        $contact = Contact::first();
+        $profil = Profile::select('logo', 'favicon')->first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('frontend.detail.klinik_ap', compact('contact', 'profil', 'sosmeds', 'links'));
     }
 
 }

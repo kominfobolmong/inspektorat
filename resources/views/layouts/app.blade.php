@@ -70,9 +70,32 @@
                                 href="{{ route('admin.dashboard.index') }}"><i class="fas fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a></li>
 
+                        {{-- <li
+                        class="dropdown {{ setActive('admin/klinik-ap'). setActive('admin/budidaya'). setActive('admin/sarana-prasarana') }}">
+                        @if(auth()->user()->can('klinik_ap.index') || auth()->user()->can('budidaya.index') || auth()->user()->can('sarana_prasarana.index'))
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder"></i><span>LIMI</span></a>
+                        @endif
+
+                        <ul class="dropdown-menu">
+                            @can('klinik_ap.index')
+                                <li class="{{ setActive('admin/klinik-ap') }}"><a class="nav-link" href="{{ route('klinik_ap.index') }}"><i class="fas fa-folder"></i> Klinik AP</a></li>
+                            @endcan
+
+                            @can('budidaya.index')
+                                <li class="{{ setActive('admin/budidaya') }}"><a class="nav-link" href="{{ route('budidaya.index') }}"><i class="fas fa-folder"></i>Budidaya</a></li>
+                            @endcan
+
+                            @can('sarana_prasarana.index')
+                                <li class="{{ setActive('admin/sarana-prasarana') }}"><a class="nav-link"
+                            href="{{ route('sarana_prasarana.index') }}"><i class="fas fa-folder"></i> Sarana Prasarana</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li> --}}
+
                         @can('news.index')
                                 <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-newspaper"></i>
-                            <span>Berita</span></a></li>
+                            <span>LIMI</span></a></li>
                         @endcan
 
                         @can('tags.index')

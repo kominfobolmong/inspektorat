@@ -46,6 +46,14 @@ Route::prefix('informasi')->group(function () {
     Route::get('/informasi-dikecualikan', [PageController::class, 'informasi_dikecualikan'])->name('informasi-dikecualikan');
 });
 
+Route::prefix('limi')->group(function () {
+    Route::get('/', [PageController::class, 'limi'])->name('limi');
+    Route::get('/{news:slug}', [PageController::class, 'limi_detail'])->name('limi-detail');
+    Route::get('/klinik-agribisnis-perkebunan', [PageController::class, 'klinik_ap'])->name('klinik_ap');
+    Route::get('/budidaya', [PageController::class, 'budidaya'])->name('budidaya');
+    Route::get('/sarana-prasarana', [PageController::class, 'sarana_prasarana'])->name('sarana_prasarana');
+});
+
 // Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 
 
@@ -68,6 +76,9 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 
+        Route::resource('klinik_ap', NewsController::class);
+        Route::resource('budidaya', NewsController::class);
+        Route::resource('sarana_prasarana', NewsController::class);
         Route::resource('news', NewsController::class);
         Route::resource('permission', PermissionController::class);
         Route::resource('role', RoleController::class);

@@ -1,53 +1,56 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
-    @include('frontend.layouts.head')
+  @include('frontend.layouts.head')
 </head>
 
 <body>
 
-<!-- ======= Header ======= -->
-@include('frontend.layouts.header')
-<!-- End Header -->
+  <!-- ======= Header ======= -->
+  @include('frontend.layouts.header')
+  <!-- End Header -->
 
-<main id="main">
+  <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center">
-        <div class="container position-relative">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-              <h2>{{ $breadcrumb }}</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <nav>
-        <div class="container">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{ $breadcrumb }}</h2>
           <ol>
-            <li><a href="#">{{ $menu }}</a></li>
+            <li><a href="#">Home</a></li>
             <li>{{ $breadcrumb }}</li>
           </ol>
         </div>
-      </nav>
-    </div><!-- End Breadcrumbs -->
-
-    <section class="sample-page">
-      <div class="container" data-aos="fade-up">
-
-        @yield('content')
 
       </div>
-    </section>
+    </div><!-- End Breadcrumbs -->
+
+    {{-- <section class="inner-page">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-header">
+            <h2>Inner Page</h2>
+            <p>Example inner page template</p>
+          </div>
+
+          <p>
+            You can duplicate this page and create any number of pages you like!
+          </p>
+
+        </div>
+    </section> --}}
+    <!-- End Inner Page -->
+
+    @yield('content')
 
   </main><!-- End #main -->
 
+  @include('frontend.layouts.footer')
+  @include('frontend.layouts.foot')
 
-	@include('frontend.layouts.footer')
+</body>
 
-    @include('frontend.layouts.foot')
-
-  </body>
-  </html>
+</html>

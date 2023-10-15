@@ -1,59 +1,68 @@
-<section id="topbar" class="topbar d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:{{ $contact->email ?? null }}">{{ $contact->email ?? null }}</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>{{ $contact->no_telp ?? null }}</span></i>
-      </div>
-      <div class="social-links d-none d-md-flex align-items-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-youtube"></i></i></a>
-      </div>
-    </div>
-  </section><!-- End Top Bar -->
+<header id="header" class="header fixed-top" data-scrollto-offset="0">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
 
-  <header id="header" class="header d-flex align-items-center">
-
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="{{ '/' }}" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        {{-- <img src="{{ asset('front/img/logo.png') }}" alt=""> --}}
-        <h1>Dinas Kesehatan<br>Kabupaten Bolaang Mongondow<span>.</span></h1>
+        <img src="{{ Storage::url($profil->logo ?? null) }}" alt="logo-dinas-perkebunan">
+        <h1>Dinas Perkebunan<br><span>Kab. Bolaang Mongondow</span></h1>
       </a>
+
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{{ '/' }}">Beranda</a></li>
-          <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+
+          <li><a class="nav-link scrollto" href="/">Beranda</a></li>
+
+          <li class="dropdown"><a href="#"><span>Profil Dinas</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="{{ route('pimpinan') }}">Profil Pimpinan</a></li>
-              <li><a href="{{ route('visimisi') }}">Visi Misi</a></li>
-              <li><a href="{{ route('struktur') }}">Struktur Organisasi</a></li>
+              <li><a href="#" class="active">Maklumat Pelayanan</a></li>
+              <li><a href="#">Sejarah Dinas Perkebunan</a></li>
+              <li><a href="#">Visi Misi dan Tupoksi</a></li>
+              <li><a href="#">Struktur Organisasi</a></li>
+              <li><a href="#">Profil Pimpinan</a></li>
+              <li><a href="#">SDM Dinas Perkebunan</a></li>
             </ul>
           </li>
-          <li><a href="{{ route('layanan') }}">Layanan</a></li>
+
+          {{-- <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#" class="active"></a></li>
+            </ul>
+          </li> --}}
+
           <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="{{ route('berita') }}">Berita</a></li>
-              <li><a href="{{ route('kegiatan') }}">Kegiatan</a></li>
-              <li><a href="{{ route('informasi-berkala') }}">Informasi Berkala</a></li>
-              <li><a href="{{ route('informasi-serta-merta') }}">informasi Serta Merta</a></li>
-              <li><a href="{{ route('informasi-setiap-saat') }}">Informasi Setiap Saat</a></li>
-              <li><a href="{{ route('informasi-dikecualikan') }}">Informasi Dikecualikan</a></li>
+              <li><a href="#" class="active">Standar Pelayanan Publik</a></li>
+              <li><a href="#">Daftar Informasi Publik</a></li>
+              <li><a href="#">Informasi Berkala</a></li>
+              <li><a href="#">Informasi Serta Merta</a></li>
+              <li><a href="#">Informasi Setiap Saat</a></li>
+              <li><a href="#">Informasi Dikecualikan</a></li>
+              <li><a href="#">Survey Kepuasan Masyarakat (SKM)</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Hubungi Kami</a></li>
-          <li class="dropdown"><a href="#"><span>Lainnya</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+
+          <li class="dropdown"><a href="#"><span>Media Publikasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="https://surveiikm.bolmongkab.go.id" target="_blank">Survey IKM</a></li>
-              <li><a href="https://www.lapor.go.id/instansi/dinas-kesehatan-kabupaten-bolaang-mongondow" target="_blank">SPAN LAPOR</a></li>
+              <li><a href="#">Dokumentasi Kegiatan</a></li>
+              <li><a href="#">Dokumen</a></li>
             </ul>
           </li>
+
+          <li class="dropdown"><a href="#"><span>LIMI</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="{{ route('klinik_ap') }}" class="active">Klinik Agribisnis Perkebunan</a></li>
+              <li><a href="{{ route('budidaya') }}">Budidaya</a></li>
+              <li><a href="{{ route('sarana_prasarana') }}">Sarana Prasarana</a></li>
+            </ul>
+          </li>
+
+          <li><a class="nav-link scrollto" href="#">Kontak</a></li>
+          {{-- <li>
+            <a class="nav-link scrollto btn-getstarted scrollto" href="#"><strong>L&nbsp;I&nbsp;M&nbsp;I</strong></a>
+          </li> --}}
         </ul>
+        <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->
 
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
     </div>
-  </header><!-- End Header -->
+  </header>

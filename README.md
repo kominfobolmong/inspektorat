@@ -1,8 +1,9 @@
 ## Dinas Kesehatan
 
-Website Resmi Dinas Kesehatan Kabupaten Bolaang Mongondow
-created 25 Juni 2023
+Website Resmi Dinas Perkebunan Kabupaten Bolaang Mongondow
+created 12 Oktober 2023
 
 -   Laravel 8
+-   pim 2
 
-Thank U
+Sukur Moanto'

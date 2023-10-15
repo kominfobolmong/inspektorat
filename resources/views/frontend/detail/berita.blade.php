@@ -1,49 +1,77 @@
-@extends('frontend.detail.app', ['menu' => 'Informasi', 'breadcrumb' => 'Berita'])
+@extends('frontend.detail.app', ['breadcrumb' => 'limi'])
 
 @section('content')
 
-<section id="blog" class="blog">
+  <!-- ======= Blog Section ======= -->
+  <section id="blog" class="blog">
     <div class="container" data-aos="fade-up">
 
-      <div class="row gy-4 posts-list">
+      <div class="row g-5">
 
-        @foreach ($news as $item)
-        <div class="col-xl-4 col-md-6">
-            <article>
+          <div class="col-lg-8">
 
-              <div class="post-img">
-                <img src="{{ $item->image }}" alt="{{ $item->slug }}" class="img-fluid" style="object-fit: cover;object-position: center;width: 100%;height: 200px;">
-              </div>
+            <div class="row gy-4 posts-list">
 
-              <p class="post-category">{{ $item->category->name }}</p>
+            @foreach ($news as $item)
+            <div class="col-lg-6">
+              <article class="d-flex flex-column">
 
-              <h2 class="title">
-                <a href="{{ route('berita-detail', $item->slug) }}">{{ $item->title }}</a>
-              </h2>
+                <div class="post-img">
+                    <img src="{{ $item->image }}" alt="{{ $item->slug }}" class="img-fluid" style="object-fit: cover;object-position: center;width: 100%;height: 200px;">
+                </div>
 
-              <div class="d-flex align-items-center">
-                <div class="post-meta">
-                  <p class="post-author-list">{{ $item->user->name }}</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">{{ $item->created_at->diffForHumans() }}</time>
+                <h2 class="title">
+                  <a href="{{ route('limi-detail', $item->slug) }}">{{ $item->title }}</a>
+                </h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ $item->user->name }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="2022-01-01">{{ $item->created_at->diffForHumans() }}</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#">{{ $item->category->name }}</a></li>
+                  </ul>
+                </div>
+
+                <div class="content">
+                  <p>
+                    {!! Str::limit($item->body, 50, '...') !!}
                   </p>
                 </div>
-              </div>
 
-            </article>
+                <div class="read-more mt-auto align-self-end">
+                  <a href="{{ route('limi-detail', $item->slug) }}">Read More</a>
+                </div>
+
+              </article>
+            </div><!-- End post list item -->
+            @endforeach
+
           </div>
-        @endforeach
+          <!-- End blog posts list -->
 
-      </div><!-- End blog posts list -->
+          {{-- <div class="blog-pagination">
+            <ul class="justify-content-center">
+              <li><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+            </ul>
+          </div> --}}
+          <div class="blog-pagination">
+            <ul class="justify-content-center">
+              <li>{!! $news->links('layouts.pagination') !!}</li>
+            </ul>
+          </div>
+          <!-- End blog pagination -->
 
-      <div class="blog-pagination">
-        <ul class="justify-content-center">
-          <li>{!! $news->links('layouts.pagination') !!}</li>
-        </ul>
+        </div>
+
+        @include('frontend.layouts.sidebar')
+
       </div>
-      <!-- End blog pagination -->
 
     </div>
-  </section>
+  </section><!-- End Blog Section -->
 
 @endsection
+
+

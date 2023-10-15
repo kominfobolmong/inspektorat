@@ -115,5 +115,23 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'faq.create']);
         Permission::create(['name' => 'faq.edit']);
         Permission::create(['name' => 'faq.delete']);
+
+        //permission for klinik AP
+        Permission::create(['name' => 'klinik_ap.index']);
+        Permission::create(['name' => 'klinik_ap.create']);
+        Permission::create(['name' => 'klinik_ap.edit']);
+        Permission::create(['name' => 'klinik_ap.delete']);
+
+        //permission for budidaya
+        Permission::create(['name' => 'budidaya.index']);
+        Permission::create(['name' => 'budidaya.create']);
+        Permission::create(['name' => 'budidaya.edit']);
+        Permission::create(['name' => 'budidaya.delete']);
+
+        //permission for sarana prasarana
+        Permission::create(['name' => 'sarana_prasarana.index']);
+        Permission::create(['name' => 'sarana_prasarana.create']);
+        Permission::create(['name' => 'sarana_prasarana.edit']);
+        Permission::create(['name' => 'sarana_prasarana.delete']);
     }
 }

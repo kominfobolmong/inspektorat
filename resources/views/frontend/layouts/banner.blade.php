@@ -1,4 +1,4 @@
-  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" style="margin: 1%;box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+  <div id="hero" class="carousel slide carousel-fade" data-bs-ride="carousel" style="margin: 1%;box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
     <div class="carousel-inner">
         @foreach ($sliders as $item)
             <div class="carousel-item @if ($loop->first)
