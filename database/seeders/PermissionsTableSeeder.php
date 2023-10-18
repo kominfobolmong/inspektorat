@@ -116,22 +116,19 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'faq.edit']);
         Permission::create(['name' => 'faq.delete']);
 
-        //permission for klinik AP
-        Permission::create(['name' => 'klinik_ap.index']);
-        Permission::create(['name' => 'klinik_ap.create']);
-        Permission::create(['name' => 'klinik_ap.edit']);
-        Permission::create(['name' => 'klinik_ap.delete']);
+        Permission::create(['name' => 'penyakit.index']);
+        Permission::create(['name' => 'penyakit.create']);
+        Permission::create(['name' => 'penyakit.edit']);
+        Permission::create(['name' => 'penyakit.delete']);
 
-        //permission for budidaya
-        Permission::create(['name' => 'budidaya.index']);
-        Permission::create(['name' => 'budidaya.create']);
-        Permission::create(['name' => 'budidaya.edit']);
-        Permission::create(['name' => 'budidaya.delete']);
+        Permission::create(['name' => 'komoditas.index']);
+        Permission::create(['name' => 'komoditas.create']);
+        Permission::create(['name' => 'komoditas.edit']);
+        Permission::create(['name' => 'komoditas.delete']);
 
-        //permission for sarana prasarana
-        Permission::create(['name' => 'sarana_prasarana.index']);
-        Permission::create(['name' => 'sarana_prasarana.create']);
-        Permission::create(['name' => 'sarana_prasarana.edit']);
-        Permission::create(['name' => 'sarana_prasarana.delete']);
+        Permission::create(['name' => 'konsultasi.index']);
+        Permission::create(['name' => 'konsultasi.create']);
+        Permission::create(['name' => 'konsultasi.edit']);
+        Permission::create(['name' => 'konsultasi.delete']);
     }
 }

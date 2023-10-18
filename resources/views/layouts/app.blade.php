@@ -70,32 +70,10 @@
                                 href="{{ route('admin.dashboard.index') }}"><i class="fas fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a></li>
 
-                        {{-- <li
-                        class="dropdown {{ setActive('admin/klinik-ap'). setActive('admin/budidaya'). setActive('admin/sarana-prasarana') }}">
-                        @if(auth()->user()->can('klinik_ap.index') || auth()->user()->can('budidaya.index') || auth()->user()->can('sarana_prasarana.index'))
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder"></i><span>LIMI</span></a>
-                        @endif
-
-                        <ul class="dropdown-menu">
-                            @can('klinik_ap.index')
-                                <li class="{{ setActive('admin/klinik-ap') }}"><a class="nav-link" href="{{ route('klinik_ap.index') }}"><i class="fas fa-folder"></i> Klinik AP</a></li>
-                            @endcan
-
-                            @can('budidaya.index')
-                                <li class="{{ setActive('admin/budidaya') }}"><a class="nav-link" href="{{ route('budidaya.index') }}"><i class="fas fa-folder"></i>Budidaya</a></li>
-                            @endcan
-
-                            @can('sarana_prasarana.index')
-                                <li class="{{ setActive('admin/sarana-prasarana') }}"><a class="nav-link"
-                            href="{{ route('sarana_prasarana.index') }}"><i class="fas fa-folder"></i> Sarana Prasarana</a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </li> --}}
-
-                        @can('news.index')
-                                <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-newspaper"></i>
-                            <span>LIMI</span></a></li>
+                        @can('categories.index')
+                            <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-folder"></i>
+                            <span>Kategori</span></a>
+                            </li>
                         @endcan
 
                         @can('tags.index')
@@ -103,16 +81,39 @@
                             </li>
                         @endcan
 
-                        @can('categories.index')
-                            <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-folder"></i>
-                        <span>Kategori</span></a>
-                        </li>
-                        @endcan
+                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }} {{ setActive('admin/konsultasi') }} {{ setActive('admin/news') }}">
+                        {{-- @if(auth()->user()->can('penyakit.index') || auth()->user()->can('komoditas.index') || auth()->user()->can('konsultasi.index') || auth()->user()->can('news.index'))) --}}
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder"></i><span>LIMI</span></a>
+                        {{-- @endif --}}
 
-                        @can('services.index')
+                            <ul class="dropdown-menu">
+
+                                @can('penyakit.index')
+                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-tags"></i> <span>Penyakit Tanaman</span></a></li>
+                                @endcan
+
+                                @can('komoditas.index')
+                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-tags"></i> <span>Komoditas</span></a></li>
+                                @endcan
+
+                                @can('konsultasi.index')
+                                    <li class="{{ setActive('admin/konsultasi') }}"><a class="nav-link"
+                                href=""><i class="fas fa-phone"></i> <span>Konsultasi</span></a>
+                                    </li>
+                                @endcan
+
+                                @can('news.index')
+                                    <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-newspaper"></i>
+                                    <span>Artikel</span></a></li>
+                                @endcan
+                            </ul>
+                        </li>
+
+
+                        {{-- @can('services.index')
                             <li class="{{ setActive('admin/service') }}"><a class="nav-link" href="{{ route('service.index') }}"><i class="fas fa-concierge-bell"></i>
                         <span>Layanan</span></a></li>
-                        @endcan
+                        @endcan --}}
 
                         @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index') || auth()->user()->can('downloads.index'))
                         <li class="menu-header">MEDIA</li>
@@ -263,5 +264,63 @@
         });
         @endif
     </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.6.2/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+    selector: 'textarea.content',
+    plugins: [
+             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+             "searchreplace wordcount visualblocks visualchars code fullscreen",
+             "insertdatetime media nonbreaking save table contextmenu directionality",
+             "emoticons template paste textcolor colorpicker textpattern"
+         ],
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | code',
+    relative_urls: false,
+    forced_root_block: false,
+    /* enable title field in the Image dialog*/
+    image_title: true,
+    /* enable automatic uploads of images represented by blob or data URIs*/
+    automatic_uploads: true,
+    /*
+        URL of our upload handler (for more details check: https://www.tiny.cloud/docs/configure/file-image-upload/#images_upload_url)
+        images_upload_url: 'postAcceptor.php',
+        here we add custom filepicker only to Image dialog
+    */
+    file_picker_types: 'image',
+    /* and here's our custom image picker*/
+    file_picker_callback: (cb, value, meta) => {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'file');
+        input.setAttribute('accept', 'image/*');
+
+        input.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+            /*
+            Note: Now we need to register the blob in TinyMCEs image blob
+            registry. In the next release this part hopefully won't be
+            necessary, as we are looking to handle it internally.
+            */
+            const id = 'blobid' + (new Date()).getTime();
+            const blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+            const base64 = reader.result.split(',')[1];
+            const blobInfo = blobCache.create(id, file, base64);
+            blobCache.add(blobInfo);
+
+            /* call the callback and populate the Title field with the file name */
+            cb(blobInfo.blobUri(), { title: file.name });
+        });
+        reader.readAsDataURL(file);
+        });
+
+        input.click();
+    },
+    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+    });
+
+</script>
 </body>
 </html>

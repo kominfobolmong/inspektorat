@@ -28,7 +28,7 @@
             <img src="{{ $item->image }}" alt="{{ $item->slug }}" class="flex-shrink-0">
             <div>
               <h4><a href="{{ route('limi-detail', $item->slug) }}">{{ $item->title }}</a></h4>
-              <time datetime="2020-01-01">{ $item->created_at->diffForHumans() }}</time>
+              <time datetime="2020-01-01">{{ $item->created_at->diffForHumans() }}</time>
             </div>
           </div><!-- End recent post item-->
           @endforeach

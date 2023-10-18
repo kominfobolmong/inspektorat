@@ -15,10 +15,12 @@ class CreateProfpegsTable extends Migration
     {
         Schema::create('profpegs', function (Blueprint $table) {
             $table->id();
-            $table->string('foto');
             $table->string('nama');
-            $table->string('jabatan')->nullable();
-            $table->string('nip')->nullable();
+            $table->string('nip')->unique();
+            $table->string('jabatan');
+            $table->string('whatsapp')->unique()->nullable();
+            $table->string('foto')->nullable();
+            $table->enum('is_customer_service', ['Y','N'])->default('N');
             $table->timestamps();
         });
     }
