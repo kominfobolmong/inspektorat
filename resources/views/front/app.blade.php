@@ -83,8 +83,8 @@
                                 <h5 class="sub-title">Kontak</h5>
                             </div>
                             <div class="footer__widget__social">
-                                <p>{{ 'Telepon: '. $contact->no_telp ?? null }}</p>
-                                <p>{{ 'Email: '. $contact->email ?? null }}</p>
+                                <p>Telepon: {{ $contact->no_telp ?? null }}</p>
+                                <p>Email: {{ $contact->email ?? null }}</p>
                                 <ul class="footer__social__list">
                                     <li><a href="https://web.facebook.com/profile.php?id=61552159365094"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
