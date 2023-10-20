@@ -7,9 +7,6 @@
                 <div class="blog__post__item">
                     <div class="blog__post__thumb">
                         <a href="{{ route('artikel-detail', $item->slug) }}"><img src="{{ $item->image }}" class="img-fluid rounded" alt="{{ $item->slug }}"></a>
-                        {{-- <div class="blog__post__tags">
-                            <a href="#">{{ $item->category->name }}</a>
-                        </div> --}}
                     </div>
                     <div class="blog__post__content">
                         <span class="date">{{ $item->created_at->diffForHumans() }}</span>

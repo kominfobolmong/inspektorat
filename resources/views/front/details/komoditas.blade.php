@@ -29,7 +29,7 @@
                                 >
                             </h3>
                             <p>
-                                {!! $item->deskripsi !!}
+                                {!! Str::limit($item->deskripsi, 100, '...') !!}
                             </p>
                             <a
                                 href="{{ route('komoditas-detail', $item->slug) }}"

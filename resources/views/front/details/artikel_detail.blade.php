@@ -23,17 +23,16 @@
                             <li class="post-share"><a href="#"><i class="fal fa-eye"></i> (18)</a></li>
                         </ul>
                         <h2 class="title">{{ $artikel->title ?? null }}</h2>
-                        <p>{!! $artikel->body !!}</p>
+                        <p>{!! $artikel->body ?? null !!}</p>
                     </div>
                     <div class="blog__details__bottom">
                         <ul class="blog__details__tag">
                             <li class="title">Tag:</li>
+                            @foreach ($artikel->tags as $item)
                             <li class="tags-list">
-                                <a href="#">Business</a>
-                                <a href="#">Design</a>
-                                <a href="#">apps</a>
-                                <a href="#">data</a>
+                                <a href="#">{{ $item->name }}</a>
                             </li>
+                            @endforeach
                         </ul>
                         <ul class="blog__details__social">
                             <li class="title">Share :</li>

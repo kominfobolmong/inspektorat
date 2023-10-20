@@ -3630,20 +3630,24 @@ Breadcrumb
 }
 .services__details__thumb img {
     max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 400px;
+    width: 100%;
 }
 .services__details__content .title {
-    font-size: 35px;
+    font-size: 24px;
     letter-spacing: -0.01em;
     margin-bottom: 27px;
 }
 @media (max-width: 767.98px) {
     .services__details__content .title {
-        font-size: 26px;
+        font-size: 18px;
     }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
     .services__details__content .title {
-        font-size: 30px;
+        font-size: 18px;
     }
 }
 .services__details__content p {
@@ -5150,6 +5154,8 @@ Breadcrumb
 }
 .blog__post__thumb {
     position: relative;
+}
+.blog__post__thumb img {
     object-fit: cover;
     object-position: center;
     width: 100%;
@@ -5280,6 +5286,12 @@ Breadcrumb
     position: relative;
     margin-bottom: 40px;
 }
+.standard__blog__thumb img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
 @media (max-width: 767.98px) {
     .standard__blog__thumb {
         margin-bottom: 30px;
@@ -5317,21 +5329,21 @@ Breadcrumb
 }
 .standard__blog__content .title {
     margin-bottom: 24px;
-    font-size: 35px;
+    font-size: 18px;
 }
 @media (max-width: 1199.98px) {
     .standard__blog__content .title {
-        font-size: 30px;
+        font-size: 24px;
     }
 }
 @media (max-width: 991.98px) {
     .standard__blog__content .title {
-        font-size: 33px;
+        font-size: 18px;
     }
 }
 @media (max-width: 767.98px) {
     .standard__blog__content .title {
-        font-size: 25px;
+        font-size: 18px;
     }
 }
 .standard__blog__content p {
@@ -5625,13 +5637,13 @@ Breadcrumb
 
 @media (max-width: 1199.98px) {
     .blog__details__content .title {
-        font-size: 32px;
+        font-size: 24px;
     }
 }
 
 @media (max-width: 1199.98px) {
     .blog__details__content .title {
-        font-size: 25px;
+        font-size: 24px;
     }
 }
 

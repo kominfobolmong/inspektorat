@@ -169,9 +169,9 @@
                         >
                             <ul class="about__exp__list">
                                 <li>
-                                    <h5 class="title">
+                                    {{-- <h5 class="title">
                                         Tupoksi
-                                    </h5>
+                                    </h5> --}}
                                     <p>
                                         {!! $item->tupoksi ?? null !!}
                                     </p>
