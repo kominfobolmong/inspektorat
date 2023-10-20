@@ -61,7 +61,7 @@
                                 <h4 class="title">Dinas Perkebunan</h4>
                             </div>
                             <div class="footer__widget__text">
-                                <p>Jl. Trans Sulawesi, Lolak, Kabupaten Bolaang Mongondow, Sulawesi Utara</p>
+                                <p>{{ $contact->alamat ?? null }}</p>
                             </div>
                         </div>
                     </div>
@@ -71,9 +71,9 @@
                                 <h5 class="sub-title">Link Terkait</h5>
                             </div>
                             <div class="footer__widget__address">
-                                <a href="#" class="mail">Bolmongkab</a><br>
-                                <a href="#" class="mail">Diskominfo</a> <br>
-                                <a href="#" class="mail">PPID</a>
+                                @foreach ($links as $item)
+                                    <a href="{{ $item->url }}" class="mail">{{ $item->name }}</a><br>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -83,10 +83,10 @@
                                 <h5 class="sub-title">Kontak</h5>
                             </div>
                             <div class="footer__widget__social">
-                                <p>No telp: </p>
-                                <p>Email: </p>
+                                <p>{{ 'Telepon: '. $contact->no_telp ?? null }}</p>
+                                <p>{{ 'Email: '. $contact->email ?? null }}</p>
                                 <ul class="footer__social__list">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://web.facebook.com/profile.php?id=61552159365094"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                     <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                 </ul>

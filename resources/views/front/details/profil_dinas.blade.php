@@ -191,7 +191,7 @@
                                         <div
                                             class="about__skill__item"
                                         >
-                                           <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="struktur-organisasi" class="img-fluid">
+                                           <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="image-struktur-organisasi" class="img-fluid">
                                         </div>
                                     </div>
                                 </div>
@@ -210,7 +210,7 @@
                                         <div
                                             class="about__skill__item"
                                         >
-                                        <img src="{{ Storage::url($item->maklumat ?? null) }}" alt="maklumat-pelayanan" class="img-fluid">
+                                        <img src="{{ Storage::url($item->maklumat ?? null) }}" alt="image-maklumat-pelayanan" class="img-fluid">
                                         </div>
                                     </div>
                                 </div>

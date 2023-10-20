@@ -2,43 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\View;
-
-use App\Models\Event;
 use App\Models\Tag;
-use App\Models\Slider;
-use App\Models\Service;
 use App\Models\Category;
-use App\Models\Download;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
-use App\Models\Faq;
-use App\Models\Infografis;
 use App\Models\Komoditas;
 use App\Models\Link;
 use App\Models\News;
-use App\Models\Photo;
-use App\Models\Potensi;
 use App\Models\Profile;
-use App\Models\Profpeg;
 use App\Models\Sosmed;
-use App\Models\Video;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
 
     public function index()
     {
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $komoditas = Komoditas::take(5)->latest()->get();
-        $artikel = News::without('tags')->take(3)->latest()->get();
+        $artikel = News::with('category')->take(3)->latest()->get();
         $links = Link::latest()->get();
         $sosmeds = Sosmed::get();
+
+        $count_komoditas = DB::table('komoditas')->count();
+        $count_artikel = DB::table('news')->count();
 
         return view('front.index', compact(
             'contact',
@@ -46,13 +33,15 @@ class PageController extends Controller
             'komoditas',
             'artikel',
             'sosmeds',
+            'count_komoditas',
+            'count_artikel',
         ));
     }
 
     public function profil_dinas()
     {
         $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat', 'tupoksi')->first();
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -61,12 +50,12 @@ class PageController extends Controller
 
     public function komoditas()
     {
-        $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat')->first();
-        $contact = Contact::first();
+        $items = Komoditas::get();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.komoditas', compact('item', 'contact', 'sosmeds', 'links'));
+        return view('front.details.komoditas', compact('items', 'contact', 'sosmeds', 'links'));
     }
 
     public function komoditas_detail($slug)
@@ -76,7 +65,7 @@ class PageController extends Controller
         $tags = Tag::latest()->get();
         $item = Komoditas::where('slug', $slug)->firstOrFail();
         $news_new = News::take(5)->latest()->get();
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -85,16 +74,16 @@ class PageController extends Controller
 
     public function artikel()
     {
-        $artikel = News::without('tags')->latest()->paginate(10);
+        $items = News::without('tags')->latest()->paginate(10);
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $news_new = News::take(5)->latest()->get();
         $category = Category::withCount('news')->get();
         $tags = Tag::latest()->get();
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.artikel', compact('artikel', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+        return view('front.details.artikel', compact('items', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
     }
 
     public function artikel_detail($slug)
@@ -104,7 +93,7 @@ class PageController extends Controller
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $artikel = News::where('slug', $slug)->firstOrFail();
         $news_new = News::take(5)->latest()->get();
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -130,7 +119,7 @@ class PageController extends Controller
         $category = Category::latest()->get();
         $tags = Tag::latest()->get();
         $news_new = News::take(3)->latest()->get();
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
@@ -144,7 +133,7 @@ class PageController extends Controller
         $category = Category::latest()->get();
         $tags = Tag::latest()->get();
         $news_new = News::take(3)->latest()->get();
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
@@ -155,7 +144,7 @@ class PageController extends Controller
     public function konsultasi()
     {
         $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat')->first();
-        $contact = Contact::first();
+        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 

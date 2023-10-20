@@ -151,7 +151,7 @@
 
                         @can('profpegs.index')
                         <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('profpeg.index') }}"><i class="fas fa-user"></i>
-                        <span>Profil Pegawai</span></a></li>
+                        <span>SDM</span></a></li>
                         @endcan
 
                         @can('contact.index')

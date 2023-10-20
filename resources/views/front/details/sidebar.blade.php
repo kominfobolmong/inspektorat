@@ -23,7 +23,7 @@
                         <a href="{{ route('artikel-detail', $item->slug) }}"><img src="{{ $item->image }}" alt="{{ $item->slug }}"></a>
                     </div>
                     <div class="rc__post__content">
-                        <h5 class="title"><a href="{{ route('artikel-detail', $item->slug) }}">{{ $item->title }}</a></h5>
+                        <h5 class="title"><a href="{{ route('artikel-detail', $item->slug) }}">{{ Str::limit($item->title, 100, '...') }}</a></h5>
                         <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ $item->created_at->diffForHumans() }}</span>
                     </div>
                 </li>
@@ -41,22 +41,10 @@
         <div class="widget">
             <h4 class="widget-title">Konsultasi Terkini</h4>
             <ul class="sidebar__comment">
-                <li class="sidebar__comment__item">
+                {{-- <li class="sidebar__comment__item">
                     <a href="blog-details.html">Rasalina Sponde</a>
                     <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
-                </li>
-                <li class="sidebar__comment__item">
-                    <a href="blog-details.html">Rasalina Sponde</a>
-                    <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
-                </li>
-                <li class="sidebar__comment__item">
-                    <a href="blog-details.html">Rasalina Sponde</a>
-                    <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
-                </li>
-                <li class="sidebar__comment__item">
-                    <a href="blog-details.html">Rasalina Sponde</a>
-                    <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
-                </li>
+                </li> --}}
             </ul>
         </div>
         <div class="widget">

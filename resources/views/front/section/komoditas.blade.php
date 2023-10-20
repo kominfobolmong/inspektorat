@@ -19,11 +19,11 @@
             <div class="col-xl-3 mx-1">
                 <div class="services__item">
                     <div class="services__thumb">
-                        <a href="{{ route('komoditas-detail', $item->slug) }}"><img src="{{ Storage::url($item->image) }}" class="rounded" alt="{{ $item->slug }}"></a>
+                        <a href="{{ route('komoditas-detail', $item->slug) }}"><img src="{{ Storage::url($item->image) }}" class="img-fluid rounded" alt="{{ $item->slug }}"></a>
                     </div>
                     <div class="services__content">
-                        <h3 class="title"><a href="{{ route('komoditas-detail', $item->slug) }}">{{ $item->nama }}</a></h3>
-                        <p>{!! $item->deskripsi !!}</p>
+                        <h3 class="title text-center"><a href="{{ route('komoditas-detail', $item->slug) }}">{{ $item->nama }}</a></h3>
+                        {{-- <p>{!! $item->deskripsi !!}</p> --}}
                     </div>
                 </div>
             </div>
