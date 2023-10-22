@@ -27,6 +27,8 @@ class PageController extends Controller
 
         $count_komoditas = DB::table('komoditas')->count();
         $count_artikel = DB::table('news')->count();
+        $visitors = DB::table('visitors')->count();
+        $visitor_today = DB::table('visitors')->where('date', today())->count();
 
         return view('front.index', compact(
             'contact',
@@ -36,6 +38,8 @@ class PageController extends Controller
             'sosmeds',
             'count_komoditas',
             'count_artikel',
+            'visitors',
+            'visitor_today',
         ));
     }
 

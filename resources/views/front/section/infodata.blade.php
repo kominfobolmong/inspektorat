@@ -27,7 +27,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="contact__info">
                     <div class="contact__info__icon">
-                        <h2>2</h2>
+                        <h2>{{ $visitor_today }}</h2>
                     </div>
                     <div class="contact__info__content">
                         <h4 class="title">Pengunjung Hari Ini</h4>
@@ -38,7 +38,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="contact__info">
                     <div class="contact__info__icon">
-                        <h2>500</h2>
+                        <h2>{{ $visitors }}</h2>
                     </div>
                     <div class="contact__info__content">
                         <h4 class="title">Total Pengunjung</h4>
