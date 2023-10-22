@@ -10,6 +10,7 @@ use App\Models\Komoditas;
 use App\Models\Link;
 use App\Models\News;
 use App\Models\Profile;
+use App\Models\Profpeg;
 use App\Models\Sosmed;
 use Illuminate\Support\Facades\DB;
 
@@ -41,11 +42,12 @@ class PageController extends Controller
     public function profil_dinas()
     {
         $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat', 'tupoksi')->first();
+        $profpegs = Profpeg::get();
         $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.profil_dinas', compact('item', 'contact', 'sosmeds', 'links'));
+        return view('front.details.profil_dinas', compact('item', 'profpegs', 'contact', 'sosmeds', 'links'));
     }
 
     public function komoditas()

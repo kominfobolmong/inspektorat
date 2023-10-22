@@ -4,14 +4,14 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Tambah File</h1>
+            <h1>Tambah Data</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-video"></i> Tambah Profil Pegawai</h4>
+                    <h4><i class="fas fa-user"></i> Tambah SDM</h4>
                 </div>
 
                 <div class="card-body">
@@ -65,8 +65,24 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
+                                <strong>Whatsapp:</strong>
+                                <input type="text" name="whatsapp" value="{{ old('whatsapp') }}"
+                                    placeholder="Masukkan Whatsapp"
+                                    class="form-control @error('whatsapp') is-invalid @enderror">
+
+                                @error('whatsapp')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
                                 <strong>Foto:</strong>
-                                <input type="file" name="foto" class="form-control" placeholder="foto" value="#">
+                                <input type="file" name="foto" class="form-control @error('foto') is-invalid @enderror">
+
                                 @error('foto')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
@@ -74,10 +90,28 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 text-left">
-                            <button type="submit" class="btn btn-primary"
-                                onClick="return confirm('Simpan ?')">Simpan</button>
 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            {{-- <div class="form-group">
+                                <strong>Foto:</strong>
+                                <input type="checkbox" name="is_customer_service" class="form-control @error('is_customer_service') is-invalid @enderror">
+
+                                @error('is_customer_service')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div> --}}
+
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" name="is_customer_service" class="form-check-input" value="Y">Apakah pegawai  termasuk customer service?
+                                </label>
+                              </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                             <a class="btn btn-light" href="{{ route('profpeg.index') }}">Batal</a>
                         </div>
 

@@ -53,27 +53,29 @@ class ProfpegController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
+            'nip' => 'required|unique:profpegs,nip',
             'jabatan' => 'required',
-            'nip' => 'required',
-            'foto' => 'required|file|mimes:jpg,jpeg,png|max:20048',
+            'whatsapp' => 'unique:profpegs,whatsapp',
+            'foto' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         //upload image
-        $foto = $request->file('foto');
-        $foto->storeAs('public/files', $foto->hashName());
+        if ($request->file('foto')) {
+            $foto = $request->file('foto')->store('assets/sdm', 'public');
+        }
 
-        $profpeg = Profpeg::create([
-            'foto'     => $foto->hashName(),
+        $data = Profpeg::create([
             'nama' => $request->input('nama'),
+            'nip' => $request->input('nip'),
             'jabatan' => $request->input('jabatan'),
-            'nip' => $request->input('nip')
+            'foto' => ($request->file('foto')) ? $foto : null,
+            'whatsapp' => $request->input('whatsapp'),
+            'is_customer_service' => $request->input('is_customer_service'),
         ]);
 
-        if ($profpeg) {
-            //redirect dengan pesan sukses
+        if ($data) {
             return redirect()->route('profpeg.index')->with(['success' => 'Data Berhasil Disimpan!']);
         } else {
-            //redirect dengan pesan error
             return redirect()->route('profpeg.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }

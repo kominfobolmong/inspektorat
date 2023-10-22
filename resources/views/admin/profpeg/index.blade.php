@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Profil Pegawai</h1>
+            <h1>SDM</h1>
         </div>
 
         <div class="section-body">
@@ -26,7 +26,7 @@
                                         style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                 </div>
                                 @endcan
-                                <input type="text" class="form-control" name="q" placeholder="cari berdasarkan nama">
+                                <input type="text" class="form-control" name="q" placeholder="cari pegawai">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                     </button>
@@ -40,17 +40,19 @@
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                     <th scope="col">NAMA</th>
+                                    <th scope="col">JABATAN</th>
                                     <th scope="col">FOTO</th>
                                     <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($profpegs as $no => $item)
+                                @forelse ($profpegs as $no => $item)
                                 <tr>
                                     <th scope="row" style="text-align: center">
                                         {{ ++$no + ($profpegs->currentPage()-1) * $profpegs->perPage() }}</th>
                                     <td>{{ $item->nama }}</td>
-                                    <td class="text-center"><img src="{{ Storage::url('public/files/'. $item->foto) }}" style="width: 10%; padding: 2%;"></td>
+                                    <td>{{ $item->jabatan }}</td>
+                                    <td class="text-center"><img src="{{ Storage::url($item->foto) }}" style="width: 30%; padding: 2%;"></td>
                                     <td class="text-center">
                                     @can('profpegs.edit')
 
@@ -66,7 +68,11 @@
                                         @endcan
                                     </td>
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    <td colspan="5">empty</td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
                         <div style="text-align: center">

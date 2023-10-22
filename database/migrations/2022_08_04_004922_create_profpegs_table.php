@@ -20,7 +20,7 @@ class CreateProfpegsTable extends Migration
             $table->string('jabatan');
             $table->string('whatsapp')->unique()->nullable();
             $table->string('foto')->nullable();
-            $table->enum('is_customer_service', ['Y','N'])->default('N');
+            $table->enum('is_customer_service', ['Y','N'])->nullable()->default('N');
             $table->timestamps();
         });
     }

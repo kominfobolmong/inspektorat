@@ -24,7 +24,7 @@
             <div class="col-lg-6">
                 <div class="about__content">
                     <div class="section__title">
-                        <span class="sub-title">Profil Pimpinan</span>
+                        {{-- <span class="sub-title">Profil Pimpinan</span> --}}
                         <h2 class="title">
                             Kepala Dinas Perkebunan
                         </h2>
@@ -39,7 +39,7 @@
                         <div class="about__exp__content">
                             <p>
                                 TONNY SUSANTO TOLIGAGA, S.Pt, MP <br />
-                                NIP: *********
+                                NIP: 1234567890
                             </p>
                         </div>
                     </div>
@@ -224,145 +224,27 @@
                             aria-labelledby="sdm-tab"
                         >
                             <div class="about__award__wrap">
-                                <div
-                                    class="row justify-content-center"
-                                >
-                                    <div class="col-md-6 col-sm-9">
-                                        <div
-                                            class="about__award__item"
-                                        >
-                                            <div
-                                                class="award__logo"
-                                            >
-                                                <img
-                                                    src="assets/img/images/awards_01.png"
-                                                    alt=""
-                                                />
+                                <div class="row justify-content-center">
+
+                                    @foreach ($profpegs as $item)
+                                    <div class="col-md-4 col-sm-9">
+                                        <div class="about__award__item">
+                                            <div class="award__logo">
+                                                <img src="{{ Storage::url($item->foto) }}" alt="{{ $item->nama }}" />
                                             </div>
-                                            <div
-                                                class="award__content"
-                                            >
+                                            <div class="award__content">
                                                 <h5 class="title">
-                                                    Best ux designer
-                                                    award in 2002
+                                                    {{ $item->nama }}
                                                 </h5>
+                                                <p>{{ $item->nip }}</p>
                                                 <p>
-                                                    There are many
-                                                    variations of
-                                                    passages of
-                                                    Lorem Ipsum
-                                                    available, but
-                                                    the majority
-                                                    have suffered
-                                                    alteration in
-                                                    some form, by
-                                                    injected humour,
+                                                    {{ $item->jabatan }}
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-9">
-                                        <div
-                                            class="about__award__item"
-                                        >
-                                            <div
-                                                class="award__logo"
-                                            >
-                                                <img
-                                                    src="assets/img/images/awards_02.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div
-                                                class="award__content"
-                                            >
-                                                <h5 class="title">
-                                                    BBA final
-                                                    examination 2001
-                                                </h5>
-                                                <p>
-                                                    There are many
-                                                    variations of
-                                                    passages of
-                                                    Lorem Ipsum
-                                                    available, but
-                                                    the majority
-                                                    have suffered
-                                                    alteration in
-                                                    some form, by
-                                                    injected humour,
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-9">
-                                        <div
-                                            class="about__award__item"
-                                        >
-                                            <div
-                                                class="award__logo"
-                                            >
-                                                <img
-                                                    src="assets/img/images/awards_03.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div
-                                                class="award__content"
-                                            >
-                                                <h5 class="title">
-                                                    User research
-                                                    award 2020
-                                                </h5>
-                                                <p>
-                                                    There are many
-                                                    variations of
-                                                    passages of
-                                                    Lorem Ipsum
-                                                    available, but
-                                                    the majority
-                                                    have suffered
-                                                    alteration in
-                                                    some form, by
-                                                    injected humour,
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-9">
-                                        <div
-                                            class="about__award__item"
-                                        >
-                                            <div
-                                                class="award__logo"
-                                            >
-                                                <img
-                                                    src="assets/img/images/awards_04.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div
-                                                class="award__content"
-                                            >
-                                                <h5 class="title">
-                                                    Dsigning award
-                                                    2021
-                                                </h5>
-                                                <p>
-                                                    There are many
-                                                    variations of
-                                                    passages of
-                                                    Lorem Ipsum
-                                                    available, but
-                                                    the majority
-                                                    have suffered
-                                                    alteration in
-                                                    some form, by
-                                                    injected humour,
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>
