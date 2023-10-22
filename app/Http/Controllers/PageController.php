@@ -24,6 +24,7 @@ class PageController extends Controller
         $artikel = News::with('category')->take(3)->latest()->get();
         $links = Link::latest()->get();
         $sosmeds = Sosmed::get();
+        $contact_cs = Profpeg::select('foto', 'nama', 'jabatan', 'whatsapp')->where('is_customer_service', 'Y')->get();
 
         $count_komoditas = DB::table('komoditas')->count();
         $count_artikel = DB::table('news')->count();
@@ -40,18 +41,20 @@ class PageController extends Controller
             'count_artikel',
             'visitors',
             'visitor_today',
+            'contact_cs',
         ));
     }
 
     public function profil_dinas()
     {
         $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat', 'tupoksi')->first();
+        $kadis = Profpeg::select('nama', 'nip')->where('jabatan', 'Kepala Dinas')->first();
         $profpegs = Profpeg::get();
         $contact = Contact::select('email', 'alamat', 'no_telp')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.profil_dinas', compact('item', 'profpegs', 'contact', 'sosmeds', 'links'));
+        return view('front.details.profil_dinas', compact('item', 'profpegs', 'contact', 'sosmeds', 'links', 'kadis'));
     }
 
     public function komoditas()

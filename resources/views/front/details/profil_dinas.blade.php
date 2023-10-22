@@ -38,8 +38,8 @@
                         </div> --}}
                         <div class="about__exp__content">
                             <p>
-                                TONNY SUSANTO TOLIGAGA, S.Pt, MP <br />
-                                NIP: 1234567890
+                                {{ $kadis->nama }} <br />
+                                NIP: {{ $kadis->nip }}
                             </p>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
                                                 <h5 class="title">
                                                     {{ $item->nama }}
                                                 </h5>
-                                                <p>{{ $item->nip }}</p>
+                                                <p>NIP {{ $item->nip }}</p>
                                                 <p>
                                                     {{ $item->jabatan }}
                                                 </p>
