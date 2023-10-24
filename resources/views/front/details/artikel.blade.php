@@ -16,13 +16,13 @@
                 @foreach ($items as $item)
                 <div class="standard__blog__post">
                     <div class="standard__blog__thumb">
-                        <a href="{{ route('artikel-detail', $item->slug) }}"><img src="{{ $item->image }}" alt="{{ $item->slug }}"></a>
+                        <a href="{{ route('artikel-detail', $item->slug) }}"><img src="{{ $item->image }}" alt="artikel-image"></a>
                     </div>
                     <div class="standard__blog__content">
                         <div class="blog__post__avatar">
                             <span class="post__by">By : <a href="#">{{ $item->user->name }}</a></span>
                         </div>
-                        <h2 class="title"><a href="{{ route('artikel-detail', $item->slug) }}">{{ $item->title }}</a></h2>
+                        <h2 class="title"><a href="{{ route('artikel-detail', $item->slug) }}">{{ Str::title($item->title) }}</a></h2>
                         <p>{!! Str::limit($item->body, 100, '...') !!}</p>
                         <ul class="blog__post__meta">
                             <li><i class="fal fa-calendar-alt"></i> {{ $item->created_at->diffForHumans() }}</li>

@@ -7,10 +7,10 @@
                     <div class="menu__wrap">
                         <nav class="menu__nav">
                             <div class="logo">
-                                <a href="/" class="logo__black">
-                                    {{-- <img src="{{ asset('templates/frontend/img/logo/logo-bolmong.png') }}" alt="logo" width="50"> --}}
-                                    <div class="logo-brand" style="display: inline-block;">
-                                        <h4>Dinas Perkebunan <br>Kab. Bolaang Mongondow</h4>
+                                <a href="/">
+                                    <div class="logo-brand d-flex">
+                                        <img src="{{ asset('templates/frontend/img/logo/logo-bolmong.png') }}" alt="logo" width="50" />
+                                        <h4 style="margin-left: 5px;">DINAS PERKEBUNAN <br> KAB. BOLAANG MONGONDOW</h4>
                                     </div>
                                 </a>
                             </div>
@@ -29,9 +29,9 @@
                                     <li class="{{ setActive('kontak') }}"><a href="{{ route('kontak') }}">Kontak</a></li>
                                 </ul>
                             </div>
-                            <div class="header__btn d-none d-md-block">
+                            {{-- <div class="header__btn d-none d-md-block">
                                 <a href="{{ route('konsultasi') }}" class="btn"><i class="fab fa-whatsapp"></i> Konsultasi Online</a>
-                            </div>
+                            </div> --}}
                         </nav>
                     </div>
                     <!-- Mobile Menu  -->

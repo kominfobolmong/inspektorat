@@ -1996,13 +1996,14 @@ label {
 
 .navbar__wrap {
     display: flex;
+    justify-content: flex-end;
     flex-grow: 1;
 }
 .navbar__wrap ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0 auto 0 160px;
+    margin: 0 30px 0 0;
 }
 @media (max-width: 1500px) {
     .navbar__wrap ul {
@@ -2456,18 +2457,29 @@ Breadcrumb
 03. Banner
 =============================*/
 .banner {
-    margin-top: 100px;
+    margin-top: 10%;
     position: relative;
     padding: 140px 0 0;
+    background-image: url("../img/bg/kakao-bg1.jpg");
+    height: 75vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
 }
 @media (max-width: 1199.98px) {
     .banner {
         padding: 120px 0 0;
+        margin-top: 20%;
+        height: 78vh;
     }
 }
 @media (max-width: 991.98px) {
     .banner {
-        padding: 120px 0 170px;
+        /* padding: 50px 0 50px; */
+        margin-top: 20%;
+        height: 78vh;
     }
 }
 .banner__content {
@@ -2483,11 +2495,14 @@ Breadcrumb
 @media (max-width: 991.98px) {
     .banner__content {
         margin-top: 0;
+        padding: 0;
         text-align: center;
     }
 }
 .banner__content .title {
-    font-size: 40px;
+    font-size: 48px;
+    color: #fff;
+    font-weight: 700;
     text-transform: inherit;
     margin-bottom: 30px;
 }
@@ -2504,7 +2519,7 @@ Breadcrumb
 }
 @media (max-width: 767.98px) {
     .banner__content .title {
-        font-size: 28px;
+        font-size: 24px;
     }
 }
 .banner__content .title span {
@@ -3514,7 +3529,7 @@ Breadcrumb
 
 .services__style__two {
     background: #f7f7f7;
-    padding: 120px 0 120px;
+    padding: 40px 0 120px;
 }
 .services__style__two .section__title {
     margin-bottom: 60px;
@@ -5152,6 +5167,7 @@ Breadcrumb
 } */
 .blog__post__item {
     margin-bottom: 30px;
+    margin-right: 10px;
 }
 .blog__post__item:hover .blog__post__content .title a {
     color: #0054ff;

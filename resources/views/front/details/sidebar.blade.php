@@ -20,10 +20,10 @@
                 @foreach ($news_new as $item)
                 <li class="rc__post__item">
                     <div class="rc__post__thumb">
-                        <a href="{{ route('artikel-detail', $item->slug) }}"><img src="{{ $item->image }}" alt="{{ $item->slug }}"></a>
+                        <a href="{{ route('artikel-detail', $item->slug) }}"><img src="{{ $item->image }}" alt="artikel-image"></a>
                     </div>
                     <div class="rc__post__content">
-                        <h5 class="title"><a href="{{ route('artikel-detail', $item->slug) }}">{{ Str::limit($item->title, 100, '...') }}</a></h5>
+                        <h5 class="title"><a href="{{ route('artikel-detail', $item->slug) }}">{{ Str::limit(Str::title($item->title), 100, '...') }}</a></h5>
                         <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ $item->created_at->diffForHumans() }}</span>
                     </div>
                 </li>
@@ -31,7 +31,7 @@
             </ul>
         </div>
         <div class="widget">
-            <h4 class="widget-title">Categories</h4>
+            <h4 class="widget-title">Kategori</h4>
             <ul class="sidebar__cat">
                 @foreach ($category as $item)
                 <li class="sidebar__cat__item"><a href="#">{{ $item->name }} ({{ $item->news->count() }})</a></li>
@@ -48,7 +48,7 @@
             </ul>
         </div>
         <div class="widget">
-            <h4 class="widget-title">Popular Tags</h4>
+            <h4 class="widget-title">Tags</h4>
             <ul class="sidebar__tags">
                 @foreach ($tags as $item)
                 <li><a href="#">{{ $item->name }}</a></li>

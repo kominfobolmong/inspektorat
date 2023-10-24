@@ -14,7 +14,7 @@
             <div class="col-lg-8">
                 <div class="standard__blog__post">
                     <div class="standard__blog__thumb">
-                        <img src="{{ $artikel->image ?? null }}" alt="{{ $artikel->slug }}">
+                        <img src="{{ $artikel->image ?? null }}" alt="artikel-image">
                     </div>
                     <div class="blog__details__content services__details__content">
                         <ul class="blog__post__meta">
@@ -22,7 +22,7 @@
                             <li><i class="fal fa-user-alt"></i> <a href="#">{{ $artikel->user->name }}</a></li>
                             <li class="post-share"><a href="#"><i class="fal fa-eye"></i> (18)</a></li>
                         </ul>
-                        <h2 class="title">{{ $artikel->title ?? null }}</h2>
+                        <h2 class="title">{{ Str::title($artikel->title) ?? null }}</h2>
                         <p>{!! $artikel->body ?? null !!}</p>
                     </div>
                     <div class="blog__details__bottom">

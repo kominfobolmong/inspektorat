@@ -143,7 +143,7 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.konsultasi', compact('item', 'contact', 'sosmeds', 'links'));
+        return view('front.details.konsultasi', compact('contact', 'sosmeds', 'links'));
     }
 
     public function kontak()
