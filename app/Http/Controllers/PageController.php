@@ -19,7 +19,7 @@ class PageController extends Controller
 
     public function index()
     {
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $komoditas = Komoditas::take(5)->latest()->get();
         $artikel = News::with('category')->take(3)->latest()->get();
         $links = Link::latest()->get();
@@ -50,7 +50,7 @@ class PageController extends Controller
         $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat', 'tupoksi')->first();
         $kadis = Profpeg::select('nama', 'nip')->where('jabatan', 'Kepala Dinas')->first();
         $profpegs = Profpeg::get();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -60,7 +60,7 @@ class PageController extends Controller
     public function komoditas()
     {
         $items = Komoditas::get();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -74,7 +74,7 @@ class PageController extends Controller
         $tags = Tag::latest()->get();
         $item = Komoditas::where('slug', $slug)->firstOrFail();
         $news_new = News::take(5)->latest()->get();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -88,7 +88,7 @@ class PageController extends Controller
         $news_new = News::take(5)->latest()->get();
         $category = Category::withCount('news')->get();
         $tags = Tag::latest()->get();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -102,25 +102,12 @@ class PageController extends Controller
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $artikel = News::where('slug', $slug)->firstOrFail();
         $news_new = News::take(5)->latest()->get();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
         return view('front.details.artikel_detail', compact('artikel', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
     }
-
-
-    // public function berita()
-    // {
-    //     $news = News::without('tags')->latest()->paginate(9);
-    //     $contact = Contact::first();
-    //     $profil = Profile::select('logo', 'favicon')->first();
-    //     $sosmeds = Sosmed::get();
-    //     $links = Link::latest()->get();
-
-    //     return view('frontend.detail.berita', compact('news', 'contact', 'profil', 'sosmeds', 'links'));
-    // }
-
 
     public function kategori(Category $kategori)
     {
@@ -128,7 +115,7 @@ class PageController extends Controller
         $category = Category::latest()->get();
         $tags = Tag::latest()->get();
         $news_new = News::take(3)->latest()->get();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
@@ -142,7 +129,7 @@ class PageController extends Controller
         $category = Category::latest()->get();
         $tags = Tag::latest()->get();
         $news_new = News::take(3)->latest()->get();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
@@ -152,8 +139,7 @@ class PageController extends Controller
 
     public function konsultasi()
     {
-        $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat')->first();
-        $contact = Contact::select('email', 'alamat', 'no_telp')->first();
+        $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
@@ -162,26 +148,11 @@ class PageController extends Controller
 
     public function kontak()
     {
-        $kontak = Contact::latest()->first();
         $contact = Contact::first();
-        $profil = Profile::select('logo', 'favicon')->first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.kontak', compact('kontak', 'contact', 'profil', 'sosmeds', 'links'));
+        return view('front.details.kontak', compact('contact', 'sosmeds', 'links'));
     }
-
-    // public function download()
-    // {
-    //     $downloads = Download::latest()->paginate(5);
-    //     return view('opd/detail/download', compact('downloads'));
-    // }
-
-    // public function getDownload(Request $request, $id)
-    // {
-    //     $entry = Download::where('id', '=', $id)->firstOrFail();
-    //     $pathToFile = storage_path() . "/app/public/" . $entry->file;
-    //     return response()->download($pathToFile);
-    // }
 
 }

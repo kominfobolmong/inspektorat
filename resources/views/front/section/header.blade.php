@@ -25,17 +25,12 @@
                                             <li><a href="{{ route('konsultasi') }}">Konsultasi Online</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="#">Media Publikasi</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Dokumentasi Foto/Video</a></li>
-                                            <li><a href="#">Unduh Dokumen</a></li>
-                                        </ul>
-                                    </li>
+                                    <li class="{{ setActive('dokumentasi-kegiatan') }}"><a href="{{ route('dokumentasi-kegiatan') }}">Dokumentasi Kegiatan</a></li>
                                     <li class="{{ setActive('kontak') }}"><a href="{{ route('kontak') }}">Kontak</a></li>
                                 </ul>
                             </div>
                             <div class="header__btn d-none d-md-block">
-                                <a href="#konsultasi-online" class="btn"><i class="fab fa-whatsapp"></i> Konsultasi Online</a>
+                                <a href="{{ route('konsultasi') }}" class="btn"><i class="fab fa-whatsapp"></i> Konsultasi Online</a>
                             </div>
                         </nav>
                     </div>

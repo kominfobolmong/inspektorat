@@ -40,9 +40,10 @@
                                 <tr>
                                     <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                     <th scope="col">NAMA</th>
+                                    <th scope="col">NIP</th>
                                     <th scope="col">JABATAN</th>
                                     <th scope="col">FOTO</th>
-                                    <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                    <th scope="col">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,9 +52,10 @@
                                     <th scope="row" style="text-align: center">
                                         {{ ++$no + ($profpegs->currentPage()-1) * $profpegs->perPage() }}</th>
                                     <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->nip }}</td>
                                     <td>{{ $item->jabatan }}</td>
-                                    <td class="text-center"><img src="{{ Storage::url($item->foto) }}" style="width: 30%; padding: 2%;"></td>
-                                    <td class="text-center">
+                                    <td><img src="{{ Storage::url($item->foto) }}" class="img-thumbnail img-fluid" width="70" height="70" /></td>
+                                    <td>
                                     @can('profpegs.edit')
 
                                             <a href="{{ route('profpeg.edit', $item->id) }}" class="btn btn-sm btn-primary">
@@ -70,7 +72,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="5">empty</td>
+                                    <td colspan="6">empty</td>
                                 </tr>
                                 @endforelse
                             </tbody>

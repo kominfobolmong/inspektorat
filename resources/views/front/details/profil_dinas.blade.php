@@ -38,8 +38,8 @@
                         </div> --}}
                         <div class="about__exp__content">
                             <p>
-                                {{ $kadis->nama }} <br />
-                                NIP: {{ $kadis->nip }}
+                                {{ $kadis->nama ?? null }} <br />
+                                NIP: {{ $kadis->nip ?? null }}
                             </p>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                                     <div class="col-md-4 col-sm-9">
                                         <div class="about__award__item">
                                             <div class="award__logo">
-                                                <img src="{{ Storage::url($item->foto) }}" alt="{{ $item->nama }}" />
+                                                <img src="{{ Storage::url($item->foto) }}" class="img-fluid img-thumbnail" alt="photo" />
                                             </div>
                                             <div class="award__content">
                                                 <h5 class="title">

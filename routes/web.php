@@ -36,6 +36,7 @@ Route::middleware('visitor')->group(function() {
         Route::get('/artikel-perkebunan/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
         Route::get('/konsultasi-online', [PageController::class, 'konsultasi'])->name('konsultasi');
     });
+    Route::get('/dokumentasi-kegiatan', [PageController::class, 'dokumentasi_kegiatan'])->name('dokumentasi-kegiatan');
     Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 });
 
