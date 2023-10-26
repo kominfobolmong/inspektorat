@@ -84,9 +84,9 @@ class PageController extends Controller
 
     public function artikel()
     {
-        $items = News::without('tags')->latest()->paginate(10);
+        $items = News::without('tags')->latest()->paginate(5);
         $komoditas = Komoditas::select('nama', 'slug')->get();
-        $news_new = News::take(5)->latest()->get();
+        $news_new = News::take(3)->latest()->get();
         $category = Category::withCount('news')->get();
         $tags = Tag::latest()->get();
         $contact = Contact::first();

@@ -4,27 +4,27 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>List Penyakit Tanaman</h1>
+            <h1>Mitra</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-tags"></i> List</h4>
+                    <h4><i class="fas fa-link"></i> Daftar Mitra</h4>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('penyakit.index') }}" method="GET">
+                    <form action="{{ route('mitra.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
-                                @can('penyakit.create')
+                                {{-- @can('mitra.create') --}}
                                     <div class="input-group-prepend">
-                                        <a href="{{ route('penyakit.create') }}" class="btn btn-primary" style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
+                                        <a href="{{ route('mitra.create') }}" class="btn btn-primary" style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                     </div>
-                                @endcan
+                                {{-- @endcan --}}
                                 <input type="text" class="form-control" name="q"
-                                       placeholder="cari berdasarkan nama">
+                                       placeholder="cari nama mitra">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                     </button>
@@ -36,41 +36,45 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                <th scope="col">NAMA</th>
-                                <th scope="col">PENYEMBUHAN</th>
-                                <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                <th scope="col">NO.</th>
+                                <th scope="col">NAMA PERUSAHAAN</th>
+                                <th scope="col">NAMA DIREKTUR</th>
+                                <th scope="col">ALAMAT</th>
+                                <th scope="col">BIDANG USAHA</th>
+                                <th scope="col">AKSI</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse ($items as $no => $item)
+                            @forelse ($mitras as $mitra)
                                 <tr>
-                                    <th scope="row" style="text-align: center">{{ ++$no + ($items->currentPage()-1) * $items->perPage() }}</th>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{!! Str::limit($item->body, 100, '...') !!}</td>
-                                    <td class="text-center">
-                                        @can('penyakit.edit')
-                                            <a href="{{ route('penyakit.edit', $item->id) }}" class="btn btn-sm btn-primary">
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $mitra->nama_perusahaan }}</td>
+                                    <td>{{ $mitra->nama_direktur }}</td>
+                                    <td>{{ $mitra->alamat }}</td>
+                                    <td>{{ $mitra->bidang_usaha }}</td>
+                                    <td>
+                                        {{-- @can('mitra.edit') --}}
+                                            <a href="{{ route('mitra.edit', $mitra->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                                        @endcan
+                                        {{-- @endcan --}}
 
-                                        @can('penyakit.delete')
-                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
+                                        {{-- @can('mitra.delete') --}}
+                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $mitra->id }}">
                                                 <i class="fa fa-trash"></i>
                                             </button>
-                                        @endcan
+                                        {{-- @endcan --}}
                                     </td>
                                 </tr>
                             @empty
                             <tr>
-                                <td colspan="4">Empty</td>
+                                <td colspan="6">Empty</td>
                             </tr>
                             @endforelse
                             </tbody>
                         </table>
                         <div style="text-align: center">
-                            {{$items->links("vendor.pagination.bootstrap-4")}}
+                            {{$mitras->links("vendor.pagination.bootstrap-4")}}
                         </div>
                     </div>
                 </div>
@@ -101,7 +105,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("penyakit.index") }}/"+id,
+                        url: "{{ route("mitra.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token

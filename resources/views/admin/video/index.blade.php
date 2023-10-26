@@ -49,7 +49,7 @@
                                     <td>{{ $video->title }}</td>
                                     <td>
                                         <div class="col-6">
-                                            {!! $video->embed !!}
+                                            <iframe width="200" src="https://www.youtube.com/embed/{!! $video->embed !!}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                         </div>
                                     </td>
                                     <td class="text-center">

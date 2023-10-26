@@ -35,6 +35,7 @@ class PermissionsTableSeeder extends Seeder
         //permission for photos
         Permission::create(['name' => 'photos.index']);
         Permission::create(['name' => 'photos.create']);
+        Permission::create(['name' => 'photos.edit']);
         Permission::create(['name' => 'photos.delete']);
 
         //permission for videos
@@ -130,5 +131,10 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'konsultasi.create']);
         Permission::create(['name' => 'konsultasi.edit']);
         Permission::create(['name' => 'konsultasi.delete']);
+
+        Permission::create(['name' => 'mitra.index']);
+        Permission::create(['name' => 'mitra.create']);
+        Permission::create(['name' => 'mitra.edit']);
+        Permission::create(['name' => 'mitra.delete']);
     }
 }

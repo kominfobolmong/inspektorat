@@ -4,71 +4,36 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Foto</h1>
+            <h1>Foto Kegiatan</h1>
         </div>
 
         <div class="section-body">
 
-            @can('photos.create')
-                <div class="card">
-                    <div class="card-header">
-                        <h4><i class="fas fa-image"></i> Upload Foto</h4>
-                    </div>
-
-                    <div class="card-body">
-
-                        <form action="{{ route('photo.store') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-
-                            <div class="form-group">
-                                <label>GAMBAR</label>
-                                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
-
-                                @error('image')
-                                <div class="invalid-feedback" style="display: block">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label>CAPTION</label>
-                                <input type="text" name="caption" value="{{ old('caption') }}" placeholder="Masukkan Judul Foto" class="form-control @error('caption') is-invalid @enderror">
-
-                                @error('caption')
-                                <div class="invalid-feedback" style="display: block">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label>DESKRIPSI</label>
-                                <textarea class="form-control content @error('deskripsi') is-invalid @enderror" name="deskripsi"
-                                    placeholder="Masukkan deskripsi singkat" rows="10">{!! old('deskripsi') !!}</textarea>
-                                @error('deskripsi')
-                                <div class="invalid-feedback" style="display: block">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i> UPLOAD</button>
-                            <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
-
-
-                        </form>
-
-                    </div>
-                </div>
-            @endcan
-
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-image"></i> Foto</h4>
+                    <h4><i class="fas fa-image"></i> List</h4>
                 </div>
 
                 <div class="card-body">
+
+                    <form action="{{ route('photo.index') }}" method="GET">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                @can('photos.create')
+                                <div class="input-group-prepend">
+
+                                    <a href="{{ route('photo.create') }}" class="btn btn-primary"
+                                        style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
+                                </div>
+                                @endcan
+                                <input type="text" class="form-control" name="q" placeholder="cari">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
                     <div class="table-responsive">
                         <table class="table table-bordered">
@@ -81,12 +46,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse ($photos as $no => $photo)
+                            @forelse ($photos as $photo)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td><img src="{{ Storage::url($photo->image) }}" class="img-fluid img-thumbnail" width="100" height="100"></td>
                                     <td>{{ $photo->caption }}</td>
                                     <td class="text-center">
+                                        {{-- @can('photos.edit') --}}
+                                            <a href="{{ route('photo.edit', $photo->id) }}" class="btn btn-sm btn-primary">
+                                                <i class="fa fa-pencil-alt"></i>
+                                            </a>
+                                        {{-- @endcan --}}
+
                                         @can('photos.delete')
                                             <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $photo->id }}">
                                                 <i class="fa fa-trash"></i>

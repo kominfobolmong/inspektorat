@@ -81,7 +81,7 @@
                             </li>
                         @endcan
 
-                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }} {{ setActive('admin/konsultasi') }} {{ setActive('admin/news') }}">
+                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }} {{ setActive('admin/konsultasi') }} {{ setActive('admin/news') }} {{ setActive('admin/mitra') }}">
                         {{-- @if(auth()->user()->can('penyakit.index') || auth()->user()->can('komoditas.index') || auth()->user()->can('konsultasi.index') || auth()->user()->can('news.index'))) --}}
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder"></i><span>LIMI</span></a>
                         {{-- @endif --}}
@@ -106,6 +106,11 @@
                                     <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-newspaper"></i>
                                     <span>Artikel</span></a></li>
                                 @endcan
+
+                                {{-- @can('mitra.index') --}}
+                                    <li class="{{ setActive('admin/mitra') }}"><a class="nav-link" href="{{ route('mitra.index') }}"><i class="fas fa-link"></i>
+                                    <span>Mitra</span></a></li>
+                                {{-- @endcan --}}
                             </ul>
                         </li>
 

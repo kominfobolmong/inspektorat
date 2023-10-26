@@ -17,7 +17,7 @@ class PhotoController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['permission:photos.index|photos.create|photos.delete']);
+        $this->middleware(['permission:photos.index|photos.create|photos.edit|photos.delete']);
     }
 
     /**
@@ -32,6 +32,11 @@ class PhotoController extends Controller
         })->paginate(10);
 
         return view('admin.photo.index', compact('photos'));
+    }
+
+    public function create()
+    {
+        return view('admin.photo.create');
     }
 
     /**
@@ -55,6 +60,38 @@ class PhotoController extends Controller
         $validated['deskripsi'] = $request->input('deskripsi');
 
         $photo = Photo::create($validated);
+
+        if ($photo) {
+            //redirect dengan pesan sukses
+            return redirect()->route('photo.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('photo.index')->with(['error' => 'Data Gagal Disimpan!']);
+        }
+    }
+
+    public function edit(Photo $photo)
+    {
+        return view('admin.photo.edit', compact('photo'));
+    }
+
+    public function update(Request $request, Photo $photo)
+    {
+        $this->validate($request, [
+            'caption' => 'required',
+            'image' => 'image|mimes:jpeg,jpg,png|max:2048',
+        ]);
+
+        if ($request->file('image')) {
+            Storage::delete($photo->image);
+            $image = $request->file('image')->store('assets/photos', 'public');
+        }
+
+        $photo = Photo::findOrFail($photo->id)->update([
+            'caption' => $request->input('caption'),
+            'deskripsi' => $request->input('deskripsi'),
+            'image' => ($request->file('image')) ? $image : $photo->image,
+        ]);
 
         if ($photo) {
             //redirect dengan pesan sukses

@@ -1,6 +1,6 @@
 <section class="blog">
     <div class="container">
-        <div class="services__title__wrap">
+        {{-- <div class="services__title__wrap">
             <div class="row align-items-center justify-content-between">
                 <div class="col-xl-5 col-lg-6 col-md-8">
                     <div class="section__title">
@@ -12,7 +12,8 @@
                     <div class="services__arrow"></div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        <h4>Artikel Terkini</h4><br>
         <div class="row gx-0 justify-content-center">
             @foreach ($artikel as $item)
             <div class="col-lg-4 col-md-6">

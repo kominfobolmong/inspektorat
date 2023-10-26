@@ -72,7 +72,7 @@
                         <div class="form-group">
                             <label>KONTEN</label>
                             <textarea class="form-control content @error('body') is-invalid @enderror" name="body"
-                                placeholder="Masukkan Konten / Isi Berita" rows="10">{!! old('content') !!}</textarea>
+                                placeholder="Masukkan Konten / Isi Berita" rows="10">{!! old('body') !!}</textarea>
                             @error('body')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
