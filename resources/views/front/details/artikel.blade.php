@@ -23,7 +23,7 @@
                             <span class="post__by">By : <a href="#">{{ $item->user->name }}</a></span>
                         </div>
                         <h2 class="title"><a href="{{ route('artikel-detail', $item->slug) }}">{{ Str::title($item->title) }}</a></h2>
-                        <p>{!! Str::limit($item->body, 100, '...') !!}</p>
+                        {{-- <p>{!! Str::limit($item->body, 100, '...') !!}</p> --}}
                         <ul class="blog__post__meta">
                             <li><i class="fal fa-calendar-alt"></i> {{ $item->created_at->diffForHumans() }}</li>
                             <li><i class="fal fa-folder"></i> <a href="#">{{ $item->category->name }}</a></li>
