@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\Komoditas;
 use App\Models\Link;
 use App\Models\News;
+use App\Models\Photo;
 use App\Models\Profile;
 use App\Models\Profpeg;
 use App\Models\Sosmed;
@@ -144,6 +145,16 @@ class PageController extends Controller
         $links = Link::latest()->get();
 
         return view('front.details.konsultasi', compact('contact', 'sosmeds', 'links'));
+    }
+
+    public function dokumentasi_kegiatan()
+    {
+        $items = Photo::latest()->paginate(10);
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.dokumentasi_kegiatan', compact('items', 'contact', 'sosmeds', 'links'));
     }
 
     public function kontak()

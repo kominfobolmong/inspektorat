@@ -42,6 +42,17 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group">
+                                <label>DESKRIPSI</label>
+                                <textarea class="form-control content @error('deskripsi') is-invalid @enderror" name="deskripsi"
+                                    placeholder="Masukkan deskripsi singkat" rows="10">{!! old('deskripsi') !!}</textarea>
+                                @error('deskripsi')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-upload"></i> UPLOAD</button>
                             <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
 
@@ -63,17 +74,17 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th scope="col" style="text-align: center;width: 6%">NO.</th>
+                                <th scope="col">NO.</th>
                                 <th scope="col">FOTO</th>
                                 <th scope="col">CAPTION</th>
-                                <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                <th scope="col">AKSI</th>
                             </tr>
                             </thead>
                             <tbody>
                             @forelse ($photos as $no => $photo)
                                 <tr>
-                                    <th scope="row" style="text-align: center">{{ ++$no + ($photos->currentPage()-1) * $photos->perPage() }}</th>
-                                    <td><img src="{{ Storage::url($photo->image) }}" style="width: 200px"></td>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td><img src="{{ Storage::url($photo->image) }}" class="img-fluid img-thumbnail" width="100" height="100"></td>
                                     <td>{{ $photo->caption }}</td>
                                     <td class="text-center">
                                         @can('photos.delete')

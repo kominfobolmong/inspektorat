@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>@yield('title') - Dinas Perkebunan Kabupaten Bolaang Mongondow</title>
-        <meta name="description" content="">
+        <meta name="description" content="Website Resmi Dinas Perkebunan Kabupaten Bolaang Mongondow">
+        <meta name="keyword" content="dibun, dinas perkebunan, kabupaten bolaang mongondow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('templates/frontend/img/logo/logo-bolmong.png') }}">

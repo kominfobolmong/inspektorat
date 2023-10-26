@@ -52,6 +52,8 @@ class PhotoController extends Controller
             $validated['image'] = $request->file('image')->store('assets/photos', 'public');
         }
 
+        $validated['deskripsi'] = $request->input('deskripsi');
+
         $photo = Photo::create($validated);
 
         if ($photo) {

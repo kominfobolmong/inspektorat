@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
-    
+
     /**
      * guarded
      *
@@ -16,15 +16,4 @@ class Photo extends Model
      */
     protected $guarded = [];
 
-    /**
-     * getImageAttribute
-     *
-     * @param  mixed $image
-     * @return void
-     */
-    // public function getImageAttribute($image)
-    // {
-    //     return asset('storage/photos/' . $image);
-    // }
 }
- 
