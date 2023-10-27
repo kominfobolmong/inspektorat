@@ -2337,11 +2337,19 @@ label {
 Breadcrumb
 =============================*/
 .breadcrumb__wrap {
-    background: #f7f7f7;
-    padding: 275px 0 155px;
+    /* background: #f7f7f7; */
+    background-image: url("../img/bg/bg-breadcrumb.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 150px;
+    margin-bottom: 70px;
+    padding: 165px 0 155px;
     position: relative;
     overflow: hidden;
     z-index: 1;
+    /* width: 100%; */
+    height: 400px;
 }
 @media (max-width: 1500px) {
     .breadcrumb__wrap {
@@ -2352,7 +2360,8 @@ Breadcrumb
     text-align: center;
 }
 .breadcrumb__wrap__content .title {
-    font-size: 35px;
+    font-size: 45px;
+    color: #f7f7f7;
     letter-spacing: -0.01em;
     text-transform: capitalize;
     line-height: 1.1;
