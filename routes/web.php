@@ -30,14 +30,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('visitor')->group(function() {
     Route::get('/', [PageController::class, 'index']);
     Route::get('/profil-dinas', [PageController::class, 'profil_dinas'])->name('profil_dinas');
+
     Route::prefix('klinik')->group(function () {
         Route::get('/komoditas', [PageController::class, 'komoditas'])->name('komoditas');
         Route::get('/komoditas/{komoditas:slug}', [PageController::class, 'komoditas_detail'])->name('komoditas-detail');
-        Route::get('/artikel-perkebunan', [PageController::class, 'artikel'])->name('artikel');
-        Route::get('/artikel-perkebunan/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
+        Route::get('/artikel', [PageController::class, 'artikel'])->name('artikel');
+        Route::get('/artikel/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
         Route::get('/konsultasi-online', [PageController::class, 'konsultasi'])->name('konsultasi');
     });
-    Route::get('/dokumentasi-kegiatan', [PageController::class, 'dokumentasi_kegiatan'])->name('dokumentasi-kegiatan');
+
+    Route::prefix('galeri')->group(function () {
+        Route::get('/foto', [PageController::class, 'galeri_foto'])->name('galeri_foto');
+        Route::get('/video', [PageController::class, 'galeri_video'])->name('galeri_video');
+    });
+
     Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 });
 

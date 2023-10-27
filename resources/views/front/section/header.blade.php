@@ -25,7 +25,14 @@
                                             <li><a href="{{ route('konsultasi') }}">Konsultasi Online</a></li>
                                         </ul>
                                     </li>
-                                    <li class="{{ setActive('dokumentasi-kegiatan') }}"><a href="{{ route('dokumentasi-kegiatan') }}">Dokumentasi Kegiatan</a></li>
+
+                                    <li class="menu-item-has-children {{ setActive('galeri/foto') }} {{ setActive('galeri/video') }}"><a href="#">Galeri</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('galeri_foto') }}">Galeri Foto</a></li>
+                                            <li><a href="{{ route('galeri_video') }}">Galeri Video</a></li>
+                                        </ul>
+                                    </li>
+
                                     <li class="{{ setActive('kontak') }}"><a href="{{ route('kontak') }}">Kontak</a></li>
                                 </ul>
                             </div>

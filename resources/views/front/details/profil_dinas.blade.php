@@ -18,6 +18,7 @@
                         src="{{ Storage::url($item->foto_pimpinan ?? null) }}"
                         alt="foto-pimpinan"
                         class="img-fluid img-thumbnail"
+                        style="object-fit: cover;object-position: ;width: 100%;height: 800px;"
                     />
                 </div>
             </div>

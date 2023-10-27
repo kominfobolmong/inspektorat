@@ -13,6 +13,7 @@ use App\Models\Photo;
 use App\Models\Profile;
 use App\Models\Profpeg;
 use App\Models\Sosmed;
+use App\Models\Video;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -147,14 +148,24 @@ class PageController extends Controller
         return view('front.details.konsultasi', compact('contact', 'sosmeds', 'links'));
     }
 
-    public function dokumentasi_kegiatan()
+    public function galeri_foto()
     {
         $items = Photo::latest()->paginate(10);
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.dokumentasi_kegiatan', compact('items', 'contact', 'sosmeds', 'links'));
+        return view('front.details.galeri_foto', compact('items', 'contact', 'sosmeds', 'links'));
+    }
+
+    public function galeri_video()
+    {
+        $items = Video::latest()->paginate(10);
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.galeri_video', compact('items', 'contact', 'sosmeds', 'links'));
     }
 
     public function kontak()
