@@ -40,7 +40,31 @@ class MitraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama_perusahaan' => 'required',
+            'nama_direktur' => 'required',
+            'alamat' => 'required',
+            'bidang_usaha' => 'required',
+            'email' => 'unique:mitras,email',
+            'telepon' => 'unique:mitras,telepon'
+        ]);
+
+        $data = Mitra::create([
+            'nama_perusahaan' => $request->input('nama_perusahaan'),
+            'nama_direktur' => $request->input('nama_direktur'),
+            'alamat' => $request->input('alamat'),
+            'bidang_usaha' => $request->input('bidang_usaha'),
+            'email' => $request->input('email'),
+            'telepon' => $request->input('telepon'),
+        ]);
+
+        if ($data) {
+            //redirect dengan pesan sukses
+            return redirect()->route('mitra.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('mitra.index')->with(['error' => 'Data Gagal Disimpan!']);
+        }
     }
 
     /**
@@ -72,9 +96,33 @@ class MitraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Mitra $mitra)
     {
-        //
+        $this->validate($request, [
+            'nama_perusahaan' => 'required',
+            'nama_direktur' => 'required',
+            'alamat' => 'required',
+            'bidang_usaha' => 'required',
+            'email' => 'unique:mitras,email,'.$mitra->id,
+            'telepon' => 'unique:mitras,telepon,'.$mitra->id
+        ]);
+
+        $data = Mitra::findOrFail($mitra->id)->update([
+            'nama_perusahaan' => $request->input('nama_perusahaan'),
+            'nama_direktur' => $request->input('nama_direktur'),
+            'alamat' => $request->input('alamat'),
+            'bidang_usaha' => $request->input('bidang_usaha'),
+            'email' => $request->input('email'),
+            'telepon' => $request->input('telepon'),
+        ]);
+
+        if ($data) {
+            //redirect dengan pesan sukses
+            return redirect()->route('mitra.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('mitra.index')->with(['error' => 'Data Gagal Disimpan!']);
+        }
     }
 
     /**
@@ -85,6 +133,17 @@ class MitraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Mitra::findOrFail($id);
+        $data->delete();
+
+        if ($data) {
+            return response()->json([
+                'status' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
     }
 }

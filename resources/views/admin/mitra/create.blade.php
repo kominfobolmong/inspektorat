@@ -53,7 +53,7 @@
 
                             <div class="form-group">
                                 <label for="alamat">ALAMAT</label>
-                                <textarea name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror"></textarea>
+                                <textarea name="alamat" id="alamat" class="form-control @error('alamat') is-invalid @enderror">{{ old('alamat') }}</textarea>
 
                                 @error('alamat')
                                 <div class="invalid-feedback" style="display: block">
@@ -64,9 +64,9 @@
 
                             <div class="form-group">
                                 <label for="email">EMAIL (opsional)</label>
-                                <input type="email" name="icon" value="{{ old('icon') }}" class="form-control @error('icon') is-invalid @enderror">
+                                <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror">
 
-                                @error('icon')
+                                @error('email')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
                                 </div>

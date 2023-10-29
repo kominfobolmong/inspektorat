@@ -26,6 +26,8 @@
                                         </ul>
                                     </li>
 
+                                    <li class="{{ setActive('mitra') }}"><a href="{{ route('mitra') }}">Mitra</a></li>
+
                                     <li class="menu-item-has-children {{ setActive('galeri/foto') }} {{ setActive('galeri/video') }}"><a href="#">Galeri</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('galeri_foto') }}">Galeri Foto</a></li>

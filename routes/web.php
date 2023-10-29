@@ -44,6 +44,7 @@ Route::middleware('visitor')->group(function() {
         Route::get('/video', [PageController::class, 'galeri_video'])->name('galeri_video');
     });
 
+    Route::get('/mitra', [PageController::class, 'mitra'])->name('mitra');
     Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 });
 

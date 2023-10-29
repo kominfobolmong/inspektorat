@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Komoditas;
 use App\Models\Link;
+use App\Models\Mitra;
 use App\Models\News;
 use App\Models\Photo;
 use App\Models\Profile;
@@ -146,6 +147,16 @@ class PageController extends Controller
         $links = Link::latest()->get();
 
         return view('front.details.konsultasi', compact('contact', 'sosmeds', 'links'));
+    }
+
+    public function mitra()
+    {
+        $items = Mitra::latest()->paginate(10);
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.mitra', compact('items', 'contact', 'sosmeds', 'links'));
     }
 
     public function galeri_foto()
