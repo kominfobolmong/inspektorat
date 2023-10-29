@@ -55,6 +55,7 @@ class ProfpegController extends Controller
             'nama' => 'required',
             'nip' => 'required|unique:profpegs,nip',
             'jabatan' => 'required',
+            'whatsapp' => 'unique:profpegs,whatsapp',
             'foto' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
@@ -69,7 +70,7 @@ class ProfpegController extends Controller
             'jabatan' => $request->input('jabatan'),
             'foto' => ($request->file('foto')) ? $foto : null,
             'whatsapp' => $request->input('whatsapp'),
-            'is_customer_service' => $request->input('is_customer_service'),
+            'is_customer_service' => ($request->input('is_customer_service')) ? 'Y' : 'N',
         ]);
 
         if ($data) {
