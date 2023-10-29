@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('mitra.update', $mitra->id) }}" method="POST">
+                        <form action="{{ route('mitra.update', $mitra->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -84,6 +84,22 @@
                                 </div>
                                 @enderror
                             </div>
+
+                            <div class="form-group">
+                                <label for="telepon">LOGO PERUSAHAAN</label>
+                                <input type="file" name="logo" class="form-control @error('logo') is-invalid @enderror">
+
+                                @error('logo')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+
+                                @if(Storage::disk('public')->exists($mitra->logo ?? null))
+                                    <img src="{{ Storage::url($mitra->logo ?? null) }}" width="100" />
+                                @endif
+                            </div>
+
 
                             <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i> SIMPAN</button>
                             <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>

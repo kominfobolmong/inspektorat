@@ -20,6 +20,7 @@
                                 <div
                                     class="about__education__item"
                                 >
+                                    <img src="{{ Storage::url($item->logo) }}" class="img-fluid mb-15" width="100" alt="logo-perusahaan">
                                     <h3 class="title">
                                         {{ $item->nama_perusahaan }}
                                     </h3>

@@ -39,8 +39,8 @@
                                 <th scope="col">NO.</th>
                                 <th scope="col">NAMA PERUSAHAAN</th>
                                 <th scope="col">NAMA DIREKTUR</th>
-                                <th scope="col">ALAMAT</th>
                                 <th scope="col">BIDANG USAHA</th>
+                                <th scope="col">LOGO</th>
                                 <th scope="col">AKSI</th>
                             </tr>
                             </thead>
@@ -50,8 +50,8 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $mitra->nama_perusahaan }}</td>
                                     <td>{{ $mitra->nama_direktur }}</td>
-                                    <td>{{ $mitra->alamat }}</td>
                                     <td>{{ $mitra->bidang_usaha }}</td>
+                                    <td><img src="{{ Storage::url($mitra->logo) }}" class="img-fluid" width="70" alt="logo"></td>
                                     <td>
                                         {{-- @can('mitra.edit') --}}
                                             <a href="{{ route('mitra.edit', $mitra->id) }}" class="btn btn-sm btn-primary">

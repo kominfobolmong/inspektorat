@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Mitra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MitraController extends Controller
 {
@@ -46,8 +47,13 @@ class MitraController extends Controller
             'alamat' => 'required',
             'bidang_usaha' => 'required',
             'email' => 'unique:mitras,email',
-            'telepon' => 'unique:mitras,telepon'
+            'telepon' => 'unique:mitras,telepon',
+            'logo' => 'image|mimes:jpeg,jpg,png|max:2048'
         ]);
+
+        if ($request->file('logo')) {
+            $logo = $request->file('logo')->store('assets/mitra', 'public');
+        }
 
         $data = Mitra::create([
             'nama_perusahaan' => $request->input('nama_perusahaan'),
@@ -56,6 +62,7 @@ class MitraController extends Controller
             'bidang_usaha' => $request->input('bidang_usaha'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
+            'logo' => $logo
         ]);
 
         if ($data) {
@@ -104,8 +111,14 @@ class MitraController extends Controller
             'alamat' => 'required',
             'bidang_usaha' => 'required',
             'email' => 'unique:mitras,email,'.$mitra->id,
-            'telepon' => 'unique:mitras,telepon,'.$mitra->id
+            'telepon' => 'unique:mitras,telepon,'.$mitra->id,
+            'logo' => 'image|mimes:jpeg,jpg,png|max:2048'
         ]);
+
+        if ($request->file('logo')) {
+            Storage::delete($mitra->logo);
+            $logo = $request->file('logo')->store('assets/mitra', 'public');
+        }
 
         $data = Mitra::findOrFail($mitra->id)->update([
             'nama_perusahaan' => $request->input('nama_perusahaan'),
@@ -114,6 +127,7 @@ class MitraController extends Controller
             'bidang_usaha' => $request->input('bidang_usaha'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
+            'logo' => ($request->file('logo')) ? $logo : $mitra->logo
         ]);
 
         if ($data) {
@@ -134,6 +148,7 @@ class MitraController extends Controller
     public function destroy($id)
     {
         $data = Mitra::findOrFail($id);
+        Storage::delete($data->logo);
         $data->delete();
 
         if ($data) {

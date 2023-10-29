@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('mitra.store') }}" method="POST">
+                        <form action="{{ route('mitra.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
@@ -78,6 +78,17 @@
                                 <input type="text" name="telepon" value="{{ old('telepon') }}" class="form-control @error('telepon') is-invalid @enderror">
 
                                 @error('telepon')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telepon">LOGO PERUSAHAAN</label>
+                                <input type="file" name="logo" value="{{ old('logo') }}" class="form-control @error('logo') is-invalid @enderror">
+
+                                @error('logo')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
                                 </div>
