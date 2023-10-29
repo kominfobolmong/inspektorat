@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('visitor')->group(function() {
+Route::middleware('visitor')->group(function () {
     Route::get('/', [PageController::class, 'index']);
     Route::get('/profil-dinas', [PageController::class, 'profil_dinas'])->name('profil_dinas');
 
@@ -38,6 +38,7 @@ Route::middleware('visitor')->group(function() {
         Route::get('/artikel/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
         Route::get('/konsultasi-online', [PageController::class, 'konsultasi'])->name('konsultasi');
     });
+
 
     Route::prefix('galeri')->group(function () {
         Route::get('/foto', [PageController::class, 'galeri_foto'])->name('galeri_foto');
@@ -95,4 +96,3 @@ Route::prefix('admin')->group(function () {
 
 // Route::get('/download', [App\Http\Controllers\PageController::class, 'download']);
 // Route::get('/getdownload/{downloads:id}', [App\Http\Controllers\PageController::class, 'getDownload'])->name('getdownload');
-

@@ -18,12 +18,12 @@
                     <form action="{{ route('permission.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
-                                @can('permission.create')
+                                {{-- @can('permission.create') --}}
                                 <div class="input-group-prepend">
                                     <a href="{{ route('permission.create') }}" class="btn btn-primary"
                                         style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
                                 </div>
-                                @endcan
+                                {{-- @endcan --}}
                                 <input type="text" class="form-control" name="q"
                                        placeholder="cari berdasarkan nama permissions">
                                 <div class="input-group-append">

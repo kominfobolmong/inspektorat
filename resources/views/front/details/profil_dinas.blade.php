@@ -18,7 +18,7 @@
                         src="{{ Storage::url($item->foto_pimpinan ?? null) }}"
                         alt="foto-pimpinan"
                         class="img-fluid img-thumbnail"
-                        style="object-fit: cover;object-position: ;width: 100%;height: 800px;"
+                        style="object-fit: cover;object-position: center;width: 100%;height: 600px;"
                     />
                 </div>
             </div>
@@ -37,12 +37,12 @@
                                 alt=""
                             />
                         </div> --}}
-                        <div class="about__exp__content">
+                        {{-- <div class="about__exp__content">
                             <p>
                                 {{ $kadis->nama ?? null }} <br />
                                 NIP: {{ $kadis->nip ?? null }}
                             </p>
-                        </div>
+                        </div> --}}
                     </div>
                     <p class="desc">
                         {!! $item->kata_sambutan ?? null !!}
