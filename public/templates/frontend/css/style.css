@@ -351,6 +351,7 @@ label {
     z-index: 1;
     overflow: hidden;
 }
+
 .btn::before {
     content: "";
     position: absolute;
@@ -2465,32 +2466,74 @@ Breadcrumb
 /*=============================
 03. Banner
 =============================*/
-.banner {
-    margin-top: 10%;
-    position: relative;
-    padding: 140px 0 0;
-    background-image: url("../img/bg/kakao-bg1.jpg");
-    height: 75vh;
+.banner img {
+    margin-top: 150px;
     width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.8;
+    height: auto;
 }
+
 @media (max-width: 1199.98px) {
-    .banner {
-        padding: 120px 0 0;
-        margin-top: 20%;
-        height: 78vh;
+    .banner img {
+        margin-top: 10%;
     }
 }
 @media (max-width: 991.98px) {
-    .banner {
-        /* padding: 50px 0 50px; */
-        margin-top: 20%;
-        height: 78vh;
+    .banner img {
+        margin-top: 25%;
     }
 }
+
+.banner .klinik_btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 200px;
+    user-select: none;
+    -moz-user-select: none;
+    background: #0054ff none repeat scroll 0 0;
+    opacity: 0.8;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.2em;
+    margin-bottom: 0;
+    padding: 20px 47px;
+    text-align: center;
+    text-transform: capitalize;
+    touch-action: manipulation;
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    white-space: break-spaces;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.banner .klinik_btn:hover {
+    background-color: #fcaf17;
+}
+
+@media (max-width: 1199.98px) {
+    .banner .klinik_btn {
+        top: 40%;
+    }
+}
+@media (max-width: 991.98px) {
+    .banner .klinik_btn {
+        top: 40%;
+        width: auto;
+        height: auto;
+    }
+}
+
 .banner__content {
     padding: 0 65px;
     /* margin-top: 30px;
@@ -2564,9 +2607,9 @@ Breadcrumb
         font-size: 17px;
     }
 }
-.banner__img {
-    /* margin-right: 30px; */
-}
+/* .banner__img {
+    margin-right: 30px;
+} */
 @media (max-width: 1800px) {
     .banner__img {
         margin-right: 0;

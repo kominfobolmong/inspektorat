@@ -67,77 +67,66 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
                         <li class="{{ setActive('admin/dashboard') }}"><a class="nav-link"
-                                href="{{ route('admin.dashboard.index') }}"><i class="fas fa-tachometer-alt"></i>
+                                href="{{ route('admin.dashboard.index') }}"><i class="fas fa-chevron-right"></i>
                                 <span>Dashboard</span></a></li>
 
                         @can('categories.index')
-                            <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-folder"></i>
+                            <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-chevron-right"></i>
                             <span>Kategori</span></a>
                             </li>
                         @endcan
 
                         @can('tags.index')
-                            <li class="{{ setActive('admin/tag') }}"><a class="nav-link" href="{{ route('tag.index') }}"><i class="fas fa-tags"></i> <span>Tags</span></a>
+                            <li class="{{ setActive('admin/tag') }}"><a class="nav-link" href="{{ route('tag.index') }}"><i class="fas fa-chevron-right"></i> <span>Tags</span></a>
                             </li>
                         @endcan
 
                         <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }} {{ setActive('admin/konsultasi') }} {{ setActive('admin/news') }} {{ setActive('admin/mitra') }}">
                         {{-- @if(auth()->user()->can('penyakit.index') || auth()->user()->can('komoditas.index') || auth()->user()->can('konsultasi.index') || auth()->user()->can('news.index'))) --}}
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder"></i><span>LIMI</span></a>
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>LIMI</span></a>
                         {{-- @endif --}}
 
                             <ul class="dropdown-menu">
 
                                 @can('penyakit.index')
-                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-tags"></i> <span>Penyakit Tanaman</span></a></li>
+                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Penyakit Tanaman</span></a></li>
                                 @endcan
 
                                 @can('komoditas.index')
-                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-tags"></i> <span>Komoditas</span></a></li>
+                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Komoditas</span></a></li>
                                 @endcan
 
                                 @can('konsultasi.index')
                                     <li class="{{ setActive('admin/konsultasi') }}"><a class="nav-link"
-                                href=""><i class="fas fa-phone"></i> <span>Konsultasi</span></a>
+                                href=""><i class="fas fa-chevron-right"></i> <span>Konsultasi</span></a>
                                     </li>
                                 @endcan
 
                                 @can('news.index')
-                                    <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-newspaper"></i>
+                                    <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-chevron-right"></i>
                                     <span>Artikel</span></a></li>
                                 @endcan
 
                                 {{-- @can('mitra.index') --}}
-                                    <li class="{{ setActive('admin/mitra') }}"><a class="nav-link" href="{{ route('mitra.index') }}"><i class="fas fa-link"></i>
+                                    <li class="{{ setActive('admin/mitra') }}"><a class="nav-link" href="{{ route('mitra.index') }}"><i class="fas fa-chevron-right"></i>
                                     <span>Mitra</span></a></li>
                                 {{-- @endcan --}}
                             </ul>
                         </li>
 
-
-                        {{-- @can('services.index')
-                            <li class="{{ setActive('admin/service') }}"><a class="nav-link" href="{{ route('service.index') }}"><i class="fas fa-concierge-bell"></i>
-                        <span>Layanan</span></a></li>
-                        @endcan --}}
-
-                        @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index') || auth()->user()->can('downloads.index'))
-                        <li class="menu-header">MEDIA</li>
+                        @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index'))
+                        <li class="menu-header">GALERI</li>
                         @endif
 
                         @can('photos.index')
                         <li class="{{ setActive('admin/photo') }}"><a class="nav-link"
-                            href="{{ route('photo.index') }}"><i class="fas fa-image"></i>
+                            href="{{ route('photo.index') }}"><i class="fas fa-chevron-right"></i>
                             <span>Foto</span></a></li>
                             @endcan
 
                             @can('videos.index')
-                            <li class="{{ setActive('admin/video') }}"><a class="nav-link" href="{{ route('video.index') }}"><i class="fas fa-video"></i>
+                            <li class="{{ setActive('admin/video') }}"><a class="nav-link" href="{{ route('video.index') }}"><i class="fas fa-chevron-right"></i>
                                 <span>Video</span></a></li>
-                            @endcan
-
-                            @can('downloads.index')
-                                <li class="{{ setActive('admin/download') }}"><a class="nav-link" href="{{ route('download.index') }}"><i class="fas fa-file-image"></i>
-                            <span>Dokumen</span></a></li>
                             @endcan
 
                         @if(auth()->user()->can('roles.index') || auth()->user()->can('permission.index') || auth()->user()->can('users.index'))
@@ -145,59 +134,59 @@
                         @endif
 
                         @can('sliders.index')
-                            <li class="{{ setActive('admin/slider') }}"><a class="nav-link" href="{{ route('slider.index') }}"><i class="fas fa-laptop"></i>
+                            <li class="{{ setActive('admin/slider') }}"><a class="nav-link" href="{{ route('slider.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>Sliders</span></a></li>
                         @endcan
 
                         @can('profile.index')
-                        <li class="{{ setActive('admin/profile') }}"><a class="nav-link" href="{{ route('profile.index') }}"><i class="fas fa-user"></i>
+                        <li class="{{ setActive('admin/profile') }}"><a class="nav-link" href="{{ route('profile.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>Profil</span></a></li>
                         @endcan
 
                         @can('profpegs.index')
-                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('profpeg.index') }}"><i class="fas fa-user"></i>
+                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('profpeg.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>SDM</span></a></li>
                         @endcan
 
                         @can('contact.index')
-                        <li class="{{ setActive('admin/contact') }}"><a class="nav-link" href="{{ route('contact.index') }}"><i class="fas fa-phone"></i>
+                        <li class="{{ setActive('admin/contact') }}"><a class="nav-link" href="{{ route('contact.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>Kontak</span></a></li>
                         @endcan
 
                         @can('faq.index')
-                        <li class="{{ setActive('admin/faq') }}"><a class="nav-link" href="{{ route('faq.index') }}"><i class="fas fa-question"></i>
+                        <li class="{{ setActive('admin/faq') }}"><a class="nav-link" href="{{ route('faq.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>FAQ</span></a></li>
                         @endcan
 
                         @can('link.index')
-                        <li class="{{ setActive('admin/link') }}"><a class="nav-link" href="{{ route('link.index') }}"><i class="fas fa-link"></i>
+                        <li class="{{ setActive('admin/link') }}"><a class="nav-link" href="{{ route('link.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>Link Terkait</span></a></li>
                         @endcan
 
                         @can('sosmed.index')
-                        <li class="{{ setActive('admin/sosmed') }}"><a class="nav-link" href="{{ route('sosmed.index') }}"><i class="fas fa-users"></i>
+                        <li class="{{ setActive('admin/sosmed') }}"><a class="nav-link" href="{{ route('sosmed.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>Sosial Media</span></a></li>
                         @endcan
 
                         <li
                             class="dropdown {{ setActive('admin/role'). setActive('admin/permission'). setActive('admin/user') }}">
                             @if(auth()->user()->can('roles.index') || auth()->user()->can('permission.index') || auth()->user()->can('users.index'))
-                                <a href="#" class="nav-link has-dropdown"><i class="fas fa-users"></i><span>Users
+                                <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Users
                                 Management</span></a>
                             @endif
 
                             <ul class="dropdown-menu">
                                 @can('roles.index')
-                                    <li class="{{ setActive('admin/role') }}"><a class="nav-link" href="{{ route('role.index') }}"><i class="fas fa-unlock"></i> Roles</a></li>
+                                    <li class="{{ setActive('admin/role') }}"><a class="nav-link" href="{{ route('role.index') }}"><i class="fas fa-chevron-right"></i> Roles</a></li>
                                 @endcan
 
                                 @can('permissions.index')
-                                    <li class="{{ setActive('admin/permission') }}"><a class="nav-link" href="{{ route('permission.index') }}"><i class="fas fa-key"></i>Permissions</a></li>
+                                    <li class="{{ setActive('admin/permission') }}"><a class="nav-link" href="{{ route('permission.index') }}"><i class="fas fa-chevron-right"></i>Permissions</a></li>
                                 @endcan
 
                                 @can('users.index')
                                     <li class="{{ setActive('admin/user') }}"><a class="nav-link"
-                                href="{{ route('user.index') }}"><i class="fas fa-users"></i> Users</a>
+                                href="{{ route('user.index') }}"><i class="fas fa-chevron-right"></i> Users</a>
                                     </li>
                                 @endcan
                             </ul>

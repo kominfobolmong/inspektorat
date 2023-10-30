@@ -56,6 +56,7 @@
 </section>
 <!-- layanan-area-end -->
 
+
  <!-- komoditas-area -->
     @include('front.section.komoditas')
  <!-- komoditas-area-end -->

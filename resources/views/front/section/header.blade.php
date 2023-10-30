@@ -39,7 +39,7 @@
                                 </ul>
                             </div>
                             {{-- <div class="header__btn d-none d-md-block">
-                                <a href="{{ route('konsultasi') }}" class="btn"><i class="fab fa-whatsapp"></i> Konsultasi Online</a>
+                                <a href="{{ route('konsultasi') }}" class="btn">KLINIK</a>
                             </div> --}}
                         </nav>
                     </div>
