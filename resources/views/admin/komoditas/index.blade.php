@@ -49,7 +49,7 @@
                                     <th scope="row" style="text-align: center">{{ ++$no + ($items->currentPage()-1) * $items->perPage() }}</th>
                                     <td><img src="{{ Storage::url($item->image) }}" style="max-height: 50px" alt=""></td>
                                     <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->deskripsi }}</td>
+                                    <td>{!! Str::limit($item->deskripsi, 100, '...') !!}</td>
                                     <td class="text-center">
                                         @can('komoditas.edit')
                                             <a href="{{ route('komoditas.edit', $item->id) }}" class="btn btn-sm btn-primary">

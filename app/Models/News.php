@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Coderflex\Laravisit\Concerns\CanVisit;
+use Coderflex\Laravisit\Concerns\HasVisits;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use CyrildeWit\EloquentViewable\Contracts\Viewable;
-use CyrildeWit\EloquentViewable\InteractsWithViews;
 
-class News extends Model implements Viewable
+class News extends Model implements CanVisit
 {
-    use InteractsWithViews;
     use HasFactory;
+    use HasVisits;
 
     /**
      * guarded
@@ -20,7 +20,7 @@ class News extends Model implements Viewable
      */
     protected $guarded = [];
 
-        /**
+    /**
      * The relationships that should always be loaded.
      *
      * @var array

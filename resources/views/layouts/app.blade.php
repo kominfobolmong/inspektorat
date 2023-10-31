@@ -70,35 +70,20 @@
                                 href="{{ route('admin.dashboard.index') }}"><i class="fas fa-chevron-right"></i>
                                 <span>Dashboard</span></a></li>
 
-                        @can('categories.index')
-                            <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-chevron-right"></i>
-                            <span>Kategori</span></a>
-                            </li>
-                        @endcan
 
-                        @can('tags.index')
-                            <li class="{{ setActive('admin/tag') }}"><a class="nav-link" href="{{ route('tag.index') }}"><i class="fas fa-chevron-right"></i> <span>Tags</span></a>
-                            </li>
-                        @endcan
-
-                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }} {{ setActive('admin/konsultasi') }} {{ setActive('admin/news') }} {{ setActive('admin/mitra') }}">
-                        {{-- @if(auth()->user()->can('penyakit.index') || auth()->user()->can('komoditas.index') || auth()->user()->can('konsultasi.index') || auth()->user()->can('news.index'))) --}}
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>LIMI</span></a>
-                        {{-- @endif --}}
+                        <li class="dropdown {{ setActive('admin/category') }} {{ setActive('admin/tag') }} {{ setActive('admin/news') }} {{ setActive('admin/mitra') }}">
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Klinik UAP</span></a>
 
                             <ul class="dropdown-menu">
 
-                                @can('penyakit.index')
-                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Penyakit Tanaman</span></a></li>
+                                @can('categories.index')
+                                <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-chevron-right"></i>
+                                <span>Kategori</span></a>
+                                </li>
                                 @endcan
 
-                                @can('komoditas.index')
-                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Komoditas</span></a></li>
-                                @endcan
-
-                                @can('konsultasi.index')
-                                    <li class="{{ setActive('admin/konsultasi') }}"><a class="nav-link"
-                                href=""><i class="fas fa-chevron-right"></i> <span>Konsultasi</span></a>
+                                @can('tags.index')
+                                    <li class="{{ setActive('admin/tag') }}"><a class="nav-link" href="{{ route('tag.index') }}"><i class="fas fa-chevron-right"></i> <span>Tags</span></a>
                                     </li>
                                 @endcan
 
@@ -113,6 +98,27 @@
                                 {{-- @endcan --}}
                             </ul>
                         </li>
+
+                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }}">
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Komoditas</span></a>
+
+                            <ul class="dropdown-menu">
+
+                                @can('penyakit.index')
+                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Penyakit Tanaman</span></a></li>
+                                @endcan
+
+                                @can('komoditas.index')
+                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Jenis Tanaman</span></a></li>
+                                @endcan
+                            </ul>
+                        </li>
+
+                        @can('konsultasi.index')
+                            <li class="{{ setActive('admin/konsultasi') }}"><a class="nav-link"
+                        href=""><i class="fas fa-chevron-right"></i> <span>Konsultasi</span></a>
+                            </li>
+                        @endcan
 
                         @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index'))
                         <li class="menu-header">GALERI</li>

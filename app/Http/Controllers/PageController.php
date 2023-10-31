@@ -76,7 +76,7 @@ class PageController extends Controller
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $tags = Tag::latest()->get();
         $item = Komoditas::where('slug', $slug)->firstOrFail();
-        $news_new = News::take(5)->latest()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
@@ -88,7 +88,7 @@ class PageController extends Controller
     {
         $items = News::without('tags')->latest()->paginate(5);
         $komoditas = Komoditas::select('nama', 'slug')->get();
-        $news_new = News::take(3)->latest()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
         $category = Category::withCount('news')->get();
         $tags = Tag::latest()->get();
         $contact = Contact::first();
@@ -104,10 +104,12 @@ class PageController extends Controller
         $tags = Tag::latest()->get();
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $artikel = News::where('slug', $slug)->firstOrFail();
-        $news_new = News::take(5)->latest()->get();
+        $news_new = News::take(5)->latest()->popularAllTime()->get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
+
+        $artikel->visit()->withIp()->withSession();
 
         return view('front.details.artikel_detail', compact('artikel', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
     }
@@ -187,5 +189,4 @@ class PageController extends Controller
 
         return view('front.details.kontak', compact('contact', 'sosmeds', 'links'));
     }
-
 }
