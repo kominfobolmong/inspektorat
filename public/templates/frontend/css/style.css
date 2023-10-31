@@ -2485,7 +2485,7 @@ Breadcrumb
 
 .banner .klinik_btn {
     position: absolute;
-    top: 70%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -2503,7 +2503,7 @@ Breadcrumb
     letter-spacing: 0;
     line-height: 1.2em;
     margin-bottom: 0;
-    padding: 20px 47px;
+    padding: 10px 37px;
     text-align: center;
     text-transform: capitalize;
     touch-action: manipulation;
@@ -2523,14 +2523,15 @@ Breadcrumb
 
 @media (max-width: 1199.98px) {
     .banner .klinik_btn {
-        top: 40%;
+        top: 60%;
     }
 }
 @media (max-width: 991.98px) {
     .banner .klinik_btn {
-        top: 40%;
+        top: 38%;
         width: auto;
         height: auto;
+        padding: 10px 27px;
     }
 }
 

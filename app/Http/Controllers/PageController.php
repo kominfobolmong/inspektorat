@@ -23,7 +23,8 @@ class PageController extends Controller
     public function index()
     {
         $contact = Contact::first();
-        $komoditas = Komoditas::take(5)->latest()->get();
+        $komoditas_unggulan = Komoditas::where('is_unggulan', 'Y')->get();
+        $komoditas = Komoditas::where('is_unggulan', 'N')->get();
         $artikel = News::with('category')->take(3)->latest()->get();
         $links = Link::latest()->get();
         $sosmeds = Sosmed::get();
@@ -37,6 +38,7 @@ class PageController extends Controller
         return view('front.index', compact(
             'contact',
             'links',
+            'komoditas_unggulan',
             'komoditas',
             'artikel',
             'sosmeds',

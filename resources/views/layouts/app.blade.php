@@ -104,13 +104,14 @@
 
                             <ul class="dropdown-menu">
 
+                                @can('komoditas.index')
+                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Jenis Tanaman</span></a></li>
+                                @endcan
+
                                 @can('penyakit.index')
                                 <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Penyakit Tanaman</span></a></li>
                                 @endcan
 
-                                @can('komoditas.index')
-                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Jenis Tanaman</span></a></li>
-                                @endcan
                             </ul>
                         </li>
 

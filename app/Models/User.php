@@ -46,14 +46,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(News::class);
     }
-
-    public function limis()
-    {
-        return $this->hasMany(Limi::class);
-    }
-
-    public function files()
-    {
-        return $this->hasMany(File::class);
-    }
 }

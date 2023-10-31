@@ -29,20 +29,23 @@ Route::middleware('visitor')->group(function () {
     Route::get('/profil-dinas', [PageController::class, 'profil_dinas'])->name('profil_dinas');
 
     Route::prefix('klinik')->group(function () {
-        Route::get('/komoditas', [PageController::class, 'komoditas'])->name('komoditas');
-        Route::get('/komoditas/{komoditas:slug}', [PageController::class, 'komoditas_detail'])->name('komoditas-detail');
         Route::get('/artikel', [PageController::class, 'artikel'])->name('artikel');
         Route::get('/artikel/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
-        Route::get('/konsultasi-online', [PageController::class, 'konsultasi'])->name('konsultasi');
+        Route::get('/mitra', [PageController::class, 'mitra'])->name('mitra');
     });
 
+    Route::prefix('komoditas')->group(function () {
+        Route::get('/', [PageController::class, 'komoditas'])->name('komoditas');
+        Route::get('/{komoditas:slug}', [PageController::class, 'komoditas_detail'])->name('komoditas-detail');
+    });
+
+    Route::get('/konsultasi-online', [PageController::class, 'konsultasi'])->name('konsultasi');
 
     Route::prefix('galeri')->group(function () {
         Route::get('/foto', [PageController::class, 'galeri_foto'])->name('galeri_foto');
         Route::get('/video', [PageController::class, 'galeri_video'])->name('galeri_video');
     });
 
-    Route::get('/mitra', [PageController::class, 'mitra'])->name('mitra');
     Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 });
 
@@ -78,16 +81,3 @@ Route::prefix('admin')->group(function () {
         Route::resource('mitra', MitraController::class);
     });
 });
-
-
-// Route::prefix('informasi')->group(function () {
-//     Route::get('/berita', [PageController::class, 'berita'])->name('berita');
-//     Route::get('/berita/{news:slug}', [PageController::class, 'berita_detail'])->name('berita-detail');
-//     Route::get('/berita/categories/{slug}', [PageController::class, 'kategori'])->name('cari-kategori');
-//     Route::get('/berita/tag/{tag:slug}', [PageController::class, 'tag'])->name('cari-tag');
-// });
-
-// Route::get('/berita-cari', [App\Http\Controllers\Pagecontroller::class, 'hascarberita']);
-
-// Route::get('/download', [App\Http\Controllers\PageController::class, 'download']);
-// Route::get('/getdownload/{downloads:id}', [App\Http\Controllers\PageController::class, 'getDownload'])->name('getdownload');

@@ -18,15 +18,23 @@
                                 <ul class="navigation">
                                     <li class="{{ setActive('/') }}"><a href="/">Beranda</a></li>
                                     <li class="{{ setActive('profil-dinas') }}"><a href="{{ route('profil_dinas') }}">Profil Dinas</a></li>
-                                    <li class="menu-item-has-children {{ setActive('klinik/komoditas') }} {{ setActive('klinik/artikel-perkebunan') }} {{ setActive('klinik/konsultasi-online') }}"><a href="#">Klinik AP</a>
+                                    <li class="menu-item-has-children {{ setActive('klinik/profil-klinik') }} {{ setActive('klinik/artikel') }} {{ setActive('klinik/mitra') }}"><a href="#">Klinik UAP</a>
                                         <ul class="sub-menu">
-                                            <li><a href="{{ route('komoditas') }}">Komoditas</a></li>
-                                            <li><a href="{{ route('artikel') }}">Artikel Perkebunan</a></li>
-                                            <li><a href="{{ route('konsultasi') }}">Konsultasi Online</a></li>
+                                            <li><a href="#">Profil Klinik</a></li>
+                                            <li><a href="{{ route('artikel') }}">Artikel</a></li>
+                                            <li><a href="{{ route('mitra') }}">Mitra</a></li>
                                         </ul>
                                     </li>
 
-                                    <li class="{{ setActive('mitra') }}"><a href="{{ route('mitra') }}">Mitra</a></li>
+                                    <li class="menu-item-has-children {{ setActive('klinik/profil-klinik') }} {{ setActive('klinik/artikel') }} {{ setActive('klinik/mitra') }}"><a href="#">Komoditas</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('komoditas') }}">Daftar Komoditas</a></li>
+                                            <li><a href="">Daftar Penyakit</a></li>
+                                            <li><a href="">OPT/Hama</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="{{ setActive('konsultasi') }}"><a href="{{ route('konsultasi') }}">Konsultasi</a></li>
 
                                     <li class="menu-item-has-children {{ setActive('galeri/foto') }} {{ setActive('galeri/video') }}"><a href="#">Galeri</a>
                                         <ul class="sub-menu">

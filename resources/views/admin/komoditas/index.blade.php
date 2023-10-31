@@ -4,14 +4,14 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Komoditas</h1>
+            <h1>Jenis Tanaman</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-tags"></i> List</h4>
+                    <h4><i class="fas fa-tags"></i> List Jenis Tanaman</h4>
                 </div>
 
                 <div class="card-body">
@@ -24,7 +24,7 @@
                                     </div>
                                 @endcan
                                 <input type="text" class="form-control" name="q"
-                                       placeholder="cari berdasarkan nama">
+                                       placeholder="Search">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                     </button>
@@ -36,21 +36,21 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                <th scope="col">IMAGE</th>
+                                <th scope="col">NO.</th>
+                                <th scope="col">FOTO</th>
                                 <th scope="col">NAMA</th>
                                 <th scope="col">DESKRIPSI</th>
-                                <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                                <th scope="col">AKSI</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse ($items as $no => $item)
+                            @forelse ($items as $item)
                                 <tr>
-                                    <th scope="row" style="text-align: center">{{ ++$no + ($items->currentPage()-1) * $items->perPage() }}</th>
-                                    <td><img src="{{ Storage::url($item->image) }}" style="max-height: 50px" alt=""></td>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td><img src="{{ Storage::url($item->image) }}" class="img-fluid" width="70" alt="foto-komoditas"></td>
                                     <td>{{ $item->nama }}</td>
                                     <td>{!! Str::limit($item->deskripsi, 100, '...') !!}</td>
-                                    <td class="text-center">
+                                    <td>
                                         @can('komoditas.edit')
                                             <a href="{{ route('komoditas.edit', $item->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>

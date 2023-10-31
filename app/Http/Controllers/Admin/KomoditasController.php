@@ -36,8 +36,7 @@ class KomoditasController extends Controller
      */
     public function create()
     {
-        $penyakits = Penyakit::latest()->get();
-        return view('admin.komoditas.create', compact('penyakits'));
+        return view('admin.komoditas.create');
     }
 
     /**
@@ -51,8 +50,6 @@ class KomoditasController extends Controller
         $this->validate($request, [
             'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'nama' => 'required',
-            'deskripsi' => 'required',
-            'penyakit_id' => 'required',
         ]);
 
         //upload image
@@ -61,15 +58,12 @@ class KomoditasController extends Controller
         }
 
         $data = Komoditas::create([
-            'image' => ($request->file('image')) ? $image : null,
+            'image' => $image,
             'nama' => $request->input('nama'),
             'slug' => Str::slug($request->input('nama')),
             'deskripsi' => $request->input('deskripsi'),
+            'is_unggulan' => ($request->input('is_unggulan')) ? 'Y' : 'N',
         ]);
-
-        //assign penyakit
-        $data->penyakits()->attach($request->input('penyakit_id'));
-        $data->save();
 
         if ($data) {
             //redirect dengan pesan sukses
@@ -99,8 +93,7 @@ class KomoditasController extends Controller
      */
     public function edit(Komoditas $komodita)
     {
-        $penyakits = Penyakit::latest()->get();
-        return view('admin.komoditas.edit', compact('komodita', 'penyakits'));
+        return view('admin.komoditas.edit', compact('komodita'));
     }
 
     /**
@@ -115,8 +108,6 @@ class KomoditasController extends Controller
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,jpg,png|max:2048',
             'nama' => 'required',
-            'deskripsi' => 'required',
-            'penyakit_id' => 'required',
         ]);
 
         if ($request->file('image')) {
@@ -124,17 +115,13 @@ class KomoditasController extends Controller
             $image = $request->file('image')->store('assets/komoditas', 'public');
         }
 
-        $data = Komoditas::findOrFail($komodita->id);
-        $data->update([
+        $data = Komoditas::findOrFail($komodita->id)->update([
             'nama' => $request->input('nama'),
             'slug' => Str::slug($request->input('nama')),
             'deskripsi'  => $request->input('deskripsi'),
             'image' => ($request->file('image')) ? $image : $komodita->image,
+            'is_unggulan' => ($request->input('is_unggulan')) ? 'Y' : 'N',
         ]);
-
-        //assign
-        $data->penyakits()->sync($request->input('penyakit_id'));
-        // $data->save();
 
         if ($data) {
             //redirect dengan pesan sukses
@@ -155,7 +142,6 @@ class KomoditasController extends Controller
     {
         $data = Komoditas::findOrFail($id);
         Storage::delete($data->image);
-        $data->penyakits()->detach();
         $data->delete();
 
         if ($data) {

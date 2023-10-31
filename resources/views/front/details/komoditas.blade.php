@@ -25,12 +25,12 @@
                         <div class="services__style__two__content">
                             <h3 class="title">
                                 <a href="{{ route('komoditas-detail', $item->slug) }}"
-                                    >{{ $item->nama }}</a
+                                    >{{ Str::title($item->nama) }}</a
                                 >
                             </h3>
-                            <p>
+                            {{-- <p>
                                 {!! Str::limit($item->deskripsi, 100, '...') !!}
-                            </p>
+                            </p> --}}
                             <a
                                 href="{{ route('komoditas-detail', $item->slug) }}"
                                 class="services__btn"

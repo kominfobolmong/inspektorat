@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Tambah Data</h1>
+            <h1>Jenis Tanaman</h1>
         </div>
 
         <div class="section-body">
@@ -19,8 +19,8 @@
                         @csrf
 
                         <div class="form-group">
-                            <label>IMAGE</label>
-                            <p>Ukuran gambar yang disarankan: <strong>323x240</strong></p>
+                            <label>FOTO</label>
+                            <p><strong>Ukuran foto tidak lebih dari 2mb</strong></p>
                             <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
 
                             @error('image')
@@ -32,9 +32,7 @@
 
                         <div class="form-group">
                             <label>NAMA</label>
-                            <input type="text" name="nama" value="{{ old('nama') }}"
-                                placeholder="Masukkan nama"
-                                class="form-control @error('nama') is-invalid @enderror">
+                            <input type="text" name="nama" value="{{ old('nama') }}" class="form-control @error('nama') is-invalid @enderror">
 
                             @error('nama')
                             <div class="invalid-feedback" style="display: block">
@@ -45,8 +43,7 @@
 
                         <div class="form-group">
                             <label>DESKRIPSI</label>
-                            <textarea class="form-control content @error('deskripsi') is-invalid @enderror" name="deskripsi"
-                                placeholder="Masukkan deskripsi singkat" rows="10">{!! old('deskripsi') !!}</textarea>
+                            <textarea class="form-control content @error('deskripsi') is-invalid @enderror" name="deskripsi" rows="10">{!! old('deskripsi') !!}</textarea>
                             @error('deskripsi')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}
@@ -55,17 +52,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="font-weight-bold">PENYAKIT</label>
-                            <select class="form-control @error('penyakit_id') is-invalid @enderror" name="penyakit_id[]" multiple="multiple">
-                                @foreach ($penyakits as $penyakit)
-                                <option value="{{ $penyakit->id }}">{{ $penyakit->nama }} </option>
-                                @endforeach
-                            </select>
-                            @error('penyakit_id')
-                            <div class="invalid-feedback" style="display: block">
-                                {{ $message }}
+                            <div class="custom-switches-stacked mt-2">
+                                <label class="custom-switch">
+                                <input type="checkbox" name="is_unggulan" value="Y" class="custom-switch-input">
+                                <span class="custom-switch-indicator"></span>
+                                <span class="custom-switch-description">Apakah Komoditas Termasuk Unggulan?</span>
+                                </label>
                             </div>
-                            @enderror
                         </div>
 
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>

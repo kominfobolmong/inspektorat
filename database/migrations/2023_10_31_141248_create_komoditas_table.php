@@ -18,14 +18,9 @@ class CreateKomoditasTable extends Migration
             $table->string('nama');
             $table->string('slug')->unique();
             $table->longText('deskripsi')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image');
+            $table->enum('is_unggulan', ['Y', 'N'])->default('N');
             $table->timestamps();
-        });
-
-        //create pivot table
-        Schema::create('komoditas_penyakit', function (Blueprint $table) {
-            $table->integer('komoditas_id');
-            $table->integer('penyakit_id');
         });
     }
 
