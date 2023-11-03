@@ -99,7 +99,7 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }}">
+                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }} {{ setActive('admin/opt') }}">
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Komoditas</span></a>
 
                             <ul class="dropdown-menu">
@@ -111,6 +111,10 @@
                                 @can('penyakit.index')
                                 <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Penyakit Tanaman</span></a></li>
                                 @endcan
+
+                                {{-- @can('penyakit.index') --}}
+                                <li class="{{ setActive('admin/opt') }}"><a class="nav-link" href="{{ route('opt.index') }}"><i class="fas fa-chevron-right"></i> <span>OPT/Hama</span></a></li>
+                                {{-- @endcan --}}
 
                             </ul>
                         </li>

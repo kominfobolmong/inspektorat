@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Komoditas;
 use App\Models\Penyakit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PenyakitController extends Controller
@@ -20,8 +22,8 @@ class PenyakitController extends Controller
      */
     public function index()
     {
-        $items = Penyakit::latest()->when(request()->q, function($items) {
-            $items = $items->where('nama', 'like', '%'. request()->q . '%');
+        $items = Penyakit::latest()->when(request()->q, function ($items) {
+            $items = $items->where('nama', 'like', '%' . request()->q . '%');
         })->paginate(10);
 
         return view('admin.penyakit.index', compact('items'));
@@ -34,7 +36,8 @@ class PenyakitController extends Controller
      */
     public function create()
     {
-        return view('admin.penyakit.create');
+        $items = Komoditas::get();
+        return view('admin.penyakit.create', compact('items'));
     }
 
     /**
@@ -46,19 +49,32 @@ class PenyakitController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required|unique:penyakits'
+            'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+            'nama' => 'required',
+            'komoditas_id' => 'required',
         ]);
+
+        //upload image
+        if ($request->file('image')) {
+            $image = $request->file('image')->store('assets/komoditas/penyakit', 'public');
+        }
 
         $data = Penyakit::create([
+            'image' => $image,
             'nama' => $request->input('nama'),
-            'slug' => Str::slug($request->input('nama'), '-'),
-            'body' => $request->input('body')
+            'slug' => Str::slug($request->input('nama')),
+            'nama_ilmiah' => $request->input('nama_ilmiah'),
+            'deskripsi' => $request->input('deskripsi'),
+            'penyebab' => $request->input('penyebab'),
+            'gejala' => $request->input('gejala'),
+            'pengendalian' => $request->input('pengendalian'),
+            'komoditas_id' => $request->input('komoditas_id'),
         ]);
 
-        if($data){
+        if ($data) {
             //redirect dengan pesan sukses
             return redirect()->route('penyakit.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('penyakit.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
@@ -83,7 +99,8 @@ class PenyakitController extends Controller
      */
     public function edit(Penyakit $penyakit)
     {
-        return view('admin.penyakit.edit', compact('penyakit'));
+        $items = Komoditas::get();
+        return view('admin.penyakit.edit', compact('penyakit', 'items'));
     }
 
     /**
@@ -96,20 +113,33 @@ class PenyakitController extends Controller
     public function update(Request $request, Penyakit $penyakit)
     {
         $this->validate($request, [
-            'nama' => 'required|unique:penyakits,nama,'.$penyakit->id
+            'image' => 'image|mimes:jpeg,jpg,png|max:2048',
+            'nama' => 'required',
+            'komoditas_id' => 'required',
         ]);
 
-        $data = Penyakit::findOrFail($penyakit->id);
-        $data->update([
+        //upload image
+        if ($request->file('image')) {
+            Storage::delete($penyakit->image);
+            $image = $request->file('image')->store('assets/komoditas/penyakit', 'public');
+        }
+
+        $data = Penyakit::findOrFail($penyakit->id)->update([
+            'image' => ($request->file('image')) ? $image : $penyakit->image,
             'nama' => $request->input('nama'),
-            'slug' => Str::slug($request->input('nama'), '-'),
-            'body' => $request->input('body')
+            'slug' => Str::slug($request->input('nama')),
+            'nama_ilmiah' => $request->input('nama_ilmiah'),
+            'deskripsi' => $request->input('deskripsi'),
+            'penyebab' => $request->input('penyebab'),
+            'gejala' => $request->input('gejala'),
+            'pengendalian' => $request->input('pengendalian'),
+            'komoditas_id' => $request->input('komoditas_id'),
         ]);
 
-        if($data){
+        if ($data) {
             //redirect dengan pesan sukses
             return redirect()->route('penyakit.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('penyakit.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
@@ -124,13 +154,14 @@ class PenyakitController extends Controller
     public function destroy($id)
     {
         $data = Penyakit::findOrFail($id);
+        Storage::delete($data->image);
         $data->delete();
 
-        if($data){
+        if ($data) {
             return response()->json([
                 'status' => 'success'
             ]);
-        }else{
+        } else {
             return response()->json([
                 'status' => 'error'
             ]);

@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>List Penyakit Tanaman</h1>
+            <h1>Jenis Penyakit Tanaman</h1>
         </div>
 
         <div class="section-body">
@@ -38,16 +38,18 @@
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
                                 <th scope="col">NAMA</th>
-                                <th scope="col">PENYEMBUHAN</th>
+                                <th scope="col">NAMA ILMIAH</th>
+                                <th scope="col">KOMODITAS</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse ($items as $no => $item)
+                            @forelse ($items as $item)
                                 <tr>
-                                    <th scope="row" style="text-align: center">{{ ++$no + ($items->currentPage()-1) * $items->perPage() }}</th>
+                                    <th scope="row" style="text-align: center">{{ $loop->iteration }}</th>
                                     <td>{{ $item->nama }}</td>
-                                    <td>{!! Str::limit($item->body, 100, '...') !!}</td>
+                                    <td>{{ $item->nama_ilmiah }}</td>
+                                    <td>{{ $item->komoditas->nama }}</td>
                                     <td class="text-center">
                                         @can('penyakit.edit')
                                             <a href="{{ route('penyakit.edit', $item->id) }}" class="btn btn-sm btn-primary">
@@ -64,7 +66,7 @@
                                 </tr>
                             @empty
                             <tr>
-                                <td colspan="4">Empty</td>
+                                <td colspan="5">Empty</td>
                             </tr>
                             @endforelse
                             </tbody>

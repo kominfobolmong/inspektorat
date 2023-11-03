@@ -16,4 +16,9 @@ class Komoditas extends Model
         'slug',
         'is_unggulan',
     ];
+
+    public function penyakits()
+    {
+        return $this->hasMany(Penyakit::class);
+    }
 }

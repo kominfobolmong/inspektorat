@@ -26,7 +26,7 @@
                                         </ul>
                                     </li>
 
-                                    <li class="menu-item-has-children {{ setActive('klinik/profil-klinik') }} {{ setActive('klinik/artikel') }} {{ setActive('klinik/mitra') }}"><a href="#">Komoditas</a>
+                                    <li class="menu-item-has-children {{ setActive('komoditas') }} {{ setActive('komoditas/penyakit') }} {{ setActive('komoditas/hama') }}"><a href="#">Komoditas</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('komoditas') }}">Daftar Komoditas</a></li>
                                             <li><a href="">Daftar Penyakit</a></li>
