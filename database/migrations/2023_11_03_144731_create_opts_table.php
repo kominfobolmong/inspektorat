@@ -15,7 +15,6 @@ class CreateOptsTable extends Migration
     {
         Schema::create('opts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('komoditas_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('nama');
             $table->string('slug')->unique();
             $table->string('nama_ilmiah')->nullable();
@@ -24,6 +23,11 @@ class CreateOptsTable extends Migration
             $table->longText('pengendalian')->nullable();
             $table->string('image');
             $table->timestamps();
+        });
+
+        Schema::create('opt_komoditas', function (Blueprint $table) {
+            $table->integer('opt_id');
+            $table->integer('komoditas_id');
         });
     }
 

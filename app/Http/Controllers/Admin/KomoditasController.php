@@ -58,7 +58,7 @@ class KomoditasController extends Controller
         }
 
         $data = Komoditas::create([
-            'image' => $image,
+            'image' => ($request->file('image')) ? $image : null,
             'nama' => $request->input('nama'),
             'slug' => Str::slug($request->input('nama')),
             'deskripsi' => $request->input('deskripsi'),

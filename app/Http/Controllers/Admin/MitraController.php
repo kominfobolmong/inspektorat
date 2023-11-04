@@ -16,7 +16,7 @@ class MitraController extends Controller
      */
     public function index()
     {
-        $mitras= Mitra::latest()->when(request()->q, function ($mitras) {
+        $mitras = Mitra::latest()->when(request()->q, function ($mitras) {
             $mitras = $mitras->where('nama_perusahaan', 'like', '%' . request()->q . '%');
         })->paginate(10);
 
@@ -46,8 +46,6 @@ class MitraController extends Controller
             'nama_direktur' => 'required',
             'alamat' => 'required',
             'bidang_usaha' => 'required',
-            'email' => 'unique:mitras,email',
-            'telepon' => 'unique:mitras,telepon',
             'logo' => 'image|mimes:jpeg,jpg,png|max:2048'
         ]);
 
@@ -62,7 +60,9 @@ class MitraController extends Controller
             'bidang_usaha' => $request->input('bidang_usaha'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
-            'logo' => $logo
+            'no_hp' => $request->input('no_hp'),
+            'logo' => ($request->file('logo')) ? $logo : null,
+            'wilayah_kerja' => $request->input('wilayah_kerja'),
         ]);
 
         if ($data) {
@@ -110,8 +110,9 @@ class MitraController extends Controller
             'nama_direktur' => 'required',
             'alamat' => 'required',
             'bidang_usaha' => 'required',
-            'email' => 'unique:mitras,email,'.$mitra->id,
-            'telepon' => 'unique:mitras,telepon,'.$mitra->id,
+            'email' => 'unique:mitras,email,' . $mitra->id,
+            'telepon' => 'unique:mitras,telepon,' . $mitra->id,
+            'no_hp' => 'unique:mitras,no_hp,' . $mitra->id,
             'logo' => 'image|mimes:jpeg,jpg,png|max:2048'
         ]);
 
@@ -127,7 +128,9 @@ class MitraController extends Controller
             'bidang_usaha' => $request->input('bidang_usaha'),
             'email' => $request->input('email'),
             'telepon' => $request->input('telepon'),
-            'logo' => ($request->file('logo')) ? $logo : $mitra->logo
+            'no_hp' => $request->input('no_hp'),
+            'logo' => ($request->file('logo')) ? $logo : $mitra->logo,
+            'wilayah_kerja' => $request->input('wilayah_kerja'),
         ]);
 
         if ($data) {

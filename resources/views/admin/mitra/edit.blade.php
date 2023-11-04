@@ -64,6 +64,17 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="wilayah_kerja">WILAYAH KERJA</label>
+                                <textarea name="wilayah_kerja" id="wilayah_kerja" class="form-control @error('wilayah_kerja') is-invalid @enderror">{{ old('wilayah_kerja', $mitra->wilayah_kerja) }}</textarea>
+
+                                @error('wilayah_kerja')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label for="email">EMAIL (opsional)</label>
                                 <input type="email" name="email" value="{{ old('email', $mitra->email) }}" class="form-control @error('email') is-invalid @enderror">
 
@@ -79,6 +90,17 @@
                                 <input type="text" name="telepon" value="{{ old('telepon', $mitra->telepon) }}" class="form-control @error('telepon') is-invalid @enderror">
 
                                 @error('telepon')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="no_hp">NOMOR HP (opsional)</label>
+                                <input type="text" name="no_hp" value="{{ old('no_hp', $mitra->no_hp) }}" class="form-control @error('no_hp') is-invalid @enderror">
+
+                                @error('no_hp')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
                                 </div>

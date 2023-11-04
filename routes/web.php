@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\KomoditasController;
 use App\Http\Controllers\Admin\LinkController;
 use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\OptController;
 use App\Http\Controllers\Admin\PenyakitController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PhotoController;
@@ -79,5 +80,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('penyakit', PenyakitController::class);
         Route::resource('komoditas', KomoditasController::class);
         Route::resource('mitra', MitraController::class);
+        Route::resource('opt', OptController::class);
     });
 });

@@ -55,7 +55,6 @@ class ProfpegController extends Controller
             'nama' => 'required',
             'nip' => 'required|unique:profpegs,nip',
             'jabatan' => 'required',
-            'whatsapp' => 'unique:profpegs,whatsapp',
             'foto' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
 

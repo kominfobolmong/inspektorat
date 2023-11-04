@@ -60,7 +60,7 @@ class PenyakitController extends Controller
         }
 
         $data = Penyakit::create([
-            'image' => $image,
+            'image' => ($request->file('image')) ? $image : null,
             'nama' => $request->input('nama'),
             'slug' => Str::slug($request->input('nama')),
             'nama_ilmiah' => $request->input('nama_ilmiah'),
