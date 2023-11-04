@@ -110,9 +110,9 @@ class MitraController extends Controller
             'nama_direktur' => 'required',
             'alamat' => 'required',
             'bidang_usaha' => 'required',
-            'email' => 'unique:mitras,email,' . $mitra->id,
-            'telepon' => 'unique:mitras,telepon,' . $mitra->id,
-            'no_hp' => 'unique:mitras,no_hp,' . $mitra->id,
+            'email' => 'unique:mitras,email,' . $mitra->email,
+            'telepon' => 'unique:mitras,telepon,' . $mitra->telepon,
+            'no_hp' => 'unique:mitras,no_hp,' . $mitra->no_hp,
             'logo' => 'image|mimes:jpeg,jpg,png|max:2048'
         ]);
 
