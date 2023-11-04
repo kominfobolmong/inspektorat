@@ -10,7 +10,7 @@
 
 <section class="about about__style__two">
     <div class="container">
-        <p class="mb-100"><strong>Daftar Perusahaan sebagai Mitra/Stakeholder yang bekerjasama dengan Dinas Perkebunan:</strong></p>
+        <p class="mb-100"><strong>Daftar Perusahaan sebagai Mitra/Stakeholder yang bekerjasama dengan Klinik Usaha Agribisnis Perkebunan:</strong></p>
         {{-- <div class="row"> --}}
             {{-- <div class="col-12"> --}}
                 {{-- <div class="about__info__wrap"> --}}
