@@ -26,11 +26,11 @@
                                         </ul>
                                     </li>
 
-                                    <li class="menu-item-has-children {{ setActive('komoditas') }} {{ setActive('komoditas/penyakit') }} {{ setActive('komoditas/hama') }}"><a href="#">Komoditas</a>
+                                    <li class="menu-item-has-children {{ setActive('komoditas') }} {{ setActive('penyakit') }} {{ setActive('komoditas/opt') }}"><a href="#">Komoditas</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('komoditas') }}">Daftar Komoditas</a></li>
-                                            <li><a href="">Daftar Penyakit</a></li>
-                                            <li><a href="">OPT/Hama</a></li>
+                                            <li><a href="{{ route('penyakit') }}">Daftar Penyakit</a></li>
+                                            <li><a href="{{ route('opt') }}">OPT/Hama</a></li>
                                         </ul>
                                     </li>
 

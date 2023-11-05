@@ -10,6 +10,8 @@ use App\Models\Komoditas;
 use App\Models\Link;
 use App\Models\Mitra;
 use App\Models\News;
+use App\Models\Opt;
+use App\Models\Penyakit;
 use App\Models\Photo;
 use App\Models\Profile;
 use App\Models\Profpeg;
@@ -26,6 +28,8 @@ class PageController extends Controller
         $komoditas_unggulan = Komoditas::where('is_unggulan', 'Y')->get();
         $komoditas = Komoditas::where('is_unggulan', 'N')->get();
         $artikel = News::with('category')->take(3)->latest()->get();
+        $penyakit = Penyakit::take(3)->latest()->get();
+        $opt = Opt::take(3)->latest()->get();
         $links = Link::latest()->get();
         $sosmeds = Sosmed::get();
         $contact_cs = Profpeg::select('foto', 'nama', 'jabatan', 'whatsapp')->where('is_customer_service', 'Y')->get();
@@ -47,6 +51,8 @@ class PageController extends Controller
             'visitors',
             'visitor_today',
             'contact_cs',
+            'penyakit',
+            'opt',
         ));
     }
 
@@ -78,12 +84,73 @@ class PageController extends Controller
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $tags = Tag::latest()->get();
         $item = Komoditas::where('slug', $slug)->firstOrFail();
+        // $penyakit = Penyakit::where('komoditas_id', $item->id)->get();
         $news_new = News::take(3)->latest()->popularAllTime()->get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
         return view('front.details.komoditas_detail', compact('item', 'komoditas', 'category', 'tags', 'news_new', 'contact', 'sosmeds', 'links'));
+    }
+
+    public function penyakit()
+    {
+        $items = Penyakit::with('komoditas')->latest()->paginate(5);
+        $komoditas = Komoditas::select('nama', 'slug')->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.penyakit', compact('items', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+    }
+
+    public function penyakit_detail($slug)
+    {
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $komoditas = Komoditas::select('nama', 'slug')->get();
+        $penyakit = Penyakit::where('slug', $slug)->firstOrFail();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        // $artikel->visit()->withIp()->withSession();
+
+        return view('front.details.penyakit_detail', compact('penyakit', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+    }
+
+    public function opt()
+    {
+        $items = Opt::latest()->paginate(5);
+        $komoditas = Komoditas::select('nama', 'slug')->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.opt', compact('items', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+    }
+
+    public function opt_detail($slug)
+    {
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $komoditas = Komoditas::select('nama', 'slug')->get();
+        $opt = Opt::where('slug', $slug)->firstOrFail();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        // $artikel->visit()->withIp()->withSession();
+
+        return view('front.details.opt_detail', compact('opt', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
     }
 
     public function artikel()
@@ -106,7 +173,7 @@ class PageController extends Controller
         $tags = Tag::latest()->get();
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $artikel = News::where('slug', $slug)->firstOrFail();
-        $news_new = News::take(5)->latest()->popularAllTime()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();

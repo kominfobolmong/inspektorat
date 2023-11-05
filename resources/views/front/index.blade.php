@@ -61,6 +61,8 @@
     @include('front.section.komoditas')
  <!-- komoditas-area-end -->
 
+ @include('front.section.penyakit_opt')
+
  <!-- artikel-area -->
  @include('front.section.artikel')
  <!-- artikel-area-end -->

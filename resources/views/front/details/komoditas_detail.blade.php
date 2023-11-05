@@ -21,6 +21,8 @@
                     <p><strong>{{ Str::title($item->nama) ?? null }} Termasuk Komoditas Unggulan</strong></p>
                     @endif
                     <p>{!! $item->deskripsi ?? null !!}</p>
+
+                    {{-- <h2 class="title">Daftar Penyakit Pada Jenis Tanaman {{ Str::title($item->nama) ?? null }}</h2> --}}
                 </div>
             </div>
 

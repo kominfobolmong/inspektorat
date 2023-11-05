@@ -40,6 +40,12 @@ Route::middleware('visitor')->group(function () {
         Route::get('/{komoditas:slug}', [PageController::class, 'komoditas_detail'])->name('komoditas-detail');
     });
 
+    Route::get('/penyakit', [PageController::class, 'penyakit'])->name('penyakit');
+    Route::get('/penyakit/{penyakits:slug}', [PageController::class, 'penyakit_detail'])->name('penyakit-detail');
+
+    Route::get('/opt', [PageController::class, 'opt'])->name('opt');
+    Route::get('/opt/{opts:slug}', [PageController::class, 'opt_detail'])->name('opt-detail');
+
     Route::get('/konsultasi-online', [PageController::class, 'konsultasi'])->name('konsultasi');
 
     Route::prefix('galeri')->group(function () {
