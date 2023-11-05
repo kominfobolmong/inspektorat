@@ -18,7 +18,7 @@
                 <div class="services__details__content">
                     <h2 class="title">{{ Str::title($item->nama) ?? null }}</h2>
                     @if ($item->is_unggulan === 'Y')
-                    <p><strong>{{ Str::title($item->nama) ?? null }} Termasuk Komoditas Unggulan</strong></p>
+                    <h6>{{ Str::title($item->nama) ?? null }} Termasuk Komoditas Unggulan</h6>
                     @endif
                     <p>{!! $item->deskripsi ?? null !!}</p>
 

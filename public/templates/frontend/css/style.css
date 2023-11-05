@@ -3725,7 +3725,7 @@ Breadcrumb
     width: 100%;
 }
 .services__details__content .title {
-    font-size: 24px;
+    font-size: 25px;
     letter-spacing: -0.01em;
     margin-bottom: 27px;
 }
@@ -3741,6 +3741,9 @@ Breadcrumb
 }
 .services__details__content p {
     margin-bottom: 18px;
+    color: #000;
+    font-size: 20px;
+    line-height: 32px;
 }
 .services__details__content p:last-child {
     margin-bottom: 0;
