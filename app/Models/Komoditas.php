@@ -21,4 +21,9 @@ class Komoditas extends Model
     {
         return $this->hasMany(Penyakit::class);
     }
+
+    public function opt()
+    {
+        return $this->belongsToMany(Opt::class);
+    }
 }
