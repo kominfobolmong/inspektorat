@@ -2060,7 +2060,7 @@ label {
     display: block;
     padding: 18px 0;
     visibility: hidden;
-    min-width: 230px;
+    min-width: 245px;
     margin: 0;
     -webkit-transform: scale(1, 0);
     -ms-transform: scale(1, 0);
@@ -2523,12 +2523,12 @@ Breadcrumb
 
 @media (max-width: 1199.98px) {
     .banner .klinik_btn {
-        top: 60%;
+        top: 85%;
     }
 }
 @media (max-width: 991.98px) {
     .banner .klinik_btn {
-        top: 38%;
+        top: 45%;
         width: auto;
         height: auto;
         padding: 10px 27px;
@@ -3313,6 +3313,8 @@ Breadcrumb
     border-radius: 50%;
     width: 100%;
     height: 70px;
+    object-fit: cover;
+    object-position: center;
     /* -webkit-transform: rotateY(0);
     -ms-transform: rotateY(0);
     transform: rotateY(0);
@@ -3681,8 +3683,19 @@ Breadcrumb
     object-fit: cover;
     object-position: center;
     width: 100%;
+    height: 300px;
+}
+
+.services__style__two__icon1 {
+    margin-bottom: 24px;
+}
+.services__style__two__icon1 img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
     height: 200px;
 }
+
 .services__style__two__content .title {
     font-size: 24px;
     letter-spacing: -0.01em;

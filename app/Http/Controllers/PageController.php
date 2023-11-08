@@ -17,6 +17,7 @@ use App\Models\Profile;
 use App\Models\Profpeg;
 use App\Models\Sosmed;
 use App\Models\Video;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
@@ -29,7 +30,7 @@ class PageController extends Controller
         $komoditas = Komoditas::where('is_unggulan', 'N')->get();
         $artikel = News::with('category')->take(3)->latest()->get();
         $penyakit = Penyakit::take(3)->latest()->get();
-        $opt = Opt::take(3)->latest()->get();
+        // $opt = Opt::take(3)->latest()->get();
         $links = Link::latest()->get();
         $sosmeds = Sosmed::get();
         $contact_cs = Profpeg::select('foto', 'nama', 'jabatan', 'whatsapp')->where('is_customer_service', 'Y')->get();
@@ -52,7 +53,7 @@ class PageController extends Controller
             'visitor_today',
             'contact_cs',
             'penyakit',
-            'opt',
+            // 'opt',
         ));
     }
 
@@ -68,14 +69,24 @@ class PageController extends Controller
         return view('front.details.profil_dinas', compact('item', 'profpegs', 'contact', 'sosmeds', 'links', 'kadis'));
     }
 
-    public function komoditas()
+    public function komoditas_unggulan()
     {
-        $items = Komoditas::get();
+        $items = Komoditas::where('is_unggulan', 'Y')->get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.komoditas', compact('items', 'contact', 'sosmeds', 'links'));
+        return view('front.details.komoditas_unggulan', compact('items', 'contact', 'sosmeds', 'links'));
+    }
+
+    public function komoditas_lainnya()
+    {
+        $items = Komoditas::where('is_unggulan', 'N')->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.komoditas_lainnya', compact('items', 'contact', 'sosmeds', 'links'));
     }
 
     public function komoditas_detail($slug)
@@ -84,7 +95,6 @@ class PageController extends Controller
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $tags = Tag::latest()->get();
         $item = Komoditas::where('slug', $slug)->firstOrFail();
-        // $penyakit = Penyakit::where('komoditas_id', $item->id)->get();
         $news_new = News::take(3)->latest()->popularAllTime()->get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();

@@ -1,12 +1,19 @@
 @extends('front.app')
 
 @section('title', 'Detail Komoditas')
-@section('breadcrumb', 'Detail Komoditas')
 @section('content')
 
-<!-- breadcrumb-area -->
-@include('front.details.breadcrumb')
-<!-- breadcrumb-area-end -->
+<section class="breadcrumb__wrap">
+    <div class="container custom-container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8 col-md-10">
+                <div class="breadcrumb__wrap__content">
+                    <h2 class="title">{{ Str::title($item->nama) ?? null }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="services__details">
     <div class="container">

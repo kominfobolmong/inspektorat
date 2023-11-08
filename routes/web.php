@@ -30,23 +30,25 @@ Route::middleware('visitor')->group(function () {
     Route::get('/profil-dinas', [PageController::class, 'profil_dinas'])->name('profil_dinas');
 
     Route::prefix('klinik')->group(function () {
-        Route::get('/artikel', [PageController::class, 'artikel'])->name('artikel');
-        Route::get('/artikel/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
+        Route::get('/aktivitas-klinik', [PageController::class, 'artikel'])->name('artikel');
+        Route::get('/aktivitas-klinik/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
         Route::get('/mitra', [PageController::class, 'mitra'])->name('mitra');
+        Route::get('/hpt', [PageController::class, 'penyakit'])->name('penyakit');
+        Route::get('/hpt/{penyakits:slug}', [PageController::class, 'penyakit_detail'])->name('penyakit-detail');
     });
 
     Route::prefix('komoditas')->group(function () {
-        Route::get('/', [PageController::class, 'komoditas'])->name('komoditas');
+        // Route::get('/', [PageController::class, 'komoditas'])->name('komoditas');
+        Route::get('/unggulan-daerah', [PageController::class, 'komoditas_unggulan'])->name('komoditas_unggulan');
+        Route::get('/lainnya', [PageController::class, 'komoditas_lainnya'])->name('komoditas_lainnya');
         Route::get('/{komoditas:slug}', [PageController::class, 'komoditas_detail'])->name('komoditas-detail');
     });
 
-    Route::get('/penyakit', [PageController::class, 'penyakit'])->name('penyakit');
-    Route::get('/penyakit/{penyakits:slug}', [PageController::class, 'penyakit_detail'])->name('penyakit-detail');
 
-    Route::get('/opt', [PageController::class, 'opt'])->name('opt');
-    Route::get('/opt/{opts:slug}', [PageController::class, 'opt_detail'])->name('opt-detail');
+    // Route::get('/opt', [PageController::class, 'opt'])->name('opt');
+    // Route::get('/opt/{opts:slug}', [PageController::class, 'opt_detail'])->name('opt-detail');
 
-    Route::get('/konsultasi-online', [PageController::class, 'konsultasi'])->name('konsultasi');
+    Route::get('/konsultasi', [PageController::class, 'konsultasi'])->name('konsultasi');
 
     Route::prefix('galeri')->group(function () {
         Route::get('/foto', [PageController::class, 'galeri_foto'])->name('galeri_foto');
@@ -86,6 +88,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('penyakit', PenyakitController::class);
         Route::resource('komoditas', KomoditasController::class);
         Route::resource('mitra', MitraController::class);
-        Route::resource('opt', OptController::class);
+        // Route::resource('opt', OptController::class);
     });
 });

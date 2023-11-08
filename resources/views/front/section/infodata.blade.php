@@ -10,15 +10,16 @@
                     <div class="col">
                         <div class="about__award__item">
                             <div class="award__logo">
-                                <img src="{{ Storage::url($item->foto) }}" alt="photo" class="img-fluid" />
+                                <img src="{{ Storage::url($item->foto) }}" alt="photo" class="img-fluid img-thumbnail w-100" />
                             </div>
                             <div class="award__content">
                                 <h5 class="title">
                                     {{ $item->jabatan }}
                                 </h5>
                                 <p>{{ $item->nama }}</p>
-                                <p>
-                                    WA: <a href="https://wa.me/{{ $item->whatsapp }}"><strong>Hubungi Saya</strong></a>
+                                <p class="mt-2">
+                                    <a aria-label="Chat on WhatsApp" href="https://wa.me/+62{{ $item->whatsapp }}"> <img alt="Chat on WhatsApp" src="{{ asset('templates/frontend/img/WhatsAppButtonGreenSmall.svg') }}" />
+                                    </a>
                                 </p>
                             </div>
                         </div>

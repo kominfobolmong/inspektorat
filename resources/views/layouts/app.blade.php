@@ -71,7 +71,7 @@
                                 <span>Dashboard</span></a></li>
 
 
-                        <li class="dropdown {{ setActive('admin/category') }} {{ setActive('admin/tag') }} {{ setActive('admin/news') }} {{ setActive('admin/mitra') }}">
+                        <li class="dropdown {{ setActive('admin/category') }} {{ setActive('admin/tag') }} {{ setActive('admin/news') }} {{ setActive('admin/penyakit') }} {{ setActive('admin/mitra') }} {{ setActive('admin/produk-mitra') }}">
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Klinik UAP</span></a>
 
                             <ul class="dropdown-menu">
@@ -89,17 +89,27 @@
 
                                 @can('news.index')
                                     <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-chevron-right"></i>
-                                    <span>Artikel</span></a></li>
+                                    <span>Aktivitas Klinik</span></a></li>
+                                @endcan
+
+                                @can('penyakit.index')
+                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Artikel HPT</span></a></li>
                                 @endcan
 
                                 {{-- @can('mitra.index') --}}
                                     <li class="{{ setActive('admin/mitra') }}"><a class="nav-link" href="{{ route('mitra.index') }}"><i class="fas fa-chevron-right"></i>
                                     <span>Mitra</span></a></li>
                                 {{-- @endcan --}}
+
+                                {{-- @can('mitra.index') --}}
+                                <li class="{{ setActive('admin/produk-mitra') }}"><a class="nav-link" href="{{ route('mitra.index') }}"><i class="fas fa-chevron-right"></i>
+                                    <span>Produk Mitra</span></a></li>
+                                {{-- @endcan --}}
+
                             </ul>
                         </li>
 
-                        <li class="dropdown {{ setActive('admin/penyakit') }} {{ setActive('admin/komoditas') }} {{ setActive('admin/opt') }}">
+                        <li class="dropdown {{ setActive('admin/komoditas') }}">
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Komoditas</span></a>
 
                             <ul class="dropdown-menu">
@@ -108,12 +118,8 @@
                                     <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Jenis Tanaman</span></a></li>
                                 @endcan
 
-                                @can('penyakit.index')
-                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Penyakit Tanaman</span></a></li>
-                                @endcan
-
-                                {{-- @can('penyakit.index') --}}
-                                <li class="{{ setActive('admin/opt') }}"><a class="nav-link" href="{{ route('opt.index') }}"><i class="fas fa-chevron-right"></i> <span>OPT/Hama</span></a></li>
+                                {{-- @can('komoditas.index') --}}
+                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Kebijakan</span></a></li>
                                 {{-- @endcan --}}
 
                             </ul>

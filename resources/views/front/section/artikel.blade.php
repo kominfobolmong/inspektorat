@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div> --}}
-        <h4>Artikel Terkini</h4><br>
+        <h4>Aktivitas Klinik Terkini</h4><br>
         <div class="row gx-0 justify-content-center">
             @foreach ($artikel as $item)
             <div class="col-lg-4 col-md-6">
@@ -30,7 +30,7 @@
             @endforeach
         </div>
         <div class="blog__button text-center">
-            <a href="{{ route('artikel') }}" class="btn">Artikel Lainnya</a>
+            <a href="{{ route('artikel') }}" class="btn">Lihat Lainnya</a>
         </div>
     </div>
 </section>

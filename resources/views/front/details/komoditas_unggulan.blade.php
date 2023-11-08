@@ -1,7 +1,7 @@
 @extends('front.app')
 
-@section('title', 'Komoditas')
-@section('breadcrumb', 'Komoditas')
+@section('title', 'Komoditas Unggulan Daerah')
+@section('breadcrumb', 'Komoditas Unggulan Daerah')
 @section('content')
 
 <!-- breadcrumb-area -->
@@ -13,7 +13,7 @@
         <div class="services__style__two__wrap">
             <div class="row gx-0">
                 @foreach ($items as $item)
-                <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="services__style__two__item">
                         <div class="services__style__two__icon">
                             <img
@@ -28,9 +28,9 @@
                                     >{{ Str::title($item->nama) }}</a
                                 >
                             </h3>
-                            {{-- <p>
-                                {!! Str::limit($item->deskripsi, 100, '...') !!}
-                            </p> --}}
+                            <p>
+                                {!! Str::limit($item->deskripsi, 400, '...') !!}
+                            </p>
                             <a
                                 href="{{ route('komoditas-detail', $item->slug) }}"
                                 class="services__btn"

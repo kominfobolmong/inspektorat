@@ -15,7 +15,7 @@
             </ul>
         </div>
         <div class="widget">
-            <h4 class="widget-title">Artikel Populer</h4>
+            <h4 class="widget-title">Aktivitas Klinik Terkini</h4>
             <ul class="rc__post">
                 @foreach ($news_new as $item)
                 <li class="rc__post__item">

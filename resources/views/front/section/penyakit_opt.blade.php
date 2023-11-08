@@ -1,6 +1,6 @@
 <section class="blog">
     <div class="container">
-        <h4>Info Penyakit Tanaman</h4><br>
+        <h4>Hama & Penyakit Tanaman</h4><br>
         <div class="row gx-0 justify-content-center">
             @foreach ($penyakit as $item)
             <div class="col-lg-4 col-md-6">
@@ -19,7 +19,7 @@
     </div>
 </section>
 
-<section class="blog">
+{{-- <section class="blog">
     <div class="container">
         <h4>Info Opt/Hama</h4><br>
         <div class="row gx-0 justify-content-center">
@@ -38,4 +38,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
