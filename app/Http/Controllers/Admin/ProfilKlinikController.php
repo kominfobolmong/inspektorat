@@ -111,7 +111,7 @@ class ProfilKlinikController extends Controller
         $this->validate($request, [
             'image' => 'image|mimes:jpeg,jpg,png|max:2048',
             'lampiran' => 'mimes:pdf',
-            'title' => 'required|unique:profil__kliniks',
+            'title' => 'required|unique:profil__kliniks,title,' . $profil_klinik->id,
             'kategori' => 'required',
         ]);
 

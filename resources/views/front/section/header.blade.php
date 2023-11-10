@@ -21,7 +21,7 @@
 
                                     <li class="menu-item-has-children {{ setActive('klinik') }}"><a href="#">Klinik UAP</a>
                                         <ul class="sub-menu">
-                                            <li><a href="#">Profil Klinik</a></li>
+                                            <li><a href="{{ route('profil_klinik') }}">Profil Klinik</a></li>
                                             <li><a href="{{ route('penyakit') }}">Hama & Penyakit Tanaman</a></li>
                                             <li><a href="{{ route('artikel') }}">Aktivitas Klinik</a></li>
                                             <li><a href="{{ route('mitra') }}">Profil Mitra</a></li>

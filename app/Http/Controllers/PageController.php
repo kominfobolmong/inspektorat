@@ -13,6 +13,7 @@ use App\Models\News;
 use App\Models\Opt;
 use App\Models\Penyakit;
 use App\Models\Photo;
+use App\Models\Profil_Klinik;
 use App\Models\Profile;
 use App\Models\Profpeg;
 use App\Models\Sosmed;
@@ -106,6 +107,41 @@ class PageController extends Controller
         $count_mitra = DB::table('mitras')->count();
 
         return view('front.details.komoditas_detail', compact('item', 'komoditas', 'category', 'tags', 'news_new', 'contact', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
+    }
+
+    public function profil_klinik()
+    {
+        $konsep = Profil_Klinik::select('title', 'slug', 'created_at')->where('kategori', '1')->take(12)->get();
+        $proses = Profil_Klinik::select('title', 'slug', 'created_at')->where('kategori', '2')->take(12)->get();
+        $hasil = Profil_Klinik::select('title', 'slug', 'created_at')->where('kategori', '3')->take(12)->get();
+        $pengembangan = Profil_Klinik::select('title', 'slug', 'created_at')->where('kategori', '4')->take(12)->get();
+
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.profil_klinik', compact('konsep', 'proses', 'hasil', 'pengembangan', 'contact', 'sosmeds', 'links'));
+    }
+
+    public function profil_klinik_detail($slug)
+    {
+        $item = Profil_Klinik::where('slug', $slug)->firstOrFail();
+
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $komoditas = Komoditas::select('nama', 'slug')->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+
+        $count_komoditas = DB::table('komoditas')->count();
+        $count_hama = DB::table('penyakits')->count();
+        $count_aktivitas_klinik = DB::table('news')->count();
+        $count_mitra = DB::table('mitras')->count();
+
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.profil_klinik_detail', compact('item', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
     }
 
     public function penyakit()

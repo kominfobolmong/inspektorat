@@ -32,6 +32,8 @@ Route::middleware('visitor')->group(function () {
     Route::get('/profil-dinas', [PageController::class, 'profil_dinas'])->name('profil_dinas');
 
     Route::prefix('klinik')->group(function () {
+        Route::get('/profil-klinik', [PageController::class, 'profil_klinik'])->name('profil_klinik');
+        Route::get('/profil-klinik/{profil__kliniks:slug}', [PageController::class, 'profil_klinik_detail'])->name('profil_klinik_detail');
         Route::get('/aktivitas-klinik', [PageController::class, 'artikel'])->name('artikel');
         Route::get('/aktivitas-klinik/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
         Route::get('/mitra', [PageController::class, 'mitra'])->name('mitra');
