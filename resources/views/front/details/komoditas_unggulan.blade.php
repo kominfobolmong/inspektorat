@@ -28,9 +28,9 @@
                                     >{{ Str::title($item->nama) }}</a
                                 >
                             </h3>
-                            <p>
+                            {{-- <p>
                                 {!! Str::limit($item->deskripsi, 400, '...') !!}
-                            </p>
+                            </p> --}}
                             <a
                                 href="{{ route('komoditas-detail', $item->slug) }}"
                                 class="services__btn"

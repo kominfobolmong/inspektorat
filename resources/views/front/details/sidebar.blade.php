@@ -33,9 +33,13 @@
         <div class="widget">
             <h4 class="widget-title">Kategori</h4>
             <ul class="sidebar__cat">
-                @foreach ($category as $item)
+                {{-- @foreach ($category as $item)
                 <li class="sidebar__cat__item"><a href="#">{{ $item->name }} ({{ $item->news->count() }})</a></li>
-                @endforeach
+                @endforeach --}}
+                <li class="sidebar__cat__item"><a href="#">Komoditas ({{ $count_komoditas }})</a></li>
+                <li class="sidebar__cat__item"><a href="#">Hama ({{ $count_hama }})</a></li>
+                <li class="sidebar__cat__item"><a href="#">Aktivitas Klinik ({{ $count_aktivitas_klinik }})</a></li>
+                <li class="sidebar__cat__item"><a href="#">Mitra ({{ $count_mitra }})</a></li>
             </ul>
         </div>
         <div class="widget">

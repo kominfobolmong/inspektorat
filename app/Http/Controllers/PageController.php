@@ -36,7 +36,7 @@ class PageController extends Controller
         $contact_cs = Profpeg::select('foto', 'nama', 'jabatan', 'whatsapp')->where('is_customer_service', 'Y')->get();
 
         $count_komoditas = DB::table('komoditas')->count();
-        $count_artikel = DB::table('news')->count();
+        $count_artikel = DB::table('penyakits')->count();
         $visitors = DB::table('visitors')->count();
         $visitor_today = DB::table('visitors')->where('date', today())->count();
 
@@ -100,7 +100,12 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.komoditas_detail', compact('item', 'komoditas', 'category', 'tags', 'news_new', 'contact', 'sosmeds', 'links'));
+        $count_komoditas = DB::table('komoditas')->count();
+        $count_hama = DB::table('penyakits')->count();
+        $count_aktivitas_klinik = DB::table('news')->count();
+        $count_mitra = DB::table('mitras')->count();
+
+        return view('front.details.komoditas_detail', compact('item', 'komoditas', 'category', 'tags', 'news_new', 'contact', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
     }
 
     public function penyakit()
@@ -114,7 +119,12 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.penyakit', compact('items', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+        $count_komoditas = DB::table('komoditas')->count();
+        $count_hama = DB::table('penyakits')->count();
+        $count_aktivitas_klinik = DB::table('news')->count();
+        $count_mitra = DB::table('mitras')->count();
+
+        return view('front.details.penyakit', compact('items', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
     }
 
     public function penyakit_detail($slug)
@@ -130,7 +140,12 @@ class PageController extends Controller
 
         // $artikel->visit()->withIp()->withSession();
 
-        return view('front.details.penyakit_detail', compact('penyakit', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+        $count_komoditas = DB::table('komoditas')->count();
+        $count_hama = DB::table('penyakits')->count();
+        $count_aktivitas_klinik = DB::table('news')->count();
+        $count_mitra = DB::table('mitras')->count();
+
+        return view('front.details.penyakit_detail', compact('penyakit', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
     }
 
     public function opt()
@@ -174,7 +189,12 @@ class PageController extends Controller
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.artikel', compact('items', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+        $count_komoditas = DB::table('komoditas')->count();
+        $count_hama = DB::table('penyakits')->count();
+        $count_aktivitas_klinik = DB::table('news')->count();
+        $count_mitra = DB::table('mitras')->count();
+
+        return view('front.details.artikel', compact('items', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
     }
 
     public function artikel_detail($slug)
@@ -190,7 +210,12 @@ class PageController extends Controller
 
         $artikel->visit()->withIp()->withSession();
 
-        return view('front.details.artikel_detail', compact('artikel', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links'));
+        $count_komoditas = DB::table('komoditas')->count();
+        $count_hama = DB::table('penyakits')->count();
+        $count_aktivitas_klinik = DB::table('news')->count();
+        $count_mitra = DB::table('mitras')->count();
+
+        return view('front.details.artikel_detail', compact('artikel', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
     }
 
     public function kategori(Category $kategori)

@@ -71,10 +71,14 @@
                                 <span>Dashboard</span></a></li>
 
 
-                        <li class="dropdown {{ setActive('admin/category') }} {{ setActive('admin/tag') }} {{ setActive('admin/news') }} {{ setActive('admin/penyakit') }} {{ setActive('admin/mitra') }} {{ setActive('admin/produk-mitra') }}">
+                        <li class="dropdown {{ setActive('admin/profil_klinik') }} {{ setActive('admin/category') }} {{ setActive('admin/tag') }} {{ setActive('admin/news') }} {{ setActive('admin/penyakit') }} {{ setActive('admin/mitra') }} {{ setActive('admin/produk-mitra') }}">
                             <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Klinik UAP</span></a>
 
                             <ul class="dropdown-menu">
+
+                                <li class="{{ setActive('admin/profil_klinik') }}"><a class="nav-link" href="{{ route('profil_klinik.index') }}"><i class="fas fa-chevron-right"></i>
+                                    <span>Profil Klinik</span></a>
+                                </li>
 
                                 @can('categories.index')
                                 <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-chevron-right"></i>

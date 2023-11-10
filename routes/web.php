@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\PenyakitController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ProfilKlinik;
+use App\Http\Controllers\Admin\ProfilKlinikController;
 use App\Http\Controllers\Admin\ProfpegController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SliderController;
@@ -88,6 +90,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('penyakit', PenyakitController::class);
         Route::resource('komoditas', KomoditasController::class);
         Route::resource('mitra', MitraController::class);
+        Route::resource('profil_klinik', ProfilKlinikController::class);
         // Route::resource('opt', OptController::class);
     });
 });
