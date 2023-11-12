@@ -1,7 +1,7 @@
 @extends('front.app')
 
-@section('title', 'Detail Profil Klinik')
-@section('breadcrumb', 'Detail Profil Klinik')
+@section('title', 'Detail Info')
+@section('breadcrumb', 'Detail Info')
 @section('content')
 
 <!-- breadcrumb-area -->
@@ -56,6 +56,10 @@
                                 @if ($item->kategori === '4')
                                     <a href="#">Pengembangan</a>
                                 @endif
+
+                                @if ($item->kategori === '5')
+                                <a href="#">Kebijakan Pengembangan Komoditas</a>
+                                @endif
                             </li>
                         </ul>
                         <ul class="blog__details__social">
@@ -67,37 +71,6 @@
                             </li>
                         </ul>
                     </div>
-                    {{-- <div class="blog__next__prev">
-                        <div class="row justify-content-between">
-                            <div class="col-xl-5 col-md-6">
-                                <div class="blog__next__prev__item">
-                                    <h4 class="title">Previous Post</h4>
-                                    <div class="blog__next__prev__post">
-                                        <div class="blog__next__prev__thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog_prev.jpg" alt=""></a>
-                                        </div>
-                                        <div class="blog__next__prev__content">
-                                            <h5 class="title"><a href="blog-details.html">Digital Marketing Agency Pricing Guide.</a></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-5 col-md-6">
-                                <div class="blog__next__prev__item next_post text-end">
-                                    <h4 class="title">Next Post</h4>
-                                    <div class="blog__next__prev__post">
-                                        <div class="blog__next__prev__thumb">
-                                            <a href="blog-details.html"><img src="assets/img/blog/blog_next.jpg" alt=""></a>
-                                        </div>
-                                        <div class="blog__next__prev__content">
-                                            <h5 class="title"><a href="blog-details.html">App Prototyping
-                                            Types, Example & Usages.</a></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
 

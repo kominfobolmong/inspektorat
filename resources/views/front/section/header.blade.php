@@ -33,7 +33,7 @@
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('komoditas_unggulan') }}">Komoditas Unggulan Daerah</a></li>
                                             <li><a href="{{ route('komoditas_lainnya') }}">Komoditas Lainnya</a></li>
-                                            <li><a href="#">Kebijakan Pengembangan Komoditas</a></li>
+                                            <li><a href="{{ route('kebijakan') }}">Kebijakan Pengembangan Komoditas</a></li>
                                         </ul>
                                     </li>
 

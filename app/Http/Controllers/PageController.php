@@ -144,6 +144,17 @@ class PageController extends Controller
         return view('front.details.profil_klinik_detail', compact('item', 'category', 'tags', 'news_new', 'contact', 'komoditas', 'sosmeds', 'links', 'count_komoditas', 'count_hama', 'count_aktivitas_klinik', 'count_mitra'));
     }
 
+    public function kebijakan()
+    {
+        $items = Profil_Klinik::select('title', 'slug', 'created_at')->where('kategori', '5')->paginate(12);
+
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.kebijakan', compact('items', 'contact', 'sosmeds', 'links'));
+    }
+
     public function penyakit()
     {
         $items = Penyakit::with('komoditas')->latest()->paginate(5);
@@ -216,7 +227,7 @@ class PageController extends Controller
 
     public function artikel()
     {
-        $items = News::without('tags')->latest()->paginate(5);
+        $items = News::without('tags')->withTotalVisitCount()->latest()->paginate(5);
         $komoditas = Komoditas::select('nama', 'slug')->get();
         $news_new = News::take(3)->latest()->popularAllTime()->get();
         $category = Category::withCount('news')->get();
@@ -238,7 +249,7 @@ class PageController extends Controller
         $category = Category::withCount('news')->get();
         $tags = Tag::latest()->get();
         $komoditas = Komoditas::select('nama', 'slug')->get();
-        $artikel = News::where('slug', $slug)->firstOrFail();
+        $artikel = News::where('slug', $slug)->withTotalVisitCount()->firstOrFail();
         $news_new = News::take(3)->latest()->popularAllTime()->get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();

@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\KomoditasController;
 use App\Http\Controllers\Admin\LinkController;
 use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\Admin\OptController;
 use App\Http\Controllers\Admin\PenyakitController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PhotoController;
@@ -42,16 +41,13 @@ Route::middleware('visitor')->group(function () {
     });
 
     Route::prefix('komoditas')->group(function () {
-        // Route::get('/', [PageController::class, 'komoditas'])->name('komoditas');
         Route::get('/unggulan-daerah', [PageController::class, 'komoditas_unggulan'])->name('komoditas_unggulan');
         Route::get('/lainnya', [PageController::class, 'komoditas_lainnya'])->name('komoditas_lainnya');
         Route::get('/{komoditas:slug}', [PageController::class, 'komoditas_detail'])->name('komoditas-detail');
+        // Route::get('/kebijakan-pengembangan-komoditas/{profil__kliniks:slug}', [PageController::class, 'kebijakan_detail'])->name('kebijakan_detail');
     });
 
-
-    // Route::get('/opt', [PageController::class, 'opt'])->name('opt');
-    // Route::get('/opt/{opts:slug}', [PageController::class, 'opt_detail'])->name('opt-detail');
-
+    Route::get('/kebijakan-pengembangan-komoditas', [PageController::class, 'kebijakan'])->name('kebijakan');
     Route::get('/konsultasi', [PageController::class, 'konsultasi'])->name('konsultasi');
 
     Route::prefix('galeri')->group(function () {
@@ -93,6 +89,5 @@ Route::prefix('admin')->group(function () {
         Route::resource('komoditas', KomoditasController::class);
         Route::resource('mitra', MitraController::class);
         Route::resource('profil_klinik', ProfilKlinikController::class);
-        // Route::resource('opt', OptController::class);
     });
 });
