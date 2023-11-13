@@ -304,7 +304,7 @@ class PageController extends Controller
 
     public function mitra()
     {
-        $items = Mitra::latest()->paginate(10);
+        $items = Mitra::latest()->paginate(12);
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();

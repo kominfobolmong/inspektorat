@@ -39,7 +39,7 @@
                                 <th scope="col">NO.</th>
                                 <th scope="col">FOTO</th>
                                 <th scope="col">NAMA</th>
-                                <th scope="col">DESKRIPSI</th>
+                                {{-- <th scope="col">DESKRIPSI</th> --}}
                                 <th scope="col">AKSI</th>
                             </tr>
                             </thead>
@@ -49,7 +49,7 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td><img src="{{ Storage::url($item->image) }}" class="img-fluid" width="70" alt="foto-komoditas"></td>
                                     <td>{{ $item->nama }}</td>
-                                    <td>{!! Str::limit($item->deskripsi, 100, '...') !!}</td>
+                                    {{-- <td>{!! Str::limit($item->deskripsi, 100, '...') !!}</td> --}}
                                     <td>
                                         @can('komoditas.edit')
                                             <a href="{{ route('komoditas.edit', $item->id) }}" class="btn btn-sm btn-primary">
