@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\KomoditasController;
+use App\Http\Controllers\Admin\KonsultasiController;
 use App\Http\Controllers\Admin\LinkController;
 use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\NewsController;
@@ -89,5 +90,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('komoditas', KomoditasController::class);
         Route::resource('mitra', MitraController::class);
         Route::resource('profil_klinik', ProfilKlinikController::class);
+        Route::resource('konsultasi', KonsultasiController::class);
     });
 });

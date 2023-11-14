@@ -127,7 +127,7 @@
 
                         @can('konsultasi.index')
                             <li class="{{ setActive('admin/konsultasi') }}"><a class="nav-link"
-                        href=""><i class="fas fa-chevron-right"></i> <span>Konsultasi</span></a>
+                        href="{{ route('konsultasi.index') }}"><i class="fas fa-chevron-right"></i> <span>Konsultasi</span></a>
                             </li>
                         @endcan
 

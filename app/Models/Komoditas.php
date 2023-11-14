@@ -22,6 +22,11 @@ class Komoditas extends Model
         return $this->hasMany(Penyakit::class);
     }
 
+    public function konsultasis()
+    {
+        return $this->hasMany(Konsultasi::class);
+    }
+
     public function opt()
     {
         return $this->belongsToMany(Opt::class);

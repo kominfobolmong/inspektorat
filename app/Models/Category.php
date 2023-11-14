@@ -30,9 +30,4 @@ class Category extends Model
     {
         return $this->hasMany(News::class);
     }
-
-    public function limis()
-    {
-        return $this->hasMany(Limi::class);
-    }
 }

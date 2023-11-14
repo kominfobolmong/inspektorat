@@ -6,7 +6,9 @@ use App\Models\Tag;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\Faq;
 use App\Models\Komoditas;
+use App\Models\Konsultasi;
 use App\Models\Link;
 use App\Models\Mitra;
 use App\Models\News;
@@ -146,7 +148,7 @@ class PageController extends Controller
 
     public function kebijakan()
     {
-        $items = Profil_Klinik::select('title', 'slug', 'created_at')->where('kategori', '5')->paginate(12);
+        $items = Profil_Klinik::select('title', 'slug', 'created_at')->where('kategori', '5')->paginate(15);
 
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
@@ -295,16 +297,18 @@ class PageController extends Controller
 
     public function konsultasi()
     {
+        $items = Konsultasi::latest()->paginate(9);
+        $faqs = Faq::get();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.konsultasi', compact('contact', 'sosmeds', 'links'));
+        return view('front.details.konsultasi', compact('items', 'faqs', 'contact', 'sosmeds', 'links'));
     }
 
     public function mitra()
     {
-        $items = Mitra::latest()->paginate(12);
+        $items = Mitra::latest()->paginate(9);
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
@@ -314,7 +318,7 @@ class PageController extends Controller
 
     public function galeri_foto()
     {
-        $items = Photo::latest()->paginate(10);
+        $items = Photo::latest()->paginate(12);
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
@@ -324,7 +328,7 @@ class PageController extends Controller
 
     public function galeri_video()
     {
-        $items = Video::latest()->paginate(10);
+        $items = Video::latest()->paginate(12);
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();

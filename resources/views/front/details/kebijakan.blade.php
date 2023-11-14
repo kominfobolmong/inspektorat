@@ -13,9 +13,9 @@
         {{-- <h4 class="text-center mt-50 mb-50">Pengembangan Klinik</h4><br> --}}
         <div class="row gx-0 justify-content-center">
             @foreach ($items as $item)
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-10 col-md-10">
                 <div class="blog__post__item">
-                    <div class="blog__post__content">
+                    <div class="blog__post__content text-center">
                         <span class="date">{{ $item->created_at->diffForHumans() }}</span>
                         <h3 class="title"><a href="{{ route('profil_klinik_detail', $item->slug) }}">{{ $item->title }}</a></h3>
                     </div>

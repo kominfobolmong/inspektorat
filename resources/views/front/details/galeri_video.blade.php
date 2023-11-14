@@ -8,24 +8,19 @@
 @include('front.details.breadcrumb')
 <!-- breadcrumb-area-end -->
 
-<section class="portfolio__inner">
+<section class="blog">
     <div class="container">
-        <div class="portfolio__inner__active">
+        <div class="row gx-0 justify-content-center">
             @foreach ($items as $item)
-            <div class="portfolio__inner__item grid-item">
-                <div class="row mb-30 gx-0 align-items-center justify-content-center">
-                    <div class="col mr-30">
-                        {{-- <div class="portfolio__inner__thumb"> --}}
-                            <iframe src="https://www.youtube.com/embed/{!! $item->embed !!}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 100%;height: 400px;-o-object-fit: cover;object-position: center"></iframe>
-                            <h5 class="mb-25">{{ $item->created_at->diffForHumans() }}</h5>
-                            <h4 class="title">{{ $item->title }}</h4>
-                        {{-- </div> --}}
-
-                        {{-- <div class="portfolio__inner__content">
-                        </div> --}}
+            <div class="col-lg-4 col-md-6">
+                <div class="blog__post__item">
+                    <div class="blog__post__thumb">
+                        <iframe src="https://www.youtube.com/embed/{!! $item->embed !!}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width: 100%;height: 300px;object-fit: cover;object-position: center"></iframe>
                     </div>
-                    {{-- <div class="col-lg-6 col-md-10">
-                    </div> --}}
+                    <div class="blog__post__content">
+                        <span class="date">{{ $item->created_at->diffForHumans() }}</span>
+                        <h3 class="title">{{ $item->title }}</h3>
+                    </div>
                 </div>
             </div>
             @endforeach
