@@ -3346,7 +3346,7 @@ Breadcrumb
 }
 .about__education__item {
     width: 100%;
-    height: 85vh;
+    height: 90vh;
     padding: 30px;
     margin-bottom: 60px;
     overflow: hidden;
@@ -3354,7 +3354,7 @@ Breadcrumb
 @media (max-width: 1199.98px) {
     .about__education__item {
         width: 100%;
-        height: 85vh;
+        height: 90vh;
     }
 }
 @media (max-width: 991.98px) {
