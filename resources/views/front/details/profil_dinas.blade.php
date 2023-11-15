@@ -11,14 +11,14 @@
 <!-- about-area -->
 <section class="about about__style__two">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row">
             <div class="col-lg-6">
                 <div class="about__image">
                     <img
                         src="{{ Storage::url($item->foto_pimpinan ?? null) }}"
                         alt="foto-pimpinan"
                         class="img-fluid img-thumbnail"
-                        style="object-fit: cover;object-position: center;width: 100%;height: 800px;"
+                        style="object-fit: cover;object-position: center;width: 100%;height: 900px;"
                     />
                 </div>
             </div>

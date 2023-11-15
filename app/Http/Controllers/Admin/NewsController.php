@@ -65,11 +65,16 @@ class NewsController extends Controller
             'user_id'     => 'required',
             'body'        => 'required',
             'tags'        => 'required',
+            'lampiran'    => 'mimes:pdf|max:10000',
         ]);
 
         //upload image
         $image = $request->file('image');
         $image->storeAs('public/news_images/', $image->hashName());
+
+        if ($request->file('lampiran')) {
+            $lampiran = $request->file('lampiran')->store('assets/news/lampiran', 'public');
+        }
 
         $news = News::create([
             'image'       => $image->hashName(),
@@ -78,6 +83,7 @@ class NewsController extends Controller
             'category_id' => $request->input('category_id'),
             'user_id'     => $request->input('user_id'),
             'body'        => $request->input('body'),
+            'lampiran'    => ($request->file('lampiran')) ? $lampiran : null,
         ]);
 
         //assign tags
@@ -121,9 +127,15 @@ class NewsController extends Controller
             'category_id' => 'required',
             'user_id'     => 'required',
             'body'        => 'required',
+            'lampiran'    => 'mimes:pdf|max:10000',
         ]);
 
         if ($request->file('image') == "") {
+
+            if ($request->file('lampiran')) {
+                Storage::delete($news->lampiran);
+                $lampiran = $request->file('lampiran')->store('assets/news/lampiran', 'public');
+            }
 
             $news = News::findOrFail($news->id);
             $news->update([
@@ -131,13 +143,19 @@ class NewsController extends Controller
                 'slug'        => Str::slug($request->input('title'), '-'),
                 'category_id' => $request->input('category_id'),
                 'user_id'     => $request->input('user_id'),
-                'body'        => $request->input('body')
+                'body'        => $request->input('body'),
+                'lampiran'    => ($request->file('lampiran')) ? $lampiran : $news->lampiran,
             ]);
         } else {
 
             //remove old image
             // Storage::disk('local')->delete('public/news_images/' . $news->image);
             Storage::delete('public/news_images/' . $news->image);
+
+            if ($request->file('lampiran')) {
+                Storage::delete($news->lampiran);
+                $lampiran = $request->file('lampiran')->store('assets/news/lampiran', 'public');
+            }
 
             //upload new image
             $image = $request->file('image');
@@ -150,7 +168,8 @@ class NewsController extends Controller
                 'slug'        => strtolower(Str::slug($request->input('title') . '-' . time())),
                 'category_id' => $request->input('category_id'),
                 'user_id'     => $request->input('user_id'),
-                'body'        => $request->input('body')
+                'body'        => $request->input('body'),
+                'lampiran'    => ($request->file('lampiran')) ? $lampiran : $news->lampiran,
             ]);
         }
 
@@ -176,6 +195,7 @@ class NewsController extends Controller
     {
         $news = News::findOrFail($id);
         Storage::disk('local')->delete('public/news_images/' . $news->image);
+        Storage::delete($news->lampiran);
         $news->tags()->detach();
         $news->delete();
 

@@ -94,6 +94,17 @@
                             @enderror
                         </div>
 
+                        <div class="form-group">
+                            <label>LAMPIRAN</label>
+                            <input type="file" name="lampiran" class="form-control @error('lampiran') is-invalid @enderror">
+
+                            @error('lampiran')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             SIMPAN</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>

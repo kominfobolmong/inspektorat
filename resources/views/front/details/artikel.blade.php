@@ -27,7 +27,7 @@
                         <ul class="blog__post__meta">
                             <li><i class="fal fa-calendar-alt"></i> {{ $item->created_at->diffForHumans() }}</li>
                             <li><i class="fal fa-folder"></i> <a href="#">{{ $item->category->name }}</a></li>
-                            <li class="post-share"><a href="#"><i class="fal fa-eye"></i> ({{ $item->visit_count_total }})</a></li>
+                            <li class="post-share"><a href="#"><i class="fal fa-eye"></i> {{ $item->visit_count_total }}x dilihat</a></li>
                         </ul>
                     </div>
                 </div>

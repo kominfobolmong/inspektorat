@@ -4823,14 +4823,14 @@ Breadcrumb
 =============================*/
 .testimonial {
     position: relative;
-    padding: 130px 0 0;
+    padding: 80px 0 100px;
 }
 @media (max-width: 991.98px) {
     .testimonial {
-        padding: 120px 0 120px;
+        padding: 100px 0 100px;
     }
 }
-.testimonial::after {
+/* .testimonial::after {
     content: "";
     position: absolute;
     top: 0;
@@ -4839,7 +4839,7 @@ Breadcrumb
     height: 100%;
     background: #f7f7f7;
     z-index: -1;
-}
+} */
 @media (max-width: 991.98px) {
     .testimonial::after {
         display: none;
@@ -4863,6 +4863,17 @@ Breadcrumb
         margin-right: 20px;
     }
 }
+
+.section__title .title {
+    font-size: 28px;
+}
+
+@media (max-width: 767.98px) {
+    .section__title .title {
+        font-size: 18px;
+    }
+}
+
 .testimonial__icon {
     font-size: 24px;
     line-height: 1;
@@ -4898,11 +4909,9 @@ Breadcrumb
 }
 .testimonial__avatar span {
     display: block;
-    text-transform: uppercase;
     color: #191b1e;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    font-size: 15px;
+    font-size: 18px;
 }
 .testimonial__avatar__img {
     position: relative;

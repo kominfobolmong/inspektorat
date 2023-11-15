@@ -20,10 +20,20 @@
                         <ul class="blog__post__meta">
                             <li><i class="fal fa-calendar-alt"></i> {{ $artikel->created_at->diffForHumans() }}</li>
                             <li><i class="fal fa-user-alt"></i> <a href="#">{{ $artikel->user->name }}</a></li>
-                            <li class="post-share"><a href="#"><i class="fal fa-eye"></i> ({{ $artikel->visit_count_total }})</a></li>
+                            <li class="post-share"><a href="#"><i class="fal fa-eye"></i> {{ $artikel->visit_count_total }}x dilihat</a></li>
                         </ul>
                         <h2 class="title">{{ Str::title($artikel->title) ?? null }}</h2>
                         <p>{!! $artikel->body ?? null !!}</p>
+
+
+                        @if(Storage::disk('public')->exists($artikel->lampiran ?? null))
+                            <br><strong>LAMPIRAN</strong><br>
+                            <br><object data="{{ Storage::url($artikel->lampiran ?? null) }}" type="application/pdf" class="w-100" height="600">
+
+                                <embed src="{{ Storage::url($artikel->lampiran ?? null) }}" type="application/pdf">
+
+                            </object>
+                        @endif
                     </div>
                     <div class="blog__details__bottom">
                         <ul class="blog__details__tag">
