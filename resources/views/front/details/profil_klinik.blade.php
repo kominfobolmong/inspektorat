@@ -25,7 +25,19 @@
                                 <div class="testimonial__icon">
                                     <i class="fas fa-quote-left"></i>
                                 </div>
-                                <p>Klinik Usaha Agribisnis Perkebunan, merupakan sebuah rangkaian kegiatan terintegrasi dalam suatu wadah kelembagaan yang akan menjadi pusat pelayanan informasi dan teknologi, media interaksi antar pemangku kepentingan <em>(stakeholders)</em>,  pengembangan pengetahuan dan keterampilan petani, pembinaan kelembagaan, peningkatan ketahanan dan kemandirian usaha tani,  serta membantu dalam identifikasi sampai dengan pemilihan tindakan penyelesaian permasalahan yang dihadapi oleh petani pelaku agribisnis perkebunan, guna meningkatkan konsistensi petani dalam mengembangkan usaha agribisnis perkebunan secara produktif, mandiri dan berkelanjutan.</p><br>
+
+                                <blockquote class="blockquote" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                                    <p>
+                                        Klinik Usaha Agribisnis Perkebunan, merupakan sebuah rangkaian kegiatan terintegrasi dalam suatu wadah kelembagaan yang akan menjadi pusat pelayanan informasi dan teknologi, media interaksi antar pemangku kepentingan <em>(stakeholders)</em>,  pengembangan pengetahuan dan keterampilan petani, pembinaan kelembagaan, peningkatan ketahanan dan kemandirian usaha tani,  serta membantu dalam identifikasi sampai dengan pemilihan tindakan penyelesaian permasalahan yang dihadapi oleh petani pelaku agribisnis perkebunan, guna meningkatkan konsistensi petani dalam mengembangkan usaha agribisnis perkebunan secara produktif, mandiri dan berkelanjutan.
+                                    </p>
+                                </blockquote><br>
+
+                                <blockquote class="blockquote" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                                    <p>
+                                        Klinik Usaha Agribisnis Perkebunan terkoneksi dengan LIMI Agribisnis Perkebunan, guna meningkatkan kemudahan akses dan kualitas layanan Informasi praktis, <em>sharing</em> sumber daya dan Teknologi tepat guna dalam mengelola Agribisnis Perkebunan, dan secara berkelanjutan untuk <strong>meningkatkan pengetahuan, keterampilan, serta membentuk pola pikir dan pola sikap Petani menjadi cerdas, terampil dan produktif</strong> dalam mengembangkan usaha tani perkebunan secara berkelanjutan.
+                                    </p>
+                                </blockquote><br>
+
                                 <div class="testimonial__icon">
                                     <i class="fas fa-quote-right"></i>
                                 </div>
