@@ -110,32 +110,32 @@ class ProfpegController extends Controller
      */
     public function update(Request $request, Profpeg $profpeg)
     {
-        $request->validate([
+        $this->validate($request, [
             'nama' => 'required',
+            'nip' => 'required',
             'jabatan' => 'required',
-            'nip' => 'required'
-
+            'foto' => 'image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $input = $request->all();
-
-        if ($foto = $request->file('foto')) {
-            $destinationPath = 'public/files';
-            $profileFile = date('YmdHis') . "." . $foto->getClientOriginalExtension();
-            $foto->move($destinationPath, $profileFile);
-            $input['foto'] = "$profileFile";
-        } else {
-            unset($input['foto']);
+        //upload image
+        if ($request->file('foto')) {
+            Storage::delete($profpeg->foto);
+            $foto = $request->file('foto')->store('assets/sdm', 'public');
         }
 
-        $foto->update($input);
+        $data = Profpeg::findOrFail($profpeg->id)->update([
+            'nama' => $request->input('nama'),
+            'nip' => $request->input('nip'),
+            'jabatan' => $request->input('jabatan'),
+            'foto' => ($request->file('foto')) ? $foto : $profpeg->foto,
+            'whatsapp' => $request->input('whatsapp'),
+            'is_customer_service' => ($request->input('is_customer_service')) ? 'Y' : $profpeg->is_customer_service,
+        ]);
 
-        if ($foto) {
-            //redirect dengan pesan sukses
-            return redirect()->route('profpeg.index')->with(['success' => 'Data Berhasil Diupdate!']);
+        if ($data) {
+            return redirect()->route('profpeg.index')->with(['success' => 'Data Berhasil Disimpan!']);
         } else {
-            //redirect dengan pesan error
-            return redirect()->route('profpeg.index')->with(['error' => 'Data Gagal Diupdate!']);
+            return redirect()->route('profpeg.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
     }
 
@@ -148,7 +148,7 @@ class ProfpegController extends Controller
     public function destroy($id)
     {
         $profpeg = Profpeg::findOrFail($id);
-        $foto = Storage::disk('local')->delete('public/files' . $profpeg->foto);
+        Storage::delete($profpeg->image);
         $profpeg->delete();
 
         if ($profpeg) {
