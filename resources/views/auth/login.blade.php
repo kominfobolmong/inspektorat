@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Login &mdash; Dinas Perkebunan Kabupaten Bolaang Mongondow</title>
+    <title>Login &mdash; Inspektorat Daerah Kabupaten Bolaang Mongondow</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/img/bolmongkab.png') }}" type="image/x-icon">
 
@@ -30,7 +30,7 @@
                         <div class="login-brand">
                             {{-- <img src="{{ asset('assets/img/bolmongkab.png') }}" alt="logo" width="100"
                                 class="shadow-light rounded-circle" style="padding:10px;background: white;"> --}}
-                                <p>DISBUN BOLMONGKAB</p>
+                                <p>INSPEKTORAT DAERAH</p>
                         </div>
 
                         <div class="card card-primary">

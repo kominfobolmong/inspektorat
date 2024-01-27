@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Dashboard &mdash; Dinas Perkebunan Kabupaten Bolaang Mongondow</title>
+    <title>Dashboard &mdash; Inspektorat Daerah Kabupaten Bolaang Mongondow</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/bolmongkab.png') }}" type="image/x-icon">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
@@ -59,10 +59,10 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="#">DISBUN</a>
+                        <a href="#">INSPEKTORAT</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="#">DISBUN</a>
+                        <a href="#">INSPEKTORAT</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
@@ -71,64 +71,20 @@
                                 <span>Dashboard</span></a></li>
 
 
-                        <li class="dropdown {{ setActive('admin/profil_klinik') }} {{ setActive('admin/category') }} {{ setActive('admin/tag') }} {{ setActive('admin/news') }} {{ setActive('admin/penyakit') }} {{ setActive('admin/mitra') }} {{ setActive('admin/produk-mitra') }}">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Klinik UAP</span></a>
-
-                            <ul class="dropdown-menu">
-
-                                <li class="{{ setActive('admin/profil_klinik') }}"><a class="nav-link" href="{{ route('profil_klinik.index') }}"><i class="fas fa-chevron-right"></i>
-                                    <span>Profil Klinik</span></a>
-                                </li>
-
-                                @can('categories.index')
-                                <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-chevron-right"></i>
-                                <span>Kategori</span></a>
-                                </li>
-                                @endcan
-
-                                @can('tags.index')
-                                    <li class="{{ setActive('admin/tag') }}"><a class="nav-link" href="{{ route('tag.index') }}"><i class="fas fa-chevron-right"></i> <span>Tags</span></a>
-                                    </li>
-                                @endcan
-
-                                @can('news.index')
-                                    <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-chevron-right"></i>
-                                    <span>Aktivitas Klinik</span></a></li>
-                                @endcan
-
-                                @can('penyakit.index')
-                                <li class="{{ setActive('admin/penyakit') }}"><a class="nav-link" href="{{ route('penyakit.index') }}"><i class="fas fa-chevron-right"></i> <span>Artikel HPT</span></a></li>
-                                @endcan
-
-                                {{-- @can('mitra.index') --}}
-                                    <li class="{{ setActive('admin/mitra') }}"><a class="nav-link" href="{{ route('mitra.index') }}"><i class="fas fa-chevron-right"></i>
-                                    <span>Mitra</span></a></li>
-                                {{-- @endcan --}}
-
-                                {{-- @can('mitra.index') --}}
-                                <li class="{{ setActive('admin/produk-mitra') }}"><a class="nav-link" href="{{ route('mitra.index') }}"><i class="fas fa-chevron-right"></i>
-                                    <span>Produk Mitra</span></a></li>
-                                {{-- @endcan --}}
-
-                            </ul>
+                        @can('categories.index')
+                        <li class="{{ setActive('admin/category') }}"><a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-chevron-right"></i>
+                        <span>Kategori</span></a>
                         </li>
+                        @endcan
 
-                        <li class="dropdown {{ setActive('admin/komoditas') }}">
-                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-chevron-right"></i><span>Komoditas</span></a>
-
-                            <ul class="dropdown-menu">
-
-                                @can('komoditas.index')
-                                    <li class="{{ setActive('admin/komoditas') }}"><a class="nav-link" href="{{ route('komoditas.index') }}"><i class="fas fa-chevron-right"></i> <span>Jenis Tanaman</span></a></li>
-                                @endcan
-
-                            </ul>
-                        </li>
-
-                        @can('konsultasi.index')
-                            <li class="{{ setActive('admin/konsultasi') }}"><a class="nav-link"
-                        href="{{ route('konsultasi.index') }}"><i class="fas fa-chevron-right"></i> <span>Konsultasi</span></a>
+                        @can('tags.index')
+                            <li class="{{ setActive('admin/tag') }}"><a class="nav-link" href="{{ route('tag.index') }}"><i class="fas fa-chevron-right"></i> <span>Tags</span></a>
                             </li>
+                        @endcan
+
+                        @can('news.index')
+                            <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-chevron-right"></i>
+                            <span>Berita</span></a></li>
                         @endcan
 
                         @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index'))
@@ -217,7 +173,7 @@
 
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; {{ date('Y') }} <div class="bullet"></div> Kabupaten Bolaang Mongondow <div class="bullet"></div> All Rights
+                    Copyright &copy; {{ date('Y') }} <div class="bullet"></div> Inspektorat Daerah Kabupaten Bolaang Mongondow <div class="bullet"></div> All Rights
                     Reserved.
                 </div>
                 <div class="footer-right">
