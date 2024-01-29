@@ -4,12 +4,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@yield('title') - Dinas Perkebunan Kabupaten Bolaang Mongondow</title>
-        <meta name="description" content="Website Resmi Dinas Perkebunan Kabupaten Bolaang Mongondow">
-        <meta name="keyword" content="dibun, dinas perkebunan, kabupaten bolaang mongondow">
+        <title>@yield('title') - Inspektorat Daerah Kabupaten Bolaang Mongondow</title>
+        <meta name="description" content="Website Resmi Inspektorat Daerah Kabupaten Bolaang Mongondow">
+        <meta name="keyword" content="inspektorat, kabupaten bolaang mongondow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('templates/frontend/img/logo/logo-bolmong.png') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('templates/home/logo-inspektorat.png') }}">
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +59,7 @@
                         <div class="footer__widget">
                             <div class="fw-title">
                                 <h5 class="sub-title">Alamat</h5>
-                                <h4 class="title">Dinas Perkebunan</h4>
+                                <h4 class="title">Inspektorat Daerah</h4>
                             </div>
                             <div class="footer__widget__text">
                                 <p>{{ $contact->alamat ?? null }}</p>
@@ -87,7 +87,7 @@
                                 <p>Telepon: {{ $contact->no_telp ?? null }}</p>
                                 <p>Email: {{ $contact->email ?? null }}</p>
                                 <ul class="footer__social__list">
-                                    <li><a href="https://web.facebook.com/profile.php?id=61552159365094"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                     <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                 </ul>
@@ -99,7 +99,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="copyright__text text-center">
-                                <p>Copyright @ {{ date('Y') }} Dinas Perkebunan Kab. Bolaang Mongondow</p>
+                                <p>Copyright @ {{ date('Y') }} Inspektorat Daerah Kab. Bolaang Mongondow</p>
                             </div>
                         </div>
                     </div>
@@ -120,6 +120,12 @@
         <script src="{{ asset('templates/frontend/js/wow.min.js') }}"></script>
         <script src="{{ asset('templates/frontend/js/plugins.js') }}"></script>
         <script src="{{ asset('templates/frontend/js/main.js') }}"></script>
+
+        <script>
+            let myCarousel = document.querySelector('#carouselExampleSlidesOnly')
+            let carousel = new bootstrap.Carousel(myCarousel)
+
+        </script>
 
     </body>
 </html>

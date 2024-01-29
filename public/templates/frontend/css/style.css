@@ -2339,7 +2339,8 @@ Breadcrumb
 =============================*/
 .breadcrumb__wrap {
     /* background: #f7f7f7; */
-    background-image: url("../img/bg/bg-breadcrumb.png");
+    /* background-image: url("../img/bg/bg-breadcrumb.png"); */
+    background: linear-gradient(150deg, #f36265, #961276 100%);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

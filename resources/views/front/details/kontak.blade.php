@@ -61,7 +61,7 @@
 
 <!-- contact-map -->
 <div id="contact-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.34570801601!2d124.03406642040454!3d0.8818970296216907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x327e711efa1deaf5%3A0x5ffbed24145e70!2sDinas%20Perkebunan%20Kabupaten%20Bolaang%20Mongondow!5e0!3m2!1sid!2sid!4v1698152583779!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3578716839493!2d124.02026877486664!3d0.8704740991210987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x327e6fc4478e7459%3A0xb35668331a552081!2sINSPEKTORAT%20DAERAH%20KAB.BOLAANG%20MONGONDOW!5e0!3m2!1sid!2sid!4v1706524682304!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <!-- contact-map-end -->
 

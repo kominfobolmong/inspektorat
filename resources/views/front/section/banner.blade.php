@@ -1,6 +1,13 @@
 <section class="banner">
     <div class="container custom-container">
-        <img src="{{ asset('templates/frontend/img/banner/banner-limi.png') }}" class="img-fluid img-rounded" alt="banner-limi">
-        {{-- <a href="{{ route('profil_klinik') }}" class="klinik_btn">Klinik</a> --}}
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($sliders as $item)
+            <div class="carousel-item @if ($loop->first) active @endif">
+                <img class="d-block w-100" src="{{ $item->image }}" alt="slideshow">
+            </div>
+            @endforeach
+        </div>
+      </div>
     </div>
 </section>

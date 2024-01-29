@@ -23,9 +23,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('visitor')->group(function () {
     Route::get('/', [PageController::class, 'index']);
+    Route::get('/beranda', [PageController::class, 'beranda'])->name('beranda');
     Route::get('/profil-dinas', [PageController::class, 'profil_dinas'])->name('profil_dinas');
-    Route::get('/news', [PageController::class, 'artikel'])->name('artikel');
-    Route::get('/news/{news:slug}', [PageController::class, 'artikel_detail'])->name('artikel-detail');
+    Route::get('/news', [PageController::class, 'news'])->name('news');
+    Route::get('/news/{news:slug}', [PageController::class, 'news_detail'])->name('news-detail');
 
     Route::prefix('galeri')->group(function () {
         Route::get('/foto', [PageController::class, 'galeri_foto'])->name('galeri_foto');

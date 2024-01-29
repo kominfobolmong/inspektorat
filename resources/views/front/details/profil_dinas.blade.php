@@ -27,7 +27,7 @@
                     <div class="section__title">
                         {{-- <span class="sub-title">Profil Pimpinan</span> --}}
                         <h2 class="title">
-                            Kepala Dinas Perkebunan
+                            Inspektur Daerah
                         </h2>
                     </div>
                     <div class="about__exp">

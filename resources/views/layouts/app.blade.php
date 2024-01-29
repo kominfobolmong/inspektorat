@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Dashboard &mdash; Inspektorat Daerah Kabupaten Bolaang Mongondow</title>
-    <link rel="shortcut icon" href="{{ asset('assets/img/bolmongkab.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('templates/home/logo-inspektorat.png') }}" type="image/x-icon">
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
@@ -87,6 +87,11 @@
                             <span>Berita</span></a></li>
                         @endcan
 
+                        @can('link.index')
+                        <li class="{{ setActive('admin/link') }}"><a class="nav-link" href="{{ route('link.index') }}"><i class="fas fa-chevron-right"></i>
+                        <span>Apps</span></a></li>
+                        @endcan
+
                         @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index'))
                         <li class="menu-header">GALERI</li>
                         @endif
@@ -129,11 +134,6 @@
                         @can('faq.index')
                         <li class="{{ setActive('admin/faq') }}"><a class="nav-link" href="{{ route('faq.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>FAQ</span></a></li>
-                        @endcan
-
-                        @can('link.index')
-                        <li class="{{ setActive('admin/link') }}"><a class="nav-link" href="{{ route('link.index') }}"><i class="fas fa-chevron-right"></i>
-                        <span>Link Terkait</span></a></li>
                         @endcan
 
                         @can('sosmed.index')

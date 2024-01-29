@@ -9,17 +9,18 @@
                             <div class="logo">
                                 <a href="/">
                                     <div class="logo-brand d-flex">
-                                        <img src="{{ asset('templates/frontend/img/logo/logo-bolmong.png') }}" alt="logo" width="50" />
-                                        <h4 style="margin-left: 5px;">DINAS PERKEBUNAN <br> KAB. BOLAANG MONGONDOW</h4>
+                                        <img src="{{ asset('templates/home/logo-inspektorat.png') }}" alt="logo" width="50" />
+                                        <h4 style="margin-left: 5px;">INSPEKTORAT DAERAH <br> KAB. BOLAANG MONGONDOW</h4>
                                     </div>
                                 </a>
                             </div>
                             <div class="navbar__wrap main__menu d-none d-xl-flex">
                                 <ul class="navigation">
-                                    <li class="{{ setActive('/') }}"><a href="/">Beranda</a></li>
+                                    <li class="{{ setActive('beranda') }}"><a href="{{ route('beranda') }}">Beranda</a></li>
                                     <li class="{{ setActive('profil-dinas') }}"><a href="{{ route('profil_dinas') }}">Profil Dinas</a></li>
+                                    <li class="{{ setActive('news') }}"><a href="{{ route('news') }}">Berita</a></li>
 
-                                    <li class="menu-item-has-children {{ setActive('klinik') }}"><a href="#">Klinik UAP</a>
+                                    {{-- <li class="menu-item-has-children {{ setActive('klinik') }}"><a href="#">Klinik UAP</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('profil_klinik') }}">Profil Klinik</a></li>
                                             <li><a href="{{ route('penyakit') }}">Hama & Penyakit Tanaman</a></li>
@@ -27,17 +28,17 @@
                                             <li><a href="{{ route('mitra') }}">Profil Mitra</a></li>
                                             <li><a href="{{ route('mitra') }}">Produk Mitra</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
 
-                                    <li class="menu-item-has-children {{ setActive('komoditas') }}"><a href="#">Komoditas</a>
+                                    {{-- <li class="menu-item-has-children {{ setActive('komoditas') }}"><a href="#">Komoditas</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('komoditas_unggulan') }}">Komoditas Unggulan Daerah</a></li>
                                             <li><a href="{{ route('komoditas_lainnya') }}">Komoditas Lainnya</a></li>
                                             <li><a href="{{ route('kebijakan') }}">Kebijakan Pengembangan Komoditas</a></li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
 
-                                    <li class="{{ setActive('konsultasi') }}"><a href="{{ route('konsultasi') }}">Konsultasi</a></li>
+                                    {{-- <li class="{{ setActive('konsultasi') }}"><a href="{{ route('konsultasi') }}">Konsultasi</a></li> --}}
 
                                     <li class="menu-item-has-children {{ setActive('galeri') }}"><a href="#">Galeri</a>
                                         <ul class="sub-menu">
