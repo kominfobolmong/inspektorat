@@ -78,7 +78,7 @@
 
 
   <video autoplay muted loop id="videobackground">
-      <source src="{{ asset('templates/home/videobg1.mp4') }}" type="video/mp4">
+      <source src="{{ asset('templates/home/bgvideo.mp4') }}" type="video/mp4">
     </video>
 
   <section id="hero" class="d-flex align-items-center justify-content-center">
@@ -91,6 +91,13 @@
             <img src="{{ asset('templates/home/logo-inspektorat.png') }}" alt="logo" width="70">
           <h1>Inspektorat Daerah</h1>
           <h2>Kabupaten Bolaang Mongondow</h2>
+          <h2>
+            MOKOKOT,
+          <span
+            class="typed"
+            data-typed-items="MORALITAS, KOMPETENSI, KOMITMEN, INTEGRITAS"
+          ></span>
+          </h2>
         </div>
       </div>
 
@@ -807,6 +814,7 @@
   <script src="{{ asset('templates/home/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('templates/home/vendor/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('templates/home/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ asset('templates/home/vendor/typed.js/typed.umd.js') }}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('templates/home/js/main.js') }}"></script>
