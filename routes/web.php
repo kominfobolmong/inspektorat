@@ -24,9 +24,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('visitor')->group(function () {
     Route::get('/', [PageController::class, 'index']);
     Route::get('/beranda', [PageController::class, 'beranda'])->name('beranda');
-    Route::get('/profil-dinas', [PageController::class, 'profil_dinas'])->name('profil_dinas');
     Route::get('/news', [PageController::class, 'news'])->name('news');
     Route::get('/news/{news:slug}', [PageController::class, 'news_detail'])->name('news-detail');
+
+    Route::prefix('profil')->group(function () {
+        Route::get('/arti-lambang', [PageController::class, 'arti_lamabang'])->name('arti_lambang');
+        Route::get('/visi-misi', [PageController::class, 'visi_misi'])->name('visi_misi');
+        Route::get('/tugas-dan-fungsi', [PageController::class, 'tugas_fungsi'])->name('tugas_fungsi');
+        Route::get('/struktur-organisasi', [PageController::class, 'struktur_organisasi'])->name('struktur_organisasi');
+        Route::get('/profil-pimpinan', [PageController::class, 'profil_pimpinan'])->name('profil_pimpinan');
+        Route::get('/pegawai', [PageController::class, 'pegawai'])->name('pegawai');
+    });
 
     Route::prefix('galeri')->group(function () {
         Route::get('/foto', [PageController::class, 'galeri_foto'])->name('galeri_foto');

@@ -17,28 +17,20 @@
                             <div class="navbar__wrap main__menu d-none d-xl-flex">
                                 <ul class="navigation">
                                     <li class="{{ setActive('beranda') }}"><a href="{{ route('beranda') }}">Beranda</a></li>
-                                    <li class="{{ setActive('profil-dinas') }}"><a href="{{ route('profil_dinas') }}">Profil Dinas</a></li>
+                                    {{-- <li class="{{ setActive('profil-dinas') }}"><a href="{{ route('profil_dinas') }}">Profil</a></li> --}}
+
+                                    <li class="menu-item-has-children {{ setActive('profil') }}"><a href="#">Profil</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('arti_lambang') }}">Arti Logo/Lambang</a></li>
+                                            <li><a href="{{ route('visi_misi') }}">Visi dan Misi</a></li>
+                                            <li><a href="{{ route('tugas_fungsi') }}">Tugas dan Fungsi</a></li>
+                                            <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
+                                            <li><a href="{{ route('profil_pimpinan') }}">Profil Pimpinan</a></li>
+                                            <li><a href="{{ route('pegawai') }}">Pegawai</a></li>
+                                        </ul>
+                                    </li>
+
                                     <li class="{{ setActive('news') }}"><a href="{{ route('news') }}">Berita</a></li>
-
-                                    {{-- <li class="menu-item-has-children {{ setActive('klinik') }}"><a href="#">Klinik UAP</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{ route('profil_klinik') }}">Profil Klinik</a></li>
-                                            <li><a href="{{ route('penyakit') }}">Hama & Penyakit Tanaman</a></li>
-                                            <li><a href="{{ route('artikel') }}">Aktivitas Klinik</a></li>
-                                            <li><a href="{{ route('mitra') }}">Profil Mitra</a></li>
-                                            <li><a href="{{ route('mitra') }}">Produk Mitra</a></li>
-                                        </ul>
-                                    </li> --}}
-
-                                    {{-- <li class="menu-item-has-children {{ setActive('komoditas') }}"><a href="#">Komoditas</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{ route('komoditas_unggulan') }}">Komoditas Unggulan Daerah</a></li>
-                                            <li><a href="{{ route('komoditas_lainnya') }}">Komoditas Lainnya</a></li>
-                                            <li><a href="{{ route('kebijakan') }}">Kebijakan Pengembangan Komoditas</a></li>
-                                        </ul>
-                                    </li> --}}
-
-                                    {{-- <li class="{{ setActive('konsultasi') }}"><a href="{{ route('konsultasi') }}">Konsultasi</a></li> --}}
 
                                     <li class="menu-item-has-children {{ setActive('galeri') }}"><a href="#">Galeri</a>
                                         <ul class="sub-menu">
@@ -50,9 +42,6 @@
                                     <li class="{{ setActive('kontak') }}"><a href="{{ route('kontak') }}">Kontak</a></li>
                                 </ul>
                             </div>
-                            {{-- <div class="header__btn d-none d-md-block">
-                                <a href="{{ route('konsultasi') }}" class="btn">KLINIK</a>
-                            </div> --}}
                         </nav>
                     </div>
                     <!-- Mobile Menu  -->

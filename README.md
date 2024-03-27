@@ -1,9 +1,9 @@
-## Dinas Kesehatan
+## Inspektorat Daerah Kab. Bolaang Mongondow
 
-Website Resmi Dinas Perkebunan Kabupaten Bolaang Mongondow
-created 12 Oktober 2023
+Website Resmi Inspektorat Daerah Kabupaten Bolaang Mongondow
+created 27 Maret 2024
 
 -   Laravel 8
--   pim 2
+-   Lomba Inovasi Akselerasi Pengawasan
 
 Sukur Moanto'
