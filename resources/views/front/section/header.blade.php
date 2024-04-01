@@ -9,7 +9,7 @@
                             <div class="logo">
                                 <a href="/">
                                     <div class="logo-brand d-flex">
-                                        <img src="{{ asset('templates/home/logo-inspektorat.png') }}" alt="logo" width="50" />
+                                        <img src="{{ asset('templates/home/logo.png') }}" alt="logo" width="50" />
                                         <h4 style="margin-left: 5px;">INSPEKTORAT DAERAH <br> KAB. BOLAANG MONGONDOW</h4>
                                     </div>
                                 </a>
@@ -25,7 +25,7 @@
                                             <li><a href="{{ route('visi_misi') }}">Visi dan Misi</a></li>
                                             <li><a href="{{ route('tugas_fungsi') }}">Tugas dan Fungsi</a></li>
                                             <li><a href="{{ route('struktur_organisasi') }}">Struktur Organisasi</a></li>
-                                            <li><a href="{{ route('profil_pimpinan') }}">Profil Pimpinan</a></li>
+                                            <li><a href="{{ route('profil_pimpinan') }}">Profil Inspektur</a></li>
                                             <li><a href="{{ route('pegawai') }}">Pegawai</a></li>
                                         </ul>
                                     </li>

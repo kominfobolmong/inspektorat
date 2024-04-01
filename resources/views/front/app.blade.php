@@ -9,7 +9,7 @@
         <meta name="keyword" content="inspektorat, kabupaten bolaang mongondow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('templates/home/logo-inspektorat.png') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('templates/home/logo.png') }}">
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +55,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="row justify-content-between">
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="footer__widget">
                             <div class="fw-title">
                                 <h5 class="sub-title">Alamat</h5>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                    <div class="col-xl-4 col-lg-4 col-sm-6">
                         <div class="footer__widget">
                             <div class="fw-title">
                                 <h5 class="sub-title">Link Terkait</h5>

@@ -111,6 +111,21 @@
                         <li class="menu-header">PENGATURAN</li>
                         @endif
 
+                        @can('jabatan.index')
+                        <li class="{{ setActive('admin/jabatan') }}"><a class="nav-link" href="{{ route('jabatan.index') }}"><i class="fas fa-chevron-right"></i>
+                        <span>Jabatan</span></a></li>
+                        @endcan
+
+                        @can('golongan.index')
+                        <li class="{{ setActive('admin/golongan') }}"><a class="nav-link" href="{{ route('golongan.index') }}"><i class="fas fa-chevron-right"></i>
+                        <span>Golongan</span></a></li>
+                        @endcan
+
+                        @can('pegawai.index')
+                        <li class="{{ setActive('admin/pegawai') }}"><a class="nav-link" href="{{ route('pegawai.index') }}"><i class="fas fa-chevron-right"></i>
+                        <span>Pegawai</span></a></li>
+                        @endcan
+
                         @can('sliders.index')
                             <li class="{{ setActive('admin/slider') }}"><a class="nav-link" href="{{ route('slider.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>Sliders</span></a></li>
@@ -119,11 +134,6 @@
                         @can('profile.index')
                         <li class="{{ setActive('admin/profile') }}"><a class="nav-link" href="{{ route('profile.index') }}"><i class="fas fa-chevron-right"></i>
                         <span>Profil</span></a></li>
-                        @endcan
-
-                        @can('profpegs.index')
-                        <li class="{{ setActive('admin/profpeg') }}"><a class="nav-link" href="{{ route('profpeg.index') }}"><i class="fas fa-chevron-right"></i>
-                        <span>SDM</span></a></li>
                         @endcan
 
                         @can('contact.index')

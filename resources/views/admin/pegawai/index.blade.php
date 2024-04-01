@@ -4,29 +4,27 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>SDM</h1>
+            <h1>Pegawai</h1>
         </div>
 
         <div class="section-body">
 
             <div class="card">
                 <div class="card-header">
-                    <h4><i class="fas fa-user"></i> Profil Pegawai</h4>
+                    <h4><i class="fas fa-folder"></i> Pegawai</h4>
                 </div>
 
                 <div class="card-body">
-
-                    <form action="{{ route('profpeg.index') }}" method="GET">
+                    <form action="{{ route('pegawai.index') }}" method="GET">
                         <div class="form-group">
                             <div class="input-group mb-3">
-                                @can('downloads.create')
-                                <div class="input-group-prepend">
-
-                                    <a href="{{ route('profpeg.create') }}" class="btn btn-primary"
-                                        style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
-                                </div>
+                                @can('pegawai.create')
+                                    <div class="input-group-prepend">
+                                        <a href="{{ route('pegawai.create') }}" class="btn btn-primary" style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> TAMBAH</a>
+                                    </div>
                                 @endcan
-                                <input type="text" class="form-control" name="q" placeholder="cari pegawai">
+                                <input type="text" class="form-control" name="q"
+                                       placeholder="Cari nama">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> CARI
                                     </button>
@@ -37,48 +35,46 @@
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
-                                <tr>
-                                    <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                    <th scope="col">NAMA</th>
-                                    <th scope="col">NIP</th>
-                                    <th scope="col">JABATAN</th>
-                                    <th scope="col">FOTO</th>
-                                    <th scope="col">AKSI</th>
-                                </tr>
+                            <tr>
+                                <th scope="col" style="text-align: center;width: 6%">NO.</th>
+                                <th scope="col">NAMA</th>
+                                <th scope="col">NIP</th>
+                                <th scope="col">JABATAN</th>
+                                <th scope="col">GOLONGAN</th>
+                                <th scope="col" style="width: 15%;text-align: center">AKSI</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @forelse ($profpegs as $no => $item)
+                            @forelse ($datas as $data)
                                 <tr>
-                                    <th scope="row" style="text-align: center">
-                                        {{ ++$no + ($profpegs->currentPage()-1) * $profpegs->perPage() }}</th>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->nip }}</td>
-                                    <td>{{ $item->jabatan }}</td>
-                                    <td><img src="{{ Storage::url($item->foto) }}" class="img-thumbnail img-fluid" width="70" height="70" /></td>
-                                    <td>
-                                    @can('profpegs.edit')
-
-                                            <a href="{{ route('profpeg.edit', $item->id) }}" class="btn btn-sm btn-primary">
+                                    <th scope="row" style="text-align: center">{{ $loop->iteration }}</th>
+                                    <td>{{ $data->nama }}</td>
+                                    <td>{{ $data->nip }}</td>
+                                    <td>{{ $data->jabatan->nama }}</td>
+                                    <td>{{ $data->golongan->nama }}</td>
+                                    <td class="text-center">
+                                        @can('pegawai.edit')
+                                            <a href="{{ route('pegawai.edit', $data->id) }}" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                         @endcan
 
-                                        @can('profpegs.delete')
-                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
+                                        @can('pegawai.delete')
+                                            <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $data->id }}">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         @endcan
                                     </td>
                                 </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="6">empty</td>
-                                </tr>
-                                @endforelse
+                            @empty
+                            <tr>
+                                <td colspan="6">Empty</td>
+                            </tr>
+                            @endforelse
                             </tbody>
                         </table>
                         <div style="text-align: center">
-                            {{$profpegs->links("vendor.pagination.bootstrap-4")}}
+                            {{$datas->links("vendor.pagination.bootstrap-4")}}
                         </div>
                     </div>
                 </div>
@@ -107,11 +103,9 @@
             }).then(function(isConfirm) {
                 if (isConfirm) {
 
-
                     //ajax delete
                     jQuery.ajax({
-
-                        url: "{{ route("profpeg.index") }}/"+id,
+                        url: "{{ route("pegawai.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token
@@ -152,4 +146,5 @@
             })
         }
 </script>
+
 @stop

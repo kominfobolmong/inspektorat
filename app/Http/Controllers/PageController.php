@@ -29,21 +29,84 @@ class PageController extends Controller
     {
         $sliders = Slider::take(2)->latest()->get();
         $artikel = News::take(9)->latest()->get();
-        $links = Link::take(5)->latest()->get();
+        $links = Link::latest()->get();
 
         return view('front.index', compact('artikel', 'sliders', 'links'));
     }
 
-    public function profil_dinas()
+    public function arti_lambang()
     {
-        $item = Profile::select('foto_pimpinan', 'kata_sambutan', 'visi', 'misi', 'struktur_organisasi', 'maklumat', 'tupoksi')->first();
-        $kadis = Profpeg::select('nama', 'nip')->where('jabatan', 'Kepala Dinas')->first();
-        $profpegs = Profpeg::get();
+        $item = Profile::select('dasar_hukum')->first();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+
+        return view('front.details.arti_lambang', compact('item', 'contact', 'sosmeds', 'links', 'news_new', 'category', 'tags'));
+    }
+
+    public function visi_misi()
+    {
+        $item = Profile::select('visi', 'misi')->first();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+
+        return view('front.details.visi_misi', compact('item', 'contact', 'sosmeds', 'links', 'news_new', 'category', 'tags'));
+    }
+
+    public function tugas_fungsi()
+    {
+        $item = Profile::select('tupoksi')->first();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+
+        return view('front.details.tugas_fungsi', compact('item', 'contact', 'sosmeds', 'links', 'news_new', 'category', 'tags'));
+    }
+
+    public function struktur_organisasi()
+    {
+        $item = Profile::select('struktur_organisasi')->first();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+
+        return view('front.details.struktur_organisasi', compact('item', 'contact', 'sosmeds', 'links', 'news_new', 'category', 'tags'));
+    }
+
+    public function profil_pimpinan()
+    {
+        $item = Profile::select('foto_pimpinan', 'kata_sambutan')->first();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+
+        return view('front.details.profil_pimpinan', compact('item', 'contact', 'sosmeds', 'links', 'news_new', 'category', 'tags'));
+    }
+
+    public function pegawai()
+    {
+        // $item = Profile::select('arti_lambang')->first();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.profil_dinas', compact('item', 'profpegs', 'contact', 'sosmeds', 'links', 'kadis'));
+        return view('front.details.pegawai', compact('contact', 'sosmeds', 'links'));
     }
 
     public function news()

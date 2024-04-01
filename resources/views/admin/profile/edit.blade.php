@@ -135,9 +135,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label>DASAR HUKUM</label>
+                            <label>ARTI LAMBANG</label>
                             <textarea class="form-control content @error('dasar_hukum') is-invalid @enderror" name="dasar_hukum"
-                                placeholder="Masukkan Dasar Hukum" rows="10">{!! old('dasar_hukum') ?? $profile->dasar_hukum !!}</textarea>
+                                placeholder="Masukkan Arti Lambang" rows="10">{!! old('dasar_hukum') ?? $profile->dasar_hukum !!}</textarea>
                             @error('dasar_hukum')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}

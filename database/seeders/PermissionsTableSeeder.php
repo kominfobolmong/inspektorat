@@ -44,18 +44,6 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'videos.edit']);
         Permission::create(['name' => 'videos.delete']);
 
-        //permission for files
-        Permission::create(['name' => 'files.index']);
-        Permission::create(['name' => 'files.create']);
-        Permission::create(['name' => 'files.edit']);
-        Permission::create(['name' => 'files.delete']);
-
-        //permission for services
-        Permission::create(['name' => 'services.index']);
-        Permission::create(['name' => 'services.create']);
-        Permission::create(['name' => 'services.edit']);
-        Permission::create(['name' => 'services.delete']);
-
         //permission for sliders
         Permission::create(['name' => 'sliders.index']);
         Permission::create(['name' => 'sliders.create']);
@@ -99,22 +87,25 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'sosmed.edit']);
         Permission::create(['name' => 'sosmed.delete']);
 
-        //permission for download
-        Permission::create(['name' => 'downloads.index']);
-        Permission::create(['name' => 'downloads.create']);
-        Permission::create(['name' => 'downloads.edit']);
-        Permission::create(['name' => 'downloads.delete']);
-
-        //permission for profil pegawai
-        Permission::create(['name' => 'profpegs.index']);
-        Permission::create(['name' => 'profpegs.create']);
-        Permission::create(['name' => 'profpegs.edit']);
-        Permission::create(['name' => 'profpegs.delete']);
-
         //permission for faq
         Permission::create(['name' => 'faq.index']);
         Permission::create(['name' => 'faq.create']);
         Permission::create(['name' => 'faq.edit']);
         Permission::create(['name' => 'faq.delete']);
+
+        Permission::create(['name' => 'jabatan.index']);
+        Permission::create(['name' => 'jabatan.create']);
+        Permission::create(['name' => 'jabatan.edit']);
+        Permission::create(['name' => 'jabatan.delete']);
+
+        Permission::create(['name' => 'golongan.index']);
+        Permission::create(['name' => 'golongan.create']);
+        Permission::create(['name' => 'golongan.edit']);
+        Permission::create(['name' => 'golongan.delete']);
+
+        Permission::create(['name' => 'pegawai.index']);
+        Permission::create(['name' => 'pegawai.create']);
+        Permission::create(['name' => 'pegawai.edit']);
+        Permission::create(['name' => 'pegawai.delete']);
     }
 }
