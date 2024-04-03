@@ -57,7 +57,7 @@ class PegawaiController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'nip' => 'required|numeric|unique:pegawais,nip',
+            'nip' => 'required|unique:pegawais,nip',
             'jabatan_id' => 'required',
             'golongan_id' => 'required',
             'image' => 'image|mimes:jpeg,jpg,png|max:2048',
@@ -118,7 +118,7 @@ class PegawaiController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'nip' => 'required|numeric|unique:pegawais,nip,' . $pegawai->id,
+            'nip' => 'required|unique:pegawais,nip,' . $pegawai->id,
             'jabatan_id' => 'required',
             'golongan_id' => 'required',
             'image' => 'image|mimes:jpeg,jpg,png|max:2048',

@@ -50,7 +50,7 @@
                                     <th scope="row" style="text-align: center">{{ $loop->iteration }}</th>
                                     <td>{{ $data->nama }}</td>
                                     <td>{{ $data->nip }}</td>
-                                    <td>{{ $data->jabatan->nama }}</td>
+                                    <td>{{ Str::upper($data->jabatan->nama) }}</td>
                                     <td>{{ $data->golongan->nama }}</td>
                                     <td class="text-center">
                                         @can('pegawai.edit')

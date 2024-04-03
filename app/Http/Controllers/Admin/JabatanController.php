@@ -24,9 +24,9 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        $datas = Jabatan::latest()->when(request()->q, function ($datas) {
+        $datas = Jabatan::when(request()->q, function ($datas) {
             $datas = $datas->where('nama', 'like', '%' . request()->q . '%');
-        })->paginate(15);
+        })->orderBy('kode', 'asc')->paginate(15);
 
         return view('admin.jabatan.index', compact('datas'));
     }

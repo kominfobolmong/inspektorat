@@ -10,7 +10,6 @@ use App\Models\Link;
 use App\Models\News;
 use App\Models\Photo;
 use App\Models\Profile;
-use App\Models\Profpeg;
 use App\Models\Slider;
 use App\Models\Sosmed;
 use App\Models\Video;
@@ -30,8 +29,9 @@ class PageController extends Controller
         $sliders = Slider::take(2)->latest()->get();
         $artikel = News::take(9)->latest()->get();
         $links = Link::latest()->get();
+        $contact = Contact::first();
 
-        return view('front.index', compact('artikel', 'sliders', 'links'));
+        return view('front.index', compact('artikel', 'sliders', 'links', 'contact'));
     }
 
     public function arti_lambang()
@@ -101,12 +101,17 @@ class PageController extends Controller
 
     public function pegawai()
     {
-        // $item = Profile::select('arti_lambang')->first();
         $contact = Contact::first();
         $sosmeds = Sosmed::get();
         $links = Link::latest()->get();
 
-        return view('front.details.pegawai', compact('contact', 'sosmeds', 'links'));
+        $pegawai = DB::table('pegawais')
+            ->join('jabatans', 'jabatans.id', '=', 'pegawais.jabatan_id')
+            ->select('pegawais.nama', 'pegawais.image', 'jabatans.nama as jabatan', 'jabatans.kode')
+            ->orderBy('jabatans.kode')
+            ->get();
+
+        return view('front.details.pegawai', compact('pegawai', 'contact', 'sosmeds', 'links'));
     }
 
     public function news()

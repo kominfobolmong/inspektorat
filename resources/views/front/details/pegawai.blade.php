@@ -11,114 +11,50 @@
 <section id="team" class="team">
     <div class="container" >
 
-      <div class="row d-flex justify-content-center">
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('RANDY.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="fab fa-facebook-f"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-                <a href=""><i class="fab fa-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="{{ asset('RANDY.png') }}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="fab fa-facebook-f"></i></a>
-                  <a href=""><i class="fab fa-instagram"></i></a>
-                  <a href=""><i class="fab fa-linkedin"></i></a>
+      <div class="row d-flex justify-content-center mb-5">
+        @foreach ($pegawai as $item)
+            @if ($item->kode === '1' || $item->kode === '2')
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{{ $item->image? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" alt="foto-pegawai">
+                            <div class="social">
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ $item->nama }}</h4>
+                            <span>{{ Str::upper($item->jabatan) }}</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div>
-
+            @endif
+        @endforeach
       </div>
 
       <div class="row">
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('RANDY.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="fab fa-facebook-f"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-                <a href=""><i class="fab fa-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="{{ asset('RANDY.png') }}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="fab fa-facebook-f"></i></a>
-                  <a href=""><i class="fab fa-instagram"></i></a>
-                  <a href=""><i class="fab fa-linkedin"></i></a>
+        @foreach ($pegawai as $item)
+            @if ($item->kode !== '1' && $item->kode !== '2')
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{{ $item->image? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" alt="foto-pegawai">
+                            <div class="social">
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ $item->nama }}</h4>
+                            <span>{{ Str::upper($item->jabatan) }}</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="{{ asset('RANDY.png') }}" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="fab fa-facebook-f"></i></a>
-                  <a href=""><i class="fab fa-instagram"></i></a>
-                  <a href=""><i class="fab fa-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-              <div class="member">
-                <div class="member-img">
-                  <img src="{{ asset('RANDY.png') }}" class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                    <a href=""><i class="fab fa-linkedin"></i></a>
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                </div>
-              </div>
-            </div>
-
+            @endif
+        @endforeach
       </div>
 
     </div>

@@ -48,9 +48,9 @@
                                     <option value="">-- PILIH JABATAN --</option>
                                     @foreach ($jabatan as $item)
                                         @if($pegawai->jabatan_id == $item->id)
-                                            <option value="{{ $item->id  }}" selected>{{ $item->nama }}</option>
+                                            <option value="{{ $item->id  }}" selected>{{ Str::upper($item->nama) }}</option>
                                         @else
-                                            <option value="{{ $item->id  }}">{{ $item->nama }}</option>
+                                            <option value="{{ $item->id  }}">{{ Str::upper($item->nama) }}</option>
                                         @endif
                                     @endforeach
                                 </select>

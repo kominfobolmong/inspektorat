@@ -46,7 +46,7 @@
                                     name="jabatan_id">
                                     <option value="">-- PILIH JABATAN --</option>
                                     @foreach ($jabatan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                    <option value="{{ $item->id }}">{{ Str::upper($item->nama) }}</option>
                                     @endforeach
                                 </select>
                                 @error('jabatan_id')

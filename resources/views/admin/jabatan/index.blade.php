@@ -46,7 +46,7 @@
                             @forelse ($datas as $data)
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ $loop->iteration }}</th>
-                                    <td>{{ $data->nama }}</td>
+                                    <td>{{ Str::upper($data->nama) }}</td>
                                     <td>{{ $data->kode }}</td>
                                     <td class="text-center">
                                         @can('jabatan.edit')

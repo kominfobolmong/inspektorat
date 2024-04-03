@@ -12,7 +12,6 @@ use App\Http\Controllers\Admin\PegawaiController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\ProfpegController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SosmedController;

@@ -87,8 +87,8 @@
                                 <p>Telepon: {{ $contact->no_telp ?? null }}</p>
                                 <p>Email: {{ $contact->email ?? null }}</p>
                                 <ul class="footer__social__list">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="https://www.facebook.com/profile.php?id=61554373267272"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.instagram.com/inspektorat_bolmong/"><i class="fab fa-instagram"></i></a></li>
                                     <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                 </ul>
                             </div>
