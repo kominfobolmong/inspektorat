@@ -19,7 +19,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="blog__post__item">
                     <div class="blog__post__thumb">
-                        <a href="{{ route('news-detail', $item->slug) }}"><img src="{{ $item->image }}" class="img-fluid rounded" alt="image-artikel"></a>
+                        <a href="{{ route('news-detail', $item->slug) }}"><img src="{{ $item->image }}" class="img-fluid rounded" loading="lazy" alt="image-artikel"></a>
                     </div>
                     <div class="blog__post__content">
                         <span class="date">{{ $item->created_at->diffForHumans() }}</span>

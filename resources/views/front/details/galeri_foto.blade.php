@@ -15,7 +15,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="blog__post__item">
                     <div class="blog__post__thumb">
-                        <img src="{{ Storage::url($item->image) }}" alt="foto-kegiatan" class="img-fluid" style="object-fit: cover;object-position: center;width: 100%;height: 300px" />
+                        <img src="{{ Storage::url($item->image) }}" alt="foto-kegiatan" loading="lazy" class="img-fluid" style="object-fit: cover;object-position: center;width: 100%;height: 300px" />
                     </div>
                     <div class="blog__post__content">
                         <span class="date">{{ $item->created_at->diffForHumans() }}</span>

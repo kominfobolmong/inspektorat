@@ -17,7 +17,7 @@
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-img">
-                            <img src="{{ Storage::disk('public')->exists($item->image ?? null)? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" alt="foto-pegawai">
+                            <img src="{{ Storage::disk('public')->exists($item->image ?? null)? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" loading="lazy" alt="foto-pegawai">
                             <div class="social">
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
@@ -40,7 +40,7 @@
                 <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
                     <div class="member">
                         <div class="member-img">
-                            <img src="{{ Storage::disk('public')->exists($item->image ?? null)? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" alt="foto-pegawai">
+                            <img src="{{ Storage::disk('public')->exists($item->image ?? null)? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" loading="lazy" alt="foto-pegawai">
                             <div class="social">
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>

@@ -16,7 +16,7 @@
                 @foreach ($items as $item)
                 <div class="standard__blog__post">
                     <div class="standard__blog__thumb">
-                        <a href="{{ route('news-detail', $item->slug) }}"><img src="{{ $item->image }}" alt="artikel-image"></a>
+                        <a href="{{ route('news-detail', $item->slug) }}"><img src="{{ $item->image }}" loading="lazy" alt="artikel-image"></a>
                     </div>
                     <div class="standard__blog__content">
                         <div class="blog__post__avatar">

@@ -4,7 +4,7 @@
         <div class="carousel-inner">
             @foreach ($sliders as $item)
             <div class="carousel-item @if ($loop->first) active @endif">
-                <img class="d-block w-100" src="{{ $item->image }}" alt="slideshow">
+                <img class="d-block w-100" src="{{ $item->image }}" loading="lazy" alt="slideshow">
             </div>
             @endforeach
         </div>

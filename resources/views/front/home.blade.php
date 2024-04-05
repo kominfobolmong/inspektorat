@@ -56,12 +56,11 @@
         </div>
       </div>
 
-      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-
+      <div class="row gy-4 mt-5" data-aos="zoom-in" data-aos-delay="250">
         @foreach ($apps as $app)
         <div class="col-xl-3 col-md-4">
           <div class="icon-box">
-            <img src="{{ Storage::url($app->image) }}" alt="icon" width="100" style="width: 50%;height: 100px;background-size: cover;background-position: center;border-radius: 5px;">
+            <img src="{{ Storage::url($app->image) }}" loading="lazy" alt="icon" style="width: 80px;">
             <h3><a href="{{ $app->url }}" target="_blank">{{ $app->name }}</a></h3>
           </div>
         </div>

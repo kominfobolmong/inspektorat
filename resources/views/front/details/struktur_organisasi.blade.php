@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <figure>
-                    <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="struktur-organisasi" class="w-100" loading="lazy">
+                    <img src="{{ Storage::url($item->struktur_organisasi ?? null) }}" alt="struktur-organisasi" loading="lazy" class="w-100" loading="lazy">
                     <figcaption>Struktur Organisasi Inspektorat Daerah Kab. Bolaang Mongondow</figcaption>
                 </figure>
             </div>
