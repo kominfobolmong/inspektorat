@@ -126,7 +126,7 @@
                         <div class="form-group">
                             <label>PROGRAM DAN KEGIATAN</label>
                             <textarea class="form-control content @error('program') is-invalid @enderror" name="program"
-                                placeholder="Masukkan Program dan Kegiatan" rows="10">{!! old('program') ?? $profile->dasar_hukum !!}</textarea>
+                                placeholder="Masukkan Program dan Kegiatan" rows="10">{!! old('program') ?? $profile->program !!}</textarea>
                             @error('program')
                             <div class="invalid-feedback" style="display: block">
                                 {{ $message }}

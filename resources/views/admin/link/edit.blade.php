@@ -31,6 +31,17 @@
                             </div>
 
                             <div class="form-group">
+                                <label>DESKRIPSI</label>
+                                <input type="text" name="deskripsi" value="{{ old('deskripsi') ?? $link->deskripsi }}" placeholder="Masukkan Deskripsi" class="form-control @error('deskripsi') is-invalid @enderror">
+
+                                @error('deskripsi')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label>URL</label>
                                 <input type="text" name="url" value="{{ old('url') ?? $link->url }}" placeholder="Masukkan URL" class="form-control @error('url') is-invalid @enderror">
 

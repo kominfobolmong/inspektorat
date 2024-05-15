@@ -18,11 +18,11 @@
                     <div class="member">
                         <div class="member-img">
                             <img src="{{ Storage::disk('public')->exists($item->image ?? null)? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" loading="lazy" alt="foto-pegawai">
-                            <div class="social">
+                            {{-- <div class="social">
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                                 <a href=""><i class="fab fa-linkedin"></i></a>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="member-info">
                             <h4>{{ $item->nama }}</h4>
@@ -41,11 +41,11 @@
                     <div class="member">
                         <div class="member-img">
                             <img src="{{ Storage::disk('public')->exists($item->image ?? null)? Storage::url($item->image) : asset('templates/home/no_photo.png') }}" class="img-fluid" loading="lazy" alt="foto-pegawai">
-                            <div class="social">
+                            {{-- <div class="social">
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
                                 <a href=""><i class="fab fa-instagram"></i></a>
                                 <a href=""><i class="fab fa-linkedin"></i></a>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="member-info">
                             <h4>{{ $item->nama }}</h4>

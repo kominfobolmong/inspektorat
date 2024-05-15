@@ -58,10 +58,11 @@
 
       <div class="row gy-4 mt-5" data-aos="zoom-in" data-aos-delay="250">
         @foreach ($apps as $app)
-        <div class="col-xl-3 col-md-4">
+        <div class="col-xl-6 col-md-6">
           <div class="icon-box">
-            <img src="{{ Storage::url($app->image) }}" loading="lazy" alt="icon" style="width: 80px;">
-            <h3><a href="{{ $app->url }}" target="_blank">{{ $app->name }}</a></h3>
+            <img src="{{ Storage::url($app->image) }}" loading="lazy" alt="icon" style="width: 150px;margin-top: 10px">
+            <h3><a href="{{ $app->url }}" target="_blank">{{ Str::upper($app->name) }}</a></h3>
+            <h3><a href="{{ $app->url }}" target="_blank">{{ $app->deskripsi }}</a></h3>
           </div>
         </div>
         @endforeach
