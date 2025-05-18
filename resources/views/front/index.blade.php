@@ -50,6 +50,8 @@
  @include('front.section.artikel')
  <!-- artikel-area-end -->
 
+ @include('front.section.publikasi')
+
 
  {{-- @include('front.section.infodata') --}}
 

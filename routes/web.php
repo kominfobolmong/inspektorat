@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\PegawaiController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\PublikasiController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SosmedController;
@@ -36,6 +37,12 @@ Route::middleware('visitor')->group(function () {
         Route::get('/struktur-organisasi', [PageController::class, 'struktur_organisasi'])->name('struktur_organisasi');
         Route::get('/profil-pimpinan', [PageController::class, 'profil_pimpinan'])->name('profil_pimpinan');
         Route::get('/pegawai', [PageController::class, 'pegawai'])->name('pegawai');
+    });
+
+    Route::prefix('publikasi')->group(function () {
+        Route::get('/riset', [PageController::class, 'riset'])->name('riset');
+        Route::get('/regulasi', [PageController::class, 'regulasi'])->name('regulasi');
+        Route::get('/{publikasis:slug}', [PageController::class, 'publikasi_detail'])->name('publikasi-detail');
     });
 
     Route::prefix('galeri')->group(function () {
@@ -75,5 +82,6 @@ Route::prefix('admin')->group(function () {
         Route::resource('jabatan', JabatanController::class);
         Route::resource('golongan', GolonganController::class);
         Route::resource('pegawai', PegawaiController::class);
+        Route::resource('publikasi', PublikasiController::class);
     });
 });

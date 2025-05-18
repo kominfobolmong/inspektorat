@@ -10,6 +10,7 @@ use App\Models\Link;
 use App\Models\News;
 use App\Models\Photo;
 use App\Models\Profile;
+use App\Models\Publikasi;
 use App\Models\Slider;
 use App\Models\Sosmed;
 use App\Models\Video;
@@ -28,10 +29,11 @@ class PageController extends Controller
     {
         $sliders = Slider::take(2)->latest()->get();
         $artikel = News::take(9)->latest()->get();
+        $publikasi = Publikasi::take(10)->latest()->get();
         $links = Link::latest()->get();
         $contact = Contact::first();
 
-        return view('front.index', compact('artikel', 'sliders', 'links', 'contact'));
+        return view('front.index', compact('artikel', 'publikasi', 'sliders', 'links', 'contact'));
     }
 
     public function arti_lambang()
@@ -168,6 +170,47 @@ class PageController extends Controller
         $links = Link::latest()->get();
 
         return view('frontend.detail.berita', compact('news', 'category', 'tags', 'news_new', 'contact', 'profil', 'sosmeds', 'links'));
+    }
+
+    public function riset()
+    {
+        $items = Publikasi::where('type', 'riset')->withTotalVisitCount()->latest()->paginate(10);
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.riset', compact('items', 'category', 'tags', 'news_new', 'contact', 'sosmeds', 'links'));
+    }
+
+    public function regulasi()
+    {
+        $items = Publikasi::where('type', 'regulasi')->withTotalVisitCount()->latest()->paginate(10);
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        return view('front.details.regulasi', compact('items', 'category', 'tags', 'news_new', 'contact', 'sosmeds', 'links'));
+    }
+
+    public function publikasi_detail($slug)
+    {
+        $category = Category::withCount('news')->get();
+        $tags = Tag::latest()->get();
+        $publikasi = Publikasi::where('slug', $slug)->withTotalVisitCount()->firstOrFail();
+        $news_new = News::take(3)->latest()->popularAllTime()->get();
+        $contact = Contact::first();
+        $sosmeds = Sosmed::get();
+        $links = Link::latest()->get();
+
+        $publikasi->visit()->withIp()->withSession();
+
+        return view('front.details.publikasi_detail', compact('publikasi', 'category', 'tags', 'news_new', 'contact', 'sosmeds', 'links'));
     }
 
     public function galeri_foto()

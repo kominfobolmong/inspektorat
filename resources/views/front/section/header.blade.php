@@ -32,6 +32,13 @@
 
                                     <li class="{{ setActive('news') }}"><a href="{{ route('news') }}">Berita</a></li>
 
+                                    <li class="menu-item-has-children {{ setActive('publikasi') }}"><a href="#">Publikasi</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{ route('riset') }}">Riset</a></li>
+                                            <li><a href="{{ route('regulasi') }}">Regulasi</a></li>
+                                        </ul>
+                                    </li>
+
                                     <li class="menu-item-has-children {{ setActive('galeri') }}"><a href="#">Galeri</a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('galeri_foto') }}">Galeri Foto</a></li>

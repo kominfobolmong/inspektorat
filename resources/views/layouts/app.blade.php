@@ -62,7 +62,7 @@
                         <a href="#">INSPEKTORAT</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="#">INSPEKTORAT</a>
+                        <a href="#">##</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
@@ -86,6 +86,11 @@
                             <li class="{{ setActive('admin/news') }}"><a class="nav-link" href="{{ route('news.index') }}"><i class="fas fa-chevron-right"></i>
                             <span>Berita</span></a></li>
                         @endcan
+
+                        {{-- @can('publikasi.index') --}}
+                            <li class="{{ setActive('admin/publikasi') }}"><a class="nav-link" href="{{ route('publikasi.index') }}"><i class="fas fa-chevron-right"></i>
+                            <span>Publikasi</span></a></li>
+                        {{-- @endcan --}}
 
                         @can('link.index')
                         <li class="{{ setActive('admin/link') }}"><a class="nav-link" href="{{ route('link.index') }}"><i class="fas fa-chevron-right"></i>
